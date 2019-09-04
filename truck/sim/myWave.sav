@@ -1,0 +1,56 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Sat May 13 05:42:36 2017
+[*]
+[dumpfile] "D:\verilog\study\i2cslave\trunk\sim\wave.vcd"
+[dumpfile_mtime] "Sat May 13 12:36:01 2017"
+[dumpfile_size] 4761061
+[savefile] "D:\verilog\study\i2cslave\trunk\sim\myWave.sav"
+[timestart] 59000
+[size] 1280 657
+[pos] -165 -50
+*-17.694160 520000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testHarness.
+[sst_width] 197
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 172
+@28
+testHarness.u_wb_master_i2c_model.TIP
+testHarness.u_wb_master_i2c_model.TIP_nedge
+testHarness.u_wb_master_i2c_model.TIP_pedge
+@22
+testHarness.u_wb_master_i2c_model.state[13:0]
+@23
+testHarness.u_wb_master_i2c_model.next_state[13:0]
+@28
+testHarness.u_wb_master_i2c_model.ack
+testHarness.u_wb_master_i2c_model.adr[2:0]
+testHarness.u_wb_master_i2c_model.clk
+testHarness.u_wb_master_i2c_model.cmd_sel[1:0]
+testHarness.u_wb_master_i2c_model.cyc
+@22
+testHarness.u_wb_master_i2c_model.dataByteRead[7:0]
+testHarness.u_wb_master_i2c_model.din[7:0]
+@28
+testHarness.u_wb_master_i2c_model.dly_d[1:0]
+@22
+testHarness.u_wb_master_i2c_model.dout[7:0]
+@28
+testHarness.u_wb_master_i2c_model.err
+testHarness.u_wb_master_i2c_model.read_flag
+testHarness.u_wb_master_i2c_model.read_flag_dly
+@22
+testHarness.u_wb_master_i2c_model.regAddr[7:0]
+@28
+testHarness.u_wb_master_i2c_model.reg_ack
+testHarness.u_wb_master_i2c_model.rst
+testHarness.u_wb_master_i2c_model.rty
+@22
+testHarness.u_wb_master_i2c_model.s_led[7:0]
+@28
+testHarness.u_wb_master_i2c_model.sel
+testHarness.u_wb_master_i2c_model.stb
+testHarness.u_wb_master_i2c_model.we
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,8 @@
+../rtl/pulse.v
+../bench/testHarness.v
+../bench/testCase0.v
++incdir+../rtl
++incdir+../bench
++incdir+../model
++define+SIM_COMPILE
+
