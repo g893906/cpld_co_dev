@@ -6,7 +6,7 @@ module testHarness ();
 reg rst;
 reg clk; 
 wire pulse;
-
+wire [3:0] carry_counter;
 
 initial begin
 $dumpfile("wave.vcd");
@@ -18,6 +18,12 @@ pulse	u1_pulse(
   .i_rst_n(~rst),
   .o_pulse(pulse)
   );
+
+ripple_carry_counter u1_carry_counter (
+	.i_clk(clk),
+	.i_rst_n(~rst),
+	.o_q(carry_counter)
+);
 
 // ******************************  Clock section  ******************************
 //approx 48MHz clock
