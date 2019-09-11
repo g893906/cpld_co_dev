@@ -1,0 +1,613 @@
+-- Copyright (C) 1991-2005 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--D1_dig_r[7] is scan_led:inst2|dig_r[7] at LC_X28_Y13_N6
+--operation mode is normal
+
+D1_dig_r[7]_lut_out = D1_count[2] # D1_count[1] # D1_disp_dat[0];
+D1_dig_r[7] = DFFEAS(D1_dig_r[7]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_dig_r[6] is scan_led:inst2|dig_r[6] at LC_X28_Y13_N7
+--operation mode is normal
+
+D1_dig_r[6]_lut_out = D1_count[2] # D1_count[1] # !D1_disp_dat[0];
+D1_dig_r[6] = DFFEAS(D1_dig_r[6]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_dig_r[5] is scan_led:inst2|dig_r[5] at LC_X28_Y13_N0
+--operation mode is normal
+
+D1_dig_r[5]_lut_out = D1_count[2] # D1_disp_dat[0] # !D1_count[1];
+D1_dig_r[5] = DFFEAS(D1_dig_r[5]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_dig_r[4] is scan_led:inst2|dig_r[4] at LC_X28_Y13_N9
+--operation mode is normal
+
+D1_dig_r[4]_lut_out = D1_count[2] # !D1_disp_dat[0] # !D1_count[1];
+D1_dig_r[4] = DFFEAS(D1_dig_r[4]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_dig_r[3] is scan_led:inst2|dig_r[3] at LC_X28_Y13_N1
+--operation mode is normal
+
+D1_dig_r[3]_lut_out = D1_count[1] # D1_disp_dat[0] # !D1_count[2];
+D1_dig_r[3] = DFFEAS(D1_dig_r[3]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_dig_r[2] is scan_led:inst2|dig_r[2] at LC_X28_Y13_N4
+--operation mode is normal
+
+D1_dig_r[2]_lut_out = D1_count[1] # !D1_disp_dat[0] # !D1_count[2];
+D1_dig_r[2] = DFFEAS(D1_dig_r[2]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_dig_r[1] is scan_led:inst2|dig_r[1] at LC_X28_Y13_N5
+--operation mode is normal
+
+D1_dig_r[1]_lut_out = D1_disp_dat[0] # !D1_count[1] # !D1_count[2];
+D1_dig_r[1] = DFFEAS(D1_dig_r[1]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_disp_dat[3] is scan_led:inst2|disp_dat[3] at LC_X27_Y13_N2
+--operation mode is normal
+
+D1_disp_dat[3]_lut_out = D1_count[2] & (D1_count[1] & D1_disp_dat[0]);
+D1_disp_dat[3] = DFFEAS(D1_disp_dat[3]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_disp_dat[0] is scan_led:inst2|disp_dat[0] at LC_X28_Y13_N3
+--operation mode is normal
+
+D1_disp_dat[0]_lut_out = !D1_disp_dat[0];
+D1_disp_dat[0] = DFFEAS(D1_disp_dat[0]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_disp_dat[1] is scan_led:inst2|disp_dat[1] at LC_X28_Y13_N8
+--operation mode is normal
+
+D1_disp_dat[1]_lut_out = D1_count[1] $ (D1_disp_dat[0]);
+D1_disp_dat[1] = DFFEAS(D1_disp_dat[1]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1_disp_dat[2] is scan_led:inst2|disp_dat[2] at LC_X28_Y13_N2
+--operation mode is normal
+
+D1_disp_dat[2]_lut_out = D1_count[2] $ (D1_count[1] & (D1_disp_dat[0]));
+D1_disp_dat[2] = DFFEAS(D1_disp_dat[2]_lut_out, GLOBAL(C1_clk_p_r), VCC, , , , , , );
+
+
+--D1L42 is scan_led:inst2|seg[6]~69 at LC_X29_Y13_N8
+--operation mode is normal
+
+D1L42 = D1_disp_dat[0] & (D1_disp_dat[3] # D1_disp_dat[2] $ D1_disp_dat[1]) # !D1_disp_dat[0] & (D1_disp_dat[1] # D1_disp_dat[2] $ D1_disp_dat[3]);
+
+
+--D1L32 is scan_led:inst2|seg[5]~70 at LC_X29_Y13_N5
+--operation mode is normal
+
+D1L32 = D1_disp_dat[0] & (D1_disp_dat[3] $ (D1_disp_dat[1] # !D1_disp_dat[2])) # !D1_disp_dat[0] & !D1_disp_dat[2] & D1_disp_dat[1] & !D1_disp_dat[3];
+
+
+--D1L22 is scan_led:inst2|seg[4]~71 at LC_X29_Y13_N2
+--operation mode is normal
+
+D1L22 = D1_disp_dat[1] & D1_disp_dat[0] & (!D1_disp_dat[3]) # !D1_disp_dat[1] & (D1_disp_dat[2] & (!D1_disp_dat[3]) # !D1_disp_dat[2] & D1_disp_dat[0]);
+
+
+--D1L12 is scan_led:inst2|seg[3]~72 at LC_X29_Y13_N4
+--operation mode is normal
+
+D1L12 = D1_disp_dat[1] & (D1_disp_dat[0] & D1_disp_dat[2] # !D1_disp_dat[0] & !D1_disp_dat[2] & D1_disp_dat[3]) # !D1_disp_dat[1] & !D1_disp_dat[3] & (D1_disp_dat[0] $ D1_disp_dat[2]);
+
+
+--D1L02 is scan_led:inst2|seg[2]~73 at LC_X29_Y13_N7
+--operation mode is normal
+
+D1L02 = D1_disp_dat[2] & D1_disp_dat[3] & (D1_disp_dat[1] # !D1_disp_dat[0]) # !D1_disp_dat[2] & !D1_disp_dat[0] & D1_disp_dat[1] & !D1_disp_dat[3];
+
+
+--D1L91 is scan_led:inst2|seg[1]~74 at LC_X29_Y13_N3
+--operation mode is normal
+
+D1L91 = D1_disp_dat[1] & (D1_disp_dat[0] & (D1_disp_dat[3]) # !D1_disp_dat[0] & D1_disp_dat[2]) # !D1_disp_dat[1] & D1_disp_dat[2] & (D1_disp_dat[0] $ D1_disp_dat[3]);
+
+
+--D1L81 is scan_led:inst2|seg[0]~75 at LC_X29_Y13_N6
+--operation mode is normal
+
+D1L81 = D1_disp_dat[2] & !D1_disp_dat[1] & (D1_disp_dat[0] $ !D1_disp_dat[3]) # !D1_disp_dat[2] & D1_disp_dat[0] & (D1_disp_dat[1] $ !D1_disp_dat[3]);
+
+
+--D1_count[1] is scan_led:inst2|count[1] at LC_X29_Y13_N9
+--operation mode is normal
+
+D1_count[1]_lut_out = !D1_count[1];
+D1_count[1] = DFFEAS(D1_count[1]_lut_out, GLOBAL(C1_clk_p_r), VCC, , D1_disp_dat[0], , , , );
+
+
+--D1_count[2] is scan_led:inst2|count[2] at LC_X29_Y13_N1
+--operation mode is normal
+
+D1_count[2]_lut_out = !D1_count[2];
+D1_count[2] = DFFEAS(D1_count[2]_lut_out, GLOBAL(C1_clk_p_r), VCC, , D1L1, , , , );
+
+
+--C1_clk_p_r is int_div:inst1|clk_p_r at LC_X8_Y6_N9
+--operation mode is normal
+
+C1_clk_p_r_lut_out = C1_count_p[14] & !C1_count_p[15] & (C1L4) # !C1_count_p[14] & C1_count_p[15] & C1L35;
+C1_clk_p_r = DFFEAS(C1_clk_p_r_lut_out, GLOBAL(clock), VCC, , , , , , );
+
+
+--D1L1 is scan_led:inst2|Decoder~173 at LC_X29_Y13_N0
+--operation mode is normal
+
+D1L1 = D1_disp_dat[0] & (D1_count[1]);
+
+
+--C1_count_p[9] is int_div:inst1|count_p[9] at LC_X9_Y6_N1
+--operation mode is arithmetic
+
+C1_count_p[9]_carry_eqn = (!C1L72 & C1L92) # (C1L72 & C1L03);
+C1_count_p[9]_lut_out = C1_count_p[9] $ (C1_count_p[9]_carry_eqn);
+C1_count_p[9] = DFFEAS(C1_count_p[9]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L23 is int_div:inst1|count_p[9]~246 at LC_X9_Y6_N1
+--operation mode is arithmetic
+
+C1L23_cout_0 = !C1L92 # !C1_count_p[9];
+C1L23 = CARRY(C1L23_cout_0);
+
+--C1L33 is int_div:inst1|count_p[9]~246COUT1_317 at LC_X9_Y6_N1
+--operation mode is arithmetic
+
+C1L33_cout_1 = !C1L03 # !C1_count_p[9];
+C1L33 = CARRY(C1L33_cout_1);
+
+
+--C1_count_p[13] is int_div:inst1|count_p[13] at LC_X9_Y6_N5
+--operation mode is arithmetic
+
+C1_count_p[13]_carry_eqn = C1L14;
+C1_count_p[13]_lut_out = C1_count_p[13] $ C1_count_p[13]_carry_eqn;
+C1_count_p[13] = DFFEAS(C1_count_p[13]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L34 is int_div:inst1|count_p[13]~250 at LC_X9_Y6_N5
+--operation mode is arithmetic
+
+C1L34_cout_0 = !C1L14 # !C1_count_p[13];
+C1L34 = CARRY(C1L34_cout_0);
+
+--C1L44 is int_div:inst1|count_p[13]~250COUT1_320 at LC_X9_Y6_N5
+--operation mode is arithmetic
+
+C1L44_cout_1 = !C1L14 # !C1_count_p[13];
+C1L44 = CARRY(C1L44_cout_1);
+
+
+--C1_count_p[10] is int_div:inst1|count_p[10] at LC_X9_Y6_N2
+--operation mode is arithmetic
+
+C1_count_p[10]_carry_eqn = (!C1L72 & C1L23) # (C1L72 & C1L33);
+C1_count_p[10]_lut_out = C1_count_p[10] $ (!C1_count_p[10]_carry_eqn);
+C1_count_p[10] = DFFEAS(C1_count_p[10]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L53 is int_div:inst1|count_p[10]~254 at LC_X9_Y6_N2
+--operation mode is arithmetic
+
+C1L53_cout_0 = C1_count_p[10] & (!C1L23);
+C1L53 = CARRY(C1L53_cout_0);
+
+--C1L63 is int_div:inst1|count_p[10]~254COUT1_318 at LC_X9_Y6_N2
+--operation mode is arithmetic
+
+C1L63_cout_1 = C1_count_p[10] & (!C1L33);
+C1L63 = CARRY(C1L63_cout_1);
+
+
+--C1_count_p[11] is int_div:inst1|count_p[11] at LC_X9_Y6_N3
+--operation mode is arithmetic
+
+C1_count_p[11]_carry_eqn = (!C1L72 & C1L53) # (C1L72 & C1L63);
+C1_count_p[11]_lut_out = C1_count_p[11] $ C1_count_p[11]_carry_eqn;
+C1_count_p[11] = DFFEAS(C1_count_p[11]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L83 is int_div:inst1|count_p[11]~258 at LC_X9_Y6_N3
+--operation mode is arithmetic
+
+C1L83_cout_0 = !C1L53 # !C1_count_p[11];
+C1L83 = CARRY(C1L83_cout_0);
+
+--C1L93 is int_div:inst1|count_p[11]~258COUT1_319 at LC_X9_Y6_N3
+--operation mode is arithmetic
+
+C1L93_cout_1 = !C1L63 # !C1_count_p[11];
+C1L93 = CARRY(C1L93_cout_1);
+
+
+--C1_count_p[12] is int_div:inst1|count_p[12] at LC_X9_Y6_N4
+--operation mode is arithmetic
+
+C1_count_p[12]_carry_eqn = (!C1L72 & C1L83) # (C1L72 & C1L93);
+C1_count_p[12]_lut_out = C1_count_p[12] $ !C1_count_p[12]_carry_eqn;
+C1_count_p[12] = DFFEAS(C1_count_p[12]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L14 is int_div:inst1|count_p[12]~262 at LC_X9_Y6_N4
+--operation mode is arithmetic
+
+C1L14 = CARRY(C1_count_p[12] & !C1L93);
+
+
+--C1L2 is int_div:inst1|clk_p_r~333 at LC_X8_Y6_N5
+--operation mode is normal
+
+C1L2 = C1_count_p[12] & C1_count_p[10] & C1_count_p[11];
+
+
+--C1_count_p[7] is int_div:inst1|count_p[7] at LC_X9_Y7_N9
+--operation mode is arithmetic
+
+C1_count_p[7]_carry_eqn = (!C1L31 & C1L42) # (C1L31 & C1L52);
+C1_count_p[7]_lut_out = C1_count_p[7] $ (C1_count_p[7]_carry_eqn);
+C1_count_p[7] = DFFEAS(C1_count_p[7]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L72 is int_div:inst1|count_p[7]~266 at LC_X9_Y7_N9
+--operation mode is arithmetic
+
+C1L72 = CARRY(!C1L52 # !C1_count_p[7]);
+
+
+--C1_count_p[6] is int_div:inst1|count_p[6] at LC_X9_Y7_N8
+--operation mode is arithmetic
+
+C1_count_p[6]_carry_eqn = (!C1L31 & C1L12) # (C1L31 & C1L22);
+C1_count_p[6]_lut_out = C1_count_p[6] $ !C1_count_p[6]_carry_eqn;
+C1_count_p[6] = DFFEAS(C1_count_p[6]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L42 is int_div:inst1|count_p[6]~270 at LC_X9_Y7_N8
+--operation mode is arithmetic
+
+C1L42_cout_0 = C1_count_p[6] & !C1L12;
+C1L42 = CARRY(C1L42_cout_0);
+
+--C1L52 is int_div:inst1|count_p[6]~270COUT1_315 at LC_X9_Y7_N8
+--operation mode is arithmetic
+
+C1L52_cout_1 = C1_count_p[6] & !C1L22;
+C1L52 = CARRY(C1L52_cout_1);
+
+
+--C1_count_p[0] is int_div:inst1|count_p[0] at LC_X9_Y7_N2
+--operation mode is arithmetic
+
+C1_count_p[0]_lut_out = !C1_count_p[0];
+C1_count_p[0] = DFFEAS(C1_count_p[0]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L7 is int_div:inst1|count_p[0]~274 at LC_X9_Y7_N2
+--operation mode is arithmetic
+
+C1L7_cout_0 = C1_count_p[0];
+C1L7 = CARRY(C1L7_cout_0);
+
+--C1L8 is int_div:inst1|count_p[0]~274COUT1_310 at LC_X9_Y7_N2
+--operation mode is arithmetic
+
+C1L8_cout_1 = C1_count_p[0];
+C1L8 = CARRY(C1L8_cout_1);
+
+
+--C1_count_p[1] is int_div:inst1|count_p[1] at LC_X9_Y7_N3
+--operation mode is arithmetic
+
+C1_count_p[1]_lut_out = C1_count_p[1] $ C1L7;
+C1_count_p[1] = DFFEAS(C1_count_p[1]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L01 is int_div:inst1|count_p[1]~278 at LC_X9_Y7_N3
+--operation mode is arithmetic
+
+C1L01_cout_0 = !C1L7 # !C1_count_p[1];
+C1L01 = CARRY(C1L01_cout_0);
+
+--C1L11 is int_div:inst1|count_p[1]~278COUT1_311 at LC_X9_Y7_N3
+--operation mode is arithmetic
+
+C1L11_cout_1 = !C1L8 # !C1_count_p[1];
+C1L11 = CARRY(C1L11_cout_1);
+
+
+--C1_count_p[2] is int_div:inst1|count_p[2] at LC_X9_Y7_N4
+--operation mode is arithmetic
+
+C1_count_p[2]_lut_out = C1_count_p[2] $ !C1L01;
+C1_count_p[2] = DFFEAS(C1_count_p[2]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L31 is int_div:inst1|count_p[2]~282 at LC_X9_Y7_N4
+--operation mode is arithmetic
+
+C1L31 = CARRY(C1_count_p[2] & !C1L11);
+
+
+--C1_count_p[3] is int_div:inst1|count_p[3] at LC_X9_Y7_N5
+--operation mode is arithmetic
+
+C1_count_p[3]_carry_eqn = C1L31;
+C1_count_p[3]_lut_out = C1_count_p[3] $ C1_count_p[3]_carry_eqn;
+C1_count_p[3] = DFFEAS(C1_count_p[3]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L51 is int_div:inst1|count_p[3]~286 at LC_X9_Y7_N5
+--operation mode is arithmetic
+
+C1L51_cout_0 = !C1L31 # !C1_count_p[3];
+C1L51 = CARRY(C1L51_cout_0);
+
+--C1L61 is int_div:inst1|count_p[3]~286COUT1_312 at LC_X9_Y7_N5
+--operation mode is arithmetic
+
+C1L61_cout_1 = !C1L31 # !C1_count_p[3];
+C1L61 = CARRY(C1L61_cout_1);
+
+
+--C1L55 is int_div:inst1|half_div_p~193 at LC_X9_Y7_N0
+--operation mode is normal
+
+C1L55 = !C1_count_p[3] # !C1_count_p[2] # !C1_count_p[1] # !C1_count_p[0];
+
+
+--C1_count_p[4] is int_div:inst1|count_p[4] at LC_X9_Y7_N6
+--operation mode is arithmetic
+
+C1_count_p[4]_carry_eqn = (!C1L31 & C1L51) # (C1L31 & C1L61);
+C1_count_p[4]_lut_out = C1_count_p[4] $ (!C1_count_p[4]_carry_eqn);
+C1_count_p[4] = DFFEAS(C1_count_p[4]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L81 is int_div:inst1|count_p[4]~290 at LC_X9_Y7_N6
+--operation mode is arithmetic
+
+C1L81_cout_0 = C1_count_p[4] & (!C1L51);
+C1L81 = CARRY(C1L81_cout_0);
+
+--C1L91 is int_div:inst1|count_p[4]~290COUT1_313 at LC_X9_Y7_N6
+--operation mode is arithmetic
+
+C1L91_cout_1 = C1_count_p[4] & (!C1L61);
+C1L91 = CARRY(C1L91_cout_1);
+
+
+--C1_count_p[5] is int_div:inst1|count_p[5] at LC_X9_Y7_N7
+--operation mode is arithmetic
+
+C1_count_p[5]_carry_eqn = (!C1L31 & C1L81) # (C1L31 & C1L91);
+C1_count_p[5]_lut_out = C1_count_p[5] $ (C1_count_p[5]_carry_eqn);
+C1_count_p[5] = DFFEAS(C1_count_p[5]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L12 is int_div:inst1|count_p[5]~294 at LC_X9_Y7_N7
+--operation mode is arithmetic
+
+C1L12_cout_0 = !C1L81 # !C1_count_p[5];
+C1L12 = CARRY(C1L12_cout_0);
+
+--C1L22 is int_div:inst1|count_p[5]~294COUT1_314 at LC_X9_Y7_N7
+--operation mode is arithmetic
+
+C1L22_cout_1 = !C1L91 # !C1_count_p[5];
+C1L22 = CARRY(C1L22_cout_1);
+
+
+--C1L65 is int_div:inst1|half_div_p~194 at LC_X9_Y7_N1
+--operation mode is normal
+
+C1L65 = C1L55 # !C1_count_p[4] # !C1_count_p[5];
+
+
+--C1_count_p[8] is int_div:inst1|count_p[8] at LC_X9_Y6_N0
+--operation mode is arithmetic
+
+C1_count_p[8]_carry_eqn = C1L72;
+C1_count_p[8]_lut_out = C1_count_p[8] $ !C1_count_p[8]_carry_eqn;
+C1_count_p[8] = DFFEAS(C1_count_p[8]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L92 is int_div:inst1|count_p[8]~298 at LC_X9_Y6_N0
+--operation mode is arithmetic
+
+C1L92_cout_0 = C1_count_p[8] & !C1L72;
+C1L92 = CARRY(C1L92_cout_0);
+
+--C1L03 is int_div:inst1|count_p[8]~298COUT1_316 at LC_X9_Y6_N0
+--operation mode is arithmetic
+
+C1L03_cout_1 = C1_count_p[8] & !C1L72;
+C1L03 = CARRY(C1L03_cout_1);
+
+
+--C1L3 is int_div:inst1|clk_p_r~334 at LC_X8_Y6_N7
+--operation mode is normal
+
+C1L3 = C1_count_p[7] & C1_count_p[8] & (C1_count_p[6] # !C1L65);
+
+
+--C1L4 is int_div:inst1|clk_p_r~335 at LC_X8_Y6_N8
+--operation mode is normal
+
+C1L4 = C1_count_p[13] # C1L2 & (C1_count_p[9] # C1L3);
+
+
+--C1L94 is int_div:inst1|full_div_p~430 at LC_X8_Y6_N6
+--operation mode is normal
+
+C1L94 = !C1_count_p[10] & (!C1_count_p[7] & !C1_count_p[6] # !C1_count_p[8]);
+
+
+--C1L05 is int_div:inst1|full_div_p~431 at LC_X9_Y6_N8
+--operation mode is normal
+
+C1L05 = C1L94 # C1L65 & !C1_count_p[7] & !C1_count_p[10];
+
+
+--C1L15 is int_div:inst1|full_div_p~432 at LC_X8_Y6_N4
+--operation mode is normal
+
+C1L15 = C1_count_p[12] & C1_count_p[11];
+
+
+--C1L25 is int_div:inst1|full_div_p~433 at LC_X8_Y6_N3
+--operation mode is normal
+
+C1L25 = !C1_count_p[10] & !C1_count_p[9] # !C1_count_p[13] # !C1L15;
+
+
+--C1L35 is int_div:inst1|full_div_p~434 at LC_X8_Y6_N2
+--operation mode is normal
+
+C1L35 = C1L05 # C1L25;
+
+
+--C1_count_p[15] is int_div:inst1|count_p[15] at LC_X9_Y6_N7
+--operation mode is normal
+
+C1_count_p[15]_carry_eqn = (!C1L14 & C1L64) # (C1L14 & C1L74);
+C1_count_p[15]_lut_out = C1_count_p[15] $ (C1_count_p[15]_carry_eqn);
+C1_count_p[15] = DFFEAS(C1_count_p[15]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+
+--C1_count_p[14] is int_div:inst1|count_p[14] at LC_X9_Y6_N6
+--operation mode is arithmetic
+
+C1_count_p[14]_carry_eqn = (!C1L14 & C1L34) # (C1L14 & C1L44);
+C1_count_p[14]_lut_out = C1_count_p[14] $ (!C1_count_p[14]_carry_eqn);
+C1_count_p[14] = DFFEAS(C1_count_p[14]_lut_out, GLOBAL(clock), VCC, , , , , C1L45, );
+
+--C1L64 is int_div:inst1|count_p[14]~306 at LC_X9_Y6_N6
+--operation mode is arithmetic
+
+C1L64_cout_0 = C1_count_p[14] & (!C1L34);
+C1L64 = CARRY(C1L64_cout_0);
+
+--C1L74 is int_div:inst1|count_p[14]~306COUT1_321 at LC_X9_Y6_N6
+--operation mode is arithmetic
+
+C1L74_cout_1 = C1_count_p[14] & (!C1L44);
+C1L74 = CARRY(C1L74_cout_1);
+
+
+--C1L45 is int_div:inst1|full_div_p~435 at LC_X9_Y6_N9
+--operation mode is normal
+
+C1L45 = C1_count_p[15] & (C1_count_p[14] # !C1L25 & !C1L05);
+
+
+--clock is clock at PIN_28
+--operation mode is input
+
+clock = INPUT();
+
+
+--dig[7] is dig[7] at PIN_205
+--operation mode is output
+
+dig[7] = OUTPUT(D1_dig_r[7]);
+
+
+--dig[6] is dig[6] at PIN_198
+--operation mode is output
+
+dig[6] = OUTPUT(D1_dig_r[6]);
+
+
+--dig[5] is dig[5] at PIN_199
+--operation mode is output
+
+dig[5] = OUTPUT(D1_dig_r[5]);
+
+
+--dig[4] is dig[4] at PIN_204
+--operation mode is output
+
+dig[4] = OUTPUT(D1_dig_r[4]);
+
+
+--dig[3] is dig[3] at PIN_161
+--operation mode is output
+
+dig[3] = OUTPUT(D1_dig_r[3]);
+
+
+--dig[2] is dig[2] at PIN_162
+--operation mode is output
+
+dig[2] = OUTPUT(D1_dig_r[2]);
+
+
+--dig[1] is dig[1] at PIN_159
+--operation mode is output
+
+dig[1] = OUTPUT(D1_dig_r[1]);
+
+
+--dig[0] is dig[0] at PIN_160
+--operation mode is output
+
+dig[0] = OUTPUT(!D1_disp_dat[3]);
+
+
+--seg[7] is seg[7] at PIN_164
+--operation mode is output
+
+seg[7] = OUTPUT(VCC);
+
+
+--seg[6] is seg[6] at PIN_163
+--operation mode is output
+
+seg[6] = OUTPUT(!D1L42);
+
+
+--seg[5] is seg[5] at PIN_166
+--operation mode is output
+
+seg[5] = OUTPUT(D1L32);
+
+
+--seg[4] is seg[4] at PIN_165
+--operation mode is output
+
+seg[4] = OUTPUT(D1L22);
+
+
+--seg[3] is seg[3] at PIN_168
+--operation mode is output
+
+seg[3] = OUTPUT(D1L12);
+
+
+--seg[2] is seg[2] at PIN_167
+--operation mode is output
+
+seg[2] = OUTPUT(D1L02);
+
+
+--seg[1] is seg[1] at PIN_170
+--operation mode is output
+
+seg[1] = OUTPUT(D1L91);
+
+
+--seg[0] is seg[0] at PIN_169
+--operation mode is output
+
+seg[0] = OUTPUT(D1L81);
+
+
+
+

@@ -1,0 +1,30 @@
+|spidac
+clk => clkdiv2.CLK
+Reset => wait_on.ACLR
+Reset => state[0].ACLR
+Reset => state[1].PRESET
+Reset => state[2].ACLR
+Reset => state[3].ACLR
+Reset => bit_cnt[0].ACLR
+Reset => bit_cnt[1].ACLR
+Reset => bit_cnt[2].ACLR
+Reset => bit_cnt[3].ACLR
+Reset => clkdiv2.ACLR
+Reset => clkdiv4.ACLR
+Reset => wait_cnt[0].ACLR
+Reset => wait_cnt[1].ACLR
+Reset => wait_cnt[2].ACLR
+Reset => shift_reg[11].ENA
+Reset => shift_reg[10].ENA
+Reset => shift_reg[9].ENA
+Reset => shift_reg[8].ENA
+Reset => shift_reg[7].ENA
+Reset => shift_reg[6].ENA
+Reset => shift_reg[5].ENA
+Reset => shift_reg[4].ENA
+Reset => shift_reg[3].ENA
+Reset => shift_reg[2].ENA
+Reset => shift_reg[1].ENA
+Reset => shift_reg[0].ENA
+
+

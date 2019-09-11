@@ -1,0 +1,274 @@
+TimeQuest Timing Analyzer report for key_led
+Tue Jul 24 15:58:04 2012
+Quartus II Version 11.0 Build 157 04/27/2011 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Propagation Delay
+ 12. Minimum Propagation Delay
+ 13. Clock Transfers
+ 14. Report TCCS
+ 15. Report RSKM
+ 16. Unconstrained Paths
+ 17. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                      ;
++--------------------+---------------------------------------------------+
+; Quartus II Version ; Version 11.0 Build 157 04/27/2011 SJ Full Version ;
+; Revision Name      ; key_led                                           ;
+; Device Family      ; MAX II                                            ;
+; Device Name        ; EPM570T100C5                                      ;
+; Timing Models      ; Final                                             ;
+; Delay Model        ; Slow Model                                        ;
+; Rise/Fall Delays   ; Unavailable                                       ;
++--------------------+---------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
+----------
+; Clocks ;
+----------
+No clocks to report.
+
+
+----------------
+; Fmax Summary ;
+----------------
+No paths to report.
+
+
+-----------------
+; Setup Summary ;
+-----------------
+No paths to report.
+
+
+----------------
+; Hold Summary ;
+----------------
+No paths to report.
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
+-------------------------------
+; Minimum Pulse Width Summary ;
+-------------------------------
+No paths to report.
+
+
++------------------------------------------------------+
+; Propagation Delay                                    ;
++------------+-------------+--------+----+----+--------+
+; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
++------------+-------------+--------+----+----+--------+
+; key[1]     ; led[1]      ; 13.212 ;    ;    ; 13.212 ;
+; key[1]     ; led[2]      ; 13.815 ;    ;    ; 13.815 ;
+; key[1]     ; led[3]      ; 10.907 ;    ;    ; 10.907 ;
+; key[1]     ; led[4]      ; 10.700 ;    ;    ; 10.700 ;
+; key[1]     ; led[5]      ; 10.904 ;    ;    ; 10.904 ;
+; key[1]     ; led[6]      ; 13.615 ;    ;    ; 13.615 ;
+; key[2]     ; led[1]      ; 12.859 ;    ;    ; 12.859 ;
+; key[2]     ; led[2]      ; 13.674 ;    ;    ; 13.674 ;
+; key[2]     ; led[3]      ; 10.736 ;    ;    ; 10.736 ;
+; key[2]     ; led[4]      ; 10.022 ;    ;    ; 10.022 ;
+; key[2]     ; led[5]      ; 9.859  ;    ;    ; 9.859  ;
+; key[2]     ; led[6]      ; 13.262 ;    ;    ; 13.262 ;
+; key[3]     ; led[1]      ; 12.131 ;    ;    ; 12.131 ;
+; key[3]     ; led[2]      ; 12.949 ;    ;    ; 12.949 ;
+; key[3]     ; led[3]      ; 10.917 ;    ;    ; 10.917 ;
+; key[3]     ; led[4]      ; 9.836  ;    ;    ; 9.836  ;
+; key[3]     ; led[5]      ; 9.858  ;    ;    ; 9.858  ;
+; key[3]     ; led[6]      ; 12.534 ;    ;    ; 12.534 ;
+; key[4]     ; led[1]      ; 13.855 ;    ;    ; 13.855 ;
+; key[4]     ; led[2]      ; 14.870 ;    ;    ; 14.870 ;
+; key[4]     ; led[3]      ; 12.842 ;    ;    ; 12.842 ;
+; key[4]     ; led[4]      ; 11.707 ;    ;    ; 11.707 ;
+; key[4]     ; led[5]      ; 11.040 ;    ;    ; 11.040 ;
+; key[4]     ; led[6]      ; 14.258 ;    ;    ; 14.258 ;
+; key[5]     ; led[1]      ; 11.376 ;    ;    ; 11.376 ;
+; key[5]     ; led[2]      ; 14.073 ;    ;    ; 14.073 ;
+; key[5]     ; led[3]      ; 12.953 ;    ;    ; 12.953 ;
+; key[5]     ; led[4]      ; 11.149 ;    ;    ; 11.149 ;
+; key[5]     ; led[5]      ; 11.864 ;    ;    ; 11.864 ;
+; key[5]     ; led[6]      ; 11.787 ;    ;    ; 11.787 ;
+; key[6]     ; led[1]      ; 11.101 ;    ;    ; 11.101 ;
+; key[6]     ; led[2]      ; 14.603 ;    ;    ; 14.603 ;
+; key[6]     ; led[3]      ; 12.568 ;    ;    ; 12.568 ;
+; key[6]     ; led[4]      ; 11.785 ;    ;    ; 11.785 ;
+; key[6]     ; led[5]      ; 11.475 ;    ;    ; 11.475 ;
+; key[6]     ; led[6]      ; 11.515 ;    ;    ; 11.515 ;
++------------+-------------+--------+----+----+--------+
+
+
++------------------------------------------------------+
+; Minimum Propagation Delay                            ;
++------------+-------------+--------+----+----+--------+
+; Input Port ; Output Port ; RR     ; RF ; FR ; FF     ;
++------------+-------------+--------+----+----+--------+
+; key[1]     ; led[1]      ; 12.720 ;    ;    ; 12.720 ;
+; key[1]     ; led[2]      ; 12.927 ;    ;    ; 12.927 ;
+; key[1]     ; led[3]      ; 10.907 ;    ;    ; 10.907 ;
+; key[1]     ; led[4]      ; 10.700 ;    ;    ; 10.700 ;
+; key[1]     ; led[5]      ; 10.904 ;    ;    ; 10.904 ;
+; key[1]     ; led[6]      ; 13.615 ;    ;    ; 13.615 ;
+; key[2]     ; led[1]      ; 12.368 ;    ;    ; 12.368 ;
+; key[2]     ; led[2]      ; 13.462 ;    ;    ; 13.462 ;
+; key[2]     ; led[3]      ; 10.736 ;    ;    ; 10.736 ;
+; key[2]     ; led[4]      ; 10.022 ;    ;    ; 10.022 ;
+; key[2]     ; led[5]      ; 9.859  ;    ;    ; 9.859  ;
+; key[2]     ; led[6]      ; 13.262 ;    ;    ; 13.262 ;
+; key[3]     ; led[1]      ; 11.645 ;    ;    ; 11.645 ;
+; key[3]     ; led[2]      ; 12.734 ;    ;    ; 12.734 ;
+; key[3]     ; led[3]      ; 10.917 ;    ;    ; 10.917 ;
+; key[3]     ; led[4]      ; 9.836  ;    ;    ; 9.836  ;
+; key[3]     ; led[5]      ; 9.858  ;    ;    ; 9.858  ;
+; key[3]     ; led[6]      ; 12.534 ;    ;    ; 12.534 ;
+; key[4]     ; led[1]      ; 13.388 ;    ;    ; 13.388 ;
+; key[4]     ; led[2]      ; 14.458 ;    ;    ; 14.458 ;
+; key[4]     ; led[3]      ; 12.842 ;    ;    ; 12.842 ;
+; key[4]     ; led[4]      ; 11.707 ;    ;    ; 11.707 ;
+; key[4]     ; led[5]      ; 11.040 ;    ;    ; 11.040 ;
+; key[4]     ; led[6]      ; 14.258 ;    ;    ; 14.258 ;
+; key[5]     ; led[1]      ; 11.376 ;    ;    ; 11.376 ;
+; key[5]     ; led[2]      ; 12.001 ;    ;    ; 12.001 ;
+; key[5]     ; led[3]      ; 12.953 ;    ;    ; 12.953 ;
+; key[5]     ; led[4]      ; 11.149 ;    ;    ; 11.149 ;
+; key[5]     ; led[5]      ; 11.864 ;    ;    ; 11.864 ;
+; key[5]     ; led[6]      ; 11.787 ;    ;    ; 11.787 ;
+; key[6]     ; led[1]      ; 11.101 ;    ;    ; 11.101 ;
+; key[6]     ; led[2]      ; 11.731 ;    ;    ; 11.731 ;
+; key[6]     ; led[3]      ; 12.568 ;    ;    ; 12.568 ;
+; key[6]     ; led[4]      ; 11.785 ;    ;    ; 11.785 ;
+; key[6]     ; led[5]      ; 11.475 ;    ;    ; 11.475 ;
+; key[6]     ; led[6]      ; 11.515 ;    ;    ; 11.515 ;
++------------+-------------+--------+----+----+--------+
+
+
+-------------------
+; Clock Transfers ;
+-------------------
+Nothing to report.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 6     ; 6    ;
+; Unconstrained Input Port Paths  ; 36    ; 36   ;
+; Unconstrained Output Ports      ; 6     ; 6    ;
+; Unconstrained Output Port Paths ; 36    ; 36   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 11.0 Build 157 04/27/2011 SJ Full Version
+    Info: Processing started: Tue Jul 24 15:57:55 2012
+Info: Command: quartus_sta key_led -c key_led
+Info: qsta_default_script.tcl version: #1
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: Synopsys Design Constraints File file not found: 'key_led.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
+Warning: No clocks defined in design.
+Info: No clocks to report
+Info: No fmax paths to report
+Info: No Setup paths to report
+Info: No Hold paths to report
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: No Minimum Pulse Width paths to report
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 186 megabytes
+    Info: Processing ended: Tue Jul 24 15:58:04 2012
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:05
+
+

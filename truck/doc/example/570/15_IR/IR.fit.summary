@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Jul 24 16:16:05 2012
+Quartus II Version : 11.0 Build 157 04/27/2011 SJ Full Version
+Revision Name : IR
+Top-level Entity Name : IR
+Family : MAX II
+Device : EPM570T100C5
+Timing Models : Final
+Total logic elements : 107 / 570 ( 19 % )
+Total pins : 15 / 76 ( 20 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

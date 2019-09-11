@@ -1,0 +1,660 @@
+Timing Analyzer report for step_moto
+Sun Sep 10 15:53:33 2006
+Version 5.0 Build 148 04/26/2005 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clock'
+  6. Clock Hold: 'clock'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2005 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic       
+functions, and any output files any of the foregoing           
+(including device programming or simulation files), and any    
+associated documentation or information are expressly subject  
+to the terms and conditions of the Altera Program License      
+Subscription Agreement, Altera MegaCore Function License       
+Agreement, or other applicable license agreement, including,   
+without limitation, that your use is for the sole purpose of   
+programming logic devices manufactured by Altera and sold by   
+Altera or its authorized distributors.  Please refer to the    
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                     ;
++------------------------------+-----------+----------------------------------+----------------------------------+----------+----------+------------+----------+--------------+
+; Type                         ; Slack     ; Required Time                    ; Actual Time                      ; From     ; To       ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-----------+----------------------------------+----------------------------------+----------+----------+------------+----------+--------------+
+; Worst-case tsu               ; N/A       ; None                             ; 4.608 ns                         ; key[0]   ; dout1[0] ;            ; clock    ; 0            ;
+; Worst-case tco               ; N/A       ; None                             ; 9.181 ns                         ; dir      ; led[0]   ; clock      ;          ; 0            ;
+; Worst-case th                ; N/A       ; None                             ; -4.391 ns                        ; key[1]   ; dout1[1] ;            ; clock    ; 0            ;
+; Clock Setup: 'clock'         ; 13.585 ns ; 50.00 MHz ( period = 20.000 ns ) ; 155.88 MHz ( period = 6.415 ns ) ; count[1] ; cnt4[1]  ; clock      ; clock    ; 0            ;
+; Clock Hold: 'clock'          ; 0.888 ns  ; 50.00 MHz ( period = 20.000 ns ) ; N/A                              ; dout2[1] ; dout3[1] ; clock      ; clock    ; 0            ;
+; Total number of failed paths ;           ;                                  ;                                  ;          ;          ;            ;          ; 0            ;
++------------------------------+-----------+----------------------------------+----------------------------------+----------+----------+------------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                ;
++-------------------------------------------------------+--------------------+------+-------+-------------+
+; Option                                                ; Setting            ; From ; To    ; Entity Name ;
++-------------------------------------------------------+--------------------+------+-------+-------------+
+; Device Name                                           ; EP1C6Q240C8        ;      ;       ;             ;
+; Timing Models                                         ; Final              ;      ;       ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;       ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;       ;             ;
+; Number of paths to report                             ; 200                ;      ;       ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;       ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;       ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;       ;             ;
+; Default hold multicycle                               ; Same as Multicycle ;      ;       ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;       ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;       ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;       ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;       ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;       ;             ;
+; Analyze latches as synchronous elements               ; Off                ;      ;       ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;       ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;       ;             ;
+; Clock Settings                                        ; clock              ;      ; clock ;             ;
++-------------------------------------------------------+--------------------+------+-------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clock           ; clock              ; User Pin ; 50.0 MHz         ; 0.000 ns      ; 0.000 ns     ; NONE     ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clock'                                                                                                                                                                                                                    ;
++-----------------------------------------+-----------------------------------------------------+--------------+--------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From         ; To           ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+--------------+--------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; 13.585 ns                               ; 155.88 MHz ( period = 6.415 ns )                    ; count[1]     ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 6.154 ns                ;
+; 13.585 ns                               ; 155.88 MHz ( period = 6.415 ns )                    ; count[1]     ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 6.154 ns                ;
+; 13.585 ns                               ; 155.88 MHz ( period = 6.415 ns )                    ; count[1]     ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 6.154 ns                ;
+; 13.585 ns                               ; 155.88 MHz ( period = 6.415 ns )                    ; count[1]     ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 6.154 ns                ;
+; 13.758 ns                               ; 160.21 MHz ( period = 6.242 ns )                    ; count[2]     ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.981 ns                ;
+; 13.758 ns                               ; 160.21 MHz ( period = 6.242 ns )                    ; count[2]     ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.981 ns                ;
+; 13.758 ns                               ; 160.21 MHz ( period = 6.242 ns )                    ; count[2]     ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.981 ns                ;
+; 13.758 ns                               ; 160.21 MHz ( period = 6.242 ns )                    ; count[2]     ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.981 ns                ;
+; 13.763 ns                               ; 160.33 MHz ( period = 6.237 ns )                    ; count[0]     ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.976 ns                ;
+; 13.763 ns                               ; 160.33 MHz ( period = 6.237 ns )                    ; count[0]     ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.976 ns                ;
+; 13.763 ns                               ; 160.33 MHz ( period = 6.237 ns )                    ; count[0]     ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.976 ns                ;
+; 13.763 ns                               ; 160.33 MHz ( period = 6.237 ns )                    ; count[0]     ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.976 ns                ;
+; 13.831 ns                               ; 162.10 MHz ( period = 6.169 ns )                    ; count[1]     ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.908 ns                ;
+; 13.831 ns                               ; 162.10 MHz ( period = 6.169 ns )                    ; count[1]     ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.908 ns                ;
+; 13.875 ns                               ; 163.27 MHz ( period = 6.125 ns )                    ; count[3]     ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.864 ns                ;
+; 13.875 ns                               ; 163.27 MHz ( period = 6.125 ns )                    ; count[3]     ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.864 ns                ;
+; 13.875 ns                               ; 163.27 MHz ( period = 6.125 ns )                    ; count[3]     ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.864 ns                ;
+; 13.875 ns                               ; 163.27 MHz ( period = 6.125 ns )                    ; count[3]     ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.864 ns                ;
+; 14.004 ns                               ; 166.78 MHz ( period = 5.996 ns )                    ; count[2]     ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.735 ns                ;
+; 14.004 ns                               ; 166.78 MHz ( period = 5.996 ns )                    ; count[2]     ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.735 ns                ;
+; 14.006 ns                               ; 166.83 MHz ( period = 5.994 ns )                    ; count[1]     ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.733 ns                ;
+; 14.006 ns                               ; 166.83 MHz ( period = 5.994 ns )                    ; count[1]     ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.733 ns                ;
+; 14.006 ns                               ; 166.83 MHz ( period = 5.994 ns )                    ; count[1]     ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.733 ns                ;
+; 14.006 ns                               ; 166.83 MHz ( period = 5.994 ns )                    ; count[1]     ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.733 ns                ;
+; 14.006 ns                               ; 166.83 MHz ( period = 5.994 ns )                    ; count[1]     ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.733 ns                ;
+; 14.006 ns                               ; 166.83 MHz ( period = 5.994 ns )                    ; count[1]     ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.733 ns                ;
+; 14.009 ns                               ; 166.92 MHz ( period = 5.991 ns )                    ; count[0]     ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.730 ns                ;
+; 14.009 ns                               ; 166.92 MHz ( period = 5.991 ns )                    ; count[0]     ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.730 ns                ;
+; 14.028 ns                               ; 167.45 MHz ( period = 5.972 ns )                    ; count[1]     ; pwm_count[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.711 ns                ;
+; 14.066 ns                               ; 168.52 MHz ( period = 5.934 ns )                    ; count[1]     ; pwm_count[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.673 ns                ;
+; 14.099 ns                               ; 169.46 MHz ( period = 5.901 ns )                    ; count[1]     ; pwm_count[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.640 ns                ;
+; 14.121 ns                               ; 170.10 MHz ( period = 5.879 ns )                    ; count[3]     ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.618 ns                ;
+; 14.121 ns                               ; 170.10 MHz ( period = 5.879 ns )                    ; count[3]     ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.618 ns                ;
+; 14.179 ns                               ; 171.79 MHz ( period = 5.821 ns )                    ; count[2]     ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.560 ns                ;
+; 14.179 ns                               ; 171.79 MHz ( period = 5.821 ns )                    ; count[2]     ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.560 ns                ;
+; 14.179 ns                               ; 171.79 MHz ( period = 5.821 ns )                    ; count[2]     ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.560 ns                ;
+; 14.179 ns                               ; 171.79 MHz ( period = 5.821 ns )                    ; count[2]     ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.560 ns                ;
+; 14.179 ns                               ; 171.79 MHz ( period = 5.821 ns )                    ; count[2]     ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.560 ns                ;
+; 14.179 ns                               ; 171.79 MHz ( period = 5.821 ns )                    ; count[2]     ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.560 ns                ;
+; 14.184 ns                               ; 171.94 MHz ( period = 5.816 ns )                    ; count[0]     ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.555 ns                ;
+; 14.184 ns                               ; 171.94 MHz ( period = 5.816 ns )                    ; count[0]     ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.555 ns                ;
+; 14.184 ns                               ; 171.94 MHz ( period = 5.816 ns )                    ; count[0]     ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.555 ns                ;
+; 14.184 ns                               ; 171.94 MHz ( period = 5.816 ns )                    ; count[0]     ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.555 ns                ;
+; 14.184 ns                               ; 171.94 MHz ( period = 5.816 ns )                    ; count[0]     ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.555 ns                ;
+; 14.184 ns                               ; 171.94 MHz ( period = 5.816 ns )                    ; count[0]     ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.555 ns                ;
+; 14.201 ns                               ; 172.44 MHz ( period = 5.799 ns )                    ; count[2]     ; pwm_count[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.538 ns                ;
+; 14.206 ns                               ; 172.59 MHz ( period = 5.794 ns )                    ; count[0]     ; pwm_count[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.533 ns                ;
+; 14.239 ns                               ; 173.58 MHz ( period = 5.761 ns )                    ; count[2]     ; pwm_count[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.500 ns                ;
+; 14.244 ns                               ; 173.73 MHz ( period = 5.756 ns )                    ; count[0]     ; pwm_count[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.495 ns                ;
+; 14.272 ns                               ; 174.58 MHz ( period = 5.728 ns )                    ; count[2]     ; pwm_count[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.467 ns                ;
+; 14.277 ns                               ; 174.73 MHz ( period = 5.723 ns )                    ; count[0]     ; pwm_count[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.462 ns                ;
+; 14.296 ns                               ; 175.32 MHz ( period = 5.704 ns )                    ; count[3]     ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.443 ns                ;
+; 14.296 ns                               ; 175.32 MHz ( period = 5.704 ns )                    ; count[3]     ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.443 ns                ;
+; 14.296 ns                               ; 175.32 MHz ( period = 5.704 ns )                    ; count[3]     ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.443 ns                ;
+; 14.296 ns                               ; 175.32 MHz ( period = 5.704 ns )                    ; count[3]     ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.443 ns                ;
+; 14.296 ns                               ; 175.32 MHz ( period = 5.704 ns )                    ; count[3]     ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.443 ns                ;
+; 14.296 ns                               ; 175.32 MHz ( period = 5.704 ns )                    ; count[3]     ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.443 ns                ;
+; 14.318 ns                               ; 175.99 MHz ( period = 5.682 ns )                    ; count[3]     ; pwm_count[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.421 ns                ;
+; 14.356 ns                               ; 177.18 MHz ( period = 5.644 ns )                    ; count[3]     ; pwm_count[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.383 ns                ;
+; 14.389 ns                               ; 178.22 MHz ( period = 5.611 ns )                    ; count[3]     ; pwm_count[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.350 ns                ;
+; 14.464 ns                               ; 180.64 MHz ( period = 5.536 ns )                    ; count[5]     ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.275 ns                ;
+; 14.464 ns                               ; 180.64 MHz ( period = 5.536 ns )                    ; count[5]     ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.275 ns                ;
+; 14.464 ns                               ; 180.64 MHz ( period = 5.536 ns )                    ; count[5]     ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.275 ns                ;
+; 14.464 ns                               ; 180.64 MHz ( period = 5.536 ns )                    ; count[5]     ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.275 ns                ;
+; 14.465 ns                               ; 180.67 MHz ( period = 5.535 ns )                    ; count[16]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.274 ns                ;
+; 14.465 ns                               ; 180.67 MHz ( period = 5.535 ns )                    ; count[16]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.274 ns                ;
+; 14.465 ns                               ; 180.67 MHz ( period = 5.535 ns )                    ; count[16]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.274 ns                ;
+; 14.465 ns                               ; 180.67 MHz ( period = 5.535 ns )                    ; count[16]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.274 ns                ;
+; 14.580 ns                               ; 184.50 MHz ( period = 5.420 ns )                    ; count[6]     ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.159 ns                ;
+; 14.580 ns                               ; 184.50 MHz ( period = 5.420 ns )                    ; count[6]     ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.159 ns                ;
+; 14.580 ns                               ; 184.50 MHz ( period = 5.420 ns )                    ; count[6]     ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.159 ns                ;
+; 14.580 ns                               ; 184.50 MHz ( period = 5.420 ns )                    ; count[6]     ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.159 ns                ;
+; 14.710 ns                               ; 189.04 MHz ( period = 5.290 ns )                    ; count[5]     ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.029 ns                ;
+; 14.710 ns                               ; 189.04 MHz ( period = 5.290 ns )                    ; count[5]     ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.029 ns                ;
+; 14.711 ns                               ; 189.07 MHz ( period = 5.289 ns )                    ; count[16]    ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.028 ns                ;
+; 14.711 ns                               ; 189.07 MHz ( period = 5.289 ns )                    ; count[16]    ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 5.028 ns                ;
+; 14.826 ns                               ; 193.27 MHz ( period = 5.174 ns )                    ; count[6]     ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.913 ns                ;
+; 14.826 ns                               ; 193.27 MHz ( period = 5.174 ns )                    ; count[6]     ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.913 ns                ;
+; 14.885 ns                               ; 195.50 MHz ( period = 5.115 ns )                    ; count[5]     ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.854 ns                ;
+; 14.885 ns                               ; 195.50 MHz ( period = 5.115 ns )                    ; count[5]     ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.854 ns                ;
+; 14.885 ns                               ; 195.50 MHz ( period = 5.115 ns )                    ; count[5]     ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.854 ns                ;
+; 14.885 ns                               ; 195.50 MHz ( period = 5.115 ns )                    ; count[5]     ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.854 ns                ;
+; 14.885 ns                               ; 195.50 MHz ( period = 5.115 ns )                    ; count[5]     ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.854 ns                ;
+; 14.885 ns                               ; 195.50 MHz ( period = 5.115 ns )                    ; count[5]     ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.854 ns                ;
+; 14.907 ns                               ; 196.35 MHz ( period = 5.093 ns )                    ; count[5]     ; pwm_count[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.832 ns                ;
+; 14.914 ns                               ; 196.62 MHz ( period = 5.086 ns )                    ; count[18]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.825 ns                ;
+; 14.914 ns                               ; 196.62 MHz ( period = 5.086 ns )                    ; count[18]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.825 ns                ;
+; 14.914 ns                               ; 196.62 MHz ( period = 5.086 ns )                    ; count[18]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.825 ns                ;
+; 14.914 ns                               ; 196.62 MHz ( period = 5.086 ns )                    ; count[18]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.825 ns                ;
+; 14.945 ns                               ; 197.82 MHz ( period = 5.055 ns )                    ; count[5]     ; pwm_count[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.794 ns                ;
+; 14.949 ns                               ; 197.98 MHz ( period = 5.051 ns )                    ; count[13]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.790 ns                ;
+; 14.949 ns                               ; 197.98 MHz ( period = 5.051 ns )                    ; count[13]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.790 ns                ;
+; 14.949 ns                               ; 197.98 MHz ( period = 5.051 ns )                    ; count[13]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.790 ns                ;
+; 14.949 ns                               ; 197.98 MHz ( period = 5.051 ns )                    ; count[13]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.790 ns                ;
+; 14.978 ns                               ; 199.12 MHz ( period = 5.022 ns )                    ; count[5]     ; pwm_count[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.761 ns                ;
+; 15.001 ns                               ; 200.04 MHz ( period = 4.999 ns )                    ; count[6]     ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.738 ns                ;
+; 15.001 ns                               ; 200.04 MHz ( period = 4.999 ns )                    ; count[6]     ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.738 ns                ;
+; 15.001 ns                               ; 200.04 MHz ( period = 4.999 ns )                    ; count[6]     ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.738 ns                ;
+; 15.001 ns                               ; 200.04 MHz ( period = 4.999 ns )                    ; count[6]     ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.738 ns                ;
+; 15.001 ns                               ; 200.04 MHz ( period = 4.999 ns )                    ; count[6]     ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.738 ns                ;
+; 15.001 ns                               ; 200.04 MHz ( period = 4.999 ns )                    ; count[6]     ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.738 ns                ;
+; 15.023 ns                               ; 200.92 MHz ( period = 4.977 ns )                    ; count[6]     ; pwm_count[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.716 ns                ;
+; 15.061 ns                               ; 202.47 MHz ( period = 4.939 ns )                    ; count[6]     ; pwm_count[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.678 ns                ;
+; 15.094 ns                               ; 203.83 MHz ( period = 4.906 ns )                    ; count[6]     ; pwm_count[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.645 ns                ;
+; 15.109 ns                               ; 204.46 MHz ( period = 4.891 ns )                    ; count[4]     ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.630 ns                ;
+; 15.109 ns                               ; 204.46 MHz ( period = 4.891 ns )                    ; count[4]     ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.630 ns                ;
+; 15.109 ns                               ; 204.46 MHz ( period = 4.891 ns )                    ; count[4]     ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.630 ns                ;
+; 15.109 ns                               ; 204.46 MHz ( period = 4.891 ns )                    ; count[4]     ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.630 ns                ;
+; 15.124 ns                               ; 205.09 MHz ( period = 4.876 ns )                    ; count[14]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.615 ns                ;
+; 15.124 ns                               ; 205.09 MHz ( period = 4.876 ns )                    ; count[14]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.615 ns                ;
+; 15.124 ns                               ; 205.09 MHz ( period = 4.876 ns )                    ; count[14]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.615 ns                ;
+; 15.124 ns                               ; 205.09 MHz ( period = 4.876 ns )                    ; count[14]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.615 ns                ;
+; 15.160 ns                               ; 206.61 MHz ( period = 4.840 ns )                    ; count[18]    ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.579 ns                ;
+; 15.160 ns                               ; 206.61 MHz ( period = 4.840 ns )                    ; count[18]    ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.579 ns                ;
+; 15.195 ns                               ; 208.12 MHz ( period = 4.805 ns )                    ; count[13]    ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.544 ns                ;
+; 15.195 ns                               ; 208.12 MHz ( period = 4.805 ns )                    ; count[13]    ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.544 ns                ;
+; 15.211 ns                               ; 208.81 MHz ( period = 4.789 ns )                    ; count[19]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.528 ns                ;
+; 15.211 ns                               ; 208.81 MHz ( period = 4.789 ns )                    ; count[19]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.528 ns                ;
+; 15.211 ns                               ; 208.81 MHz ( period = 4.789 ns )                    ; count[19]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.528 ns                ;
+; 15.211 ns                               ; 208.81 MHz ( period = 4.789 ns )                    ; count[19]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.528 ns                ;
+; 15.233 ns                               ; 209.78 MHz ( period = 4.767 ns )                    ; count[12]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.506 ns                ;
+; 15.233 ns                               ; 209.78 MHz ( period = 4.767 ns )                    ; count[12]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.506 ns                ;
+; 15.233 ns                               ; 209.78 MHz ( period = 4.767 ns )                    ; count[12]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.506 ns                ;
+; 15.233 ns                               ; 209.78 MHz ( period = 4.767 ns )                    ; count[12]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.506 ns                ;
+; 15.355 ns                               ; 215.29 MHz ( period = 4.645 ns )                    ; count[4]     ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.384 ns                ;
+; 15.355 ns                               ; 215.29 MHz ( period = 4.645 ns )                    ; count[4]     ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.384 ns                ;
+; 15.360 ns                               ; 215.52 MHz ( period = 4.640 ns )                    ; cnt4[0]      ; pwm_out_r[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.379 ns                ;
+; 15.370 ns                               ; 215.98 MHz ( period = 4.630 ns )                    ; count[14]    ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.369 ns                ;
+; 15.370 ns                               ; 215.98 MHz ( period = 4.630 ns )                    ; count[14]    ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.369 ns                ;
+; 15.370 ns                               ; 215.98 MHz ( period = 4.630 ns )                    ; count[13]    ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.369 ns                ;
+; 15.370 ns                               ; 215.98 MHz ( period = 4.630 ns )                    ; count[13]    ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.369 ns                ;
+; 15.370 ns                               ; 215.98 MHz ( period = 4.630 ns )                    ; count[13]    ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.369 ns                ;
+; 15.370 ns                               ; 215.98 MHz ( period = 4.630 ns )                    ; count[13]    ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.369 ns                ;
+; 15.370 ns                               ; 215.98 MHz ( period = 4.630 ns )                    ; count[13]    ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.369 ns                ;
+; 15.370 ns                               ; 215.98 MHz ( period = 4.630 ns )                    ; count[13]    ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.369 ns                ;
+; 15.383 ns                               ; 216.59 MHz ( period = 4.617 ns )                    ; count[17]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.356 ns                ;
+; 15.383 ns                               ; 216.59 MHz ( period = 4.617 ns )                    ; count[17]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.356 ns                ;
+; 15.383 ns                               ; 216.59 MHz ( period = 4.617 ns )                    ; count[17]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.356 ns                ;
+; 15.383 ns                               ; 216.59 MHz ( period = 4.617 ns )                    ; count[17]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.356 ns                ;
+; 15.417 ns                               ; 218.20 MHz ( period = 4.583 ns )                    ; count[11]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.322 ns                ;
+; 15.417 ns                               ; 218.20 MHz ( period = 4.583 ns )                    ; count[11]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.322 ns                ;
+; 15.417 ns                               ; 218.20 MHz ( period = 4.583 ns )                    ; count[11]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.322 ns                ;
+; 15.417 ns                               ; 218.20 MHz ( period = 4.583 ns )                    ; count[11]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.322 ns                ;
+; 15.433 ns                               ; 218.96 MHz ( period = 4.567 ns )                    ; pwm_count[0] ; pwm_out_r[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.306 ns                ;
+; 15.444 ns                               ; 219.49 MHz ( period = 4.556 ns )                    ; pwm_count[0] ; pwm_out_r[0] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.295 ns                ;
+; 15.457 ns                               ; 220.12 MHz ( period = 4.543 ns )                    ; count[19]    ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.282 ns                ;
+; 15.457 ns                               ; 220.12 MHz ( period = 4.543 ns )                    ; count[19]    ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.282 ns                ;
+; 15.458 ns                               ; 220.17 MHz ( period = 4.542 ns )                    ; cnt4[0]      ; pwm_out_r[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.281 ns                ;
+; 15.479 ns                               ; 221.19 MHz ( period = 4.521 ns )                    ; count[12]    ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.260 ns                ;
+; 15.479 ns                               ; 221.19 MHz ( period = 4.521 ns )                    ; count[12]    ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.260 ns                ;
+; 15.527 ns                               ; 223.56 MHz ( period = 4.473 ns )                    ; count[1]     ; pwm_count[0] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.212 ns                ;
+; 15.530 ns                               ; 223.71 MHz ( period = 4.470 ns )                    ; count[4]     ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.209 ns                ;
+; 15.530 ns                               ; 223.71 MHz ( period = 4.470 ns )                    ; count[4]     ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.209 ns                ;
+; 15.530 ns                               ; 223.71 MHz ( period = 4.470 ns )                    ; count[4]     ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.209 ns                ;
+; 15.530 ns                               ; 223.71 MHz ( period = 4.470 ns )                    ; count[4]     ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.209 ns                ;
+; 15.530 ns                               ; 223.71 MHz ( period = 4.470 ns )                    ; count[4]     ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.209 ns                ;
+; 15.530 ns                               ; 223.71 MHz ( period = 4.470 ns )                    ; count[4]     ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.209 ns                ;
+; 15.538 ns                               ; 224.11 MHz ( period = 4.462 ns )                    ; cnt4[3]      ; pwm_out_r[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.201 ns                ;
+; 15.545 ns                               ; 224.47 MHz ( period = 4.455 ns )                    ; count[14]    ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.194 ns                ;
+; 15.545 ns                               ; 224.47 MHz ( period = 4.455 ns )                    ; count[14]    ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.194 ns                ;
+; 15.545 ns                               ; 224.47 MHz ( period = 4.455 ns )                    ; count[14]    ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.194 ns                ;
+; 15.545 ns                               ; 224.47 MHz ( period = 4.455 ns )                    ; count[14]    ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.194 ns                ;
+; 15.545 ns                               ; 224.47 MHz ( period = 4.455 ns )                    ; count[14]    ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.194 ns                ;
+; 15.545 ns                               ; 224.47 MHz ( period = 4.455 ns )                    ; count[14]    ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.194 ns                ;
+; 15.552 ns                               ; 224.82 MHz ( period = 4.448 ns )                    ; count[4]     ; pwm_count[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.187 ns                ;
+; 15.562 ns                               ; 225.33 MHz ( period = 4.438 ns )                    ; pwm_count[0] ; pwm_out_r[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.177 ns                ;
+; 15.590 ns                               ; 226.76 MHz ( period = 4.410 ns )                    ; count[4]     ; pwm_count[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.149 ns                ;
+; 15.623 ns                               ; 228.47 MHz ( period = 4.377 ns )                    ; count[4]     ; pwm_count[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.116 ns                ;
+; 15.629 ns                               ; 228.78 MHz ( period = 4.371 ns )                    ; count[17]    ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.110 ns                ;
+; 15.629 ns                               ; 228.78 MHz ( period = 4.371 ns )                    ; count[17]    ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.110 ns                ;
+; 15.636 ns                               ; 229.15 MHz ( period = 4.364 ns )                    ; cnt4[3]      ; pwm_out_r[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.103 ns                ;
+; 15.650 ns                               ; 229.89 MHz ( period = 4.350 ns )                    ; cnt4[1]      ; pwm_out_r[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.089 ns                ;
+; 15.654 ns                               ; 230.10 MHz ( period = 4.346 ns )                    ; count[12]    ; dout3[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.085 ns                ;
+; 15.654 ns                               ; 230.10 MHz ( period = 4.346 ns )                    ; count[12]    ; dout1[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.085 ns                ;
+; 15.654 ns                               ; 230.10 MHz ( period = 4.346 ns )                    ; count[12]    ; dout2[0]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.085 ns                ;
+; 15.654 ns                               ; 230.10 MHz ( period = 4.346 ns )                    ; count[12]    ; dout3[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.085 ns                ;
+; 15.654 ns                               ; 230.10 MHz ( period = 4.346 ns )                    ; count[12]    ; dout2[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.085 ns                ;
+; 15.654 ns                               ; 230.10 MHz ( period = 4.346 ns )                    ; count[12]    ; dout1[1]     ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.085 ns                ;
+; 15.658 ns                               ; 230.31 MHz ( period = 4.342 ns )                    ; count[10]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.081 ns                ;
+; 15.658 ns                               ; 230.31 MHz ( period = 4.342 ns )                    ; count[10]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.081 ns                ;
+; 15.658 ns                               ; 230.31 MHz ( period = 4.342 ns )                    ; count[10]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.081 ns                ;
+; 15.658 ns                               ; 230.31 MHz ( period = 4.342 ns )                    ; count[10]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.081 ns                ;
+; 15.659 ns                               ; 230.36 MHz ( period = 4.341 ns )                    ; pwm_count[1] ; pwm_out_r[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.080 ns                ;
+; 15.663 ns                               ; 230.57 MHz ( period = 4.337 ns )                    ; count[11]    ; p_out_r[2]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.076 ns                ;
+; 15.663 ns                               ; 230.57 MHz ( period = 4.337 ns )                    ; count[11]    ; p_out_r[3]   ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.076 ns                ;
+; 15.664 ns                               ; 230.63 MHz ( period = 4.336 ns )                    ; cnt4[0]      ; pwm_out_r[1] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.075 ns                ;
+; 15.670 ns                               ; 230.95 MHz ( period = 4.330 ns )                    ; pwm_count[1] ; pwm_out_r[0] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.069 ns                ;
+; 15.672 ns                               ; 231.05 MHz ( period = 4.328 ns )                    ; pwm_count[0] ; pwm_out_r[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.067 ns                ;
+; 15.695 ns                               ; 232.29 MHz ( period = 4.305 ns )                    ; cnt4[0]      ; pwm_out_r[0] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.044 ns                ;
+; 15.698 ns                               ; 232.45 MHz ( period = 4.302 ns )                    ; count[23]    ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.041 ns                ;
+; 15.698 ns                               ; 232.45 MHz ( period = 4.302 ns )                    ; count[23]    ; cnt4[0]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.041 ns                ;
+; 15.698 ns                               ; 232.45 MHz ( period = 4.302 ns )                    ; count[23]    ; cnt4[2]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.041 ns                ;
+; 15.698 ns                               ; 232.45 MHz ( period = 4.302 ns )                    ; count[23]    ; cnt4[3]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.041 ns                ;
+; 15.700 ns                               ; 232.56 MHz ( period = 4.300 ns )                    ; count[2]     ; pwm_count[0] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.039 ns                ;
+; 15.705 ns                               ; 232.83 MHz ( period = 4.295 ns )                    ; count[0]     ; pwm_count[0] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 4.034 ns                ;
+; 15.749 ns                               ; 235.24 MHz ( period = 4.251 ns )                    ; cnt4[1]      ; pwm_out_r[3] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 3.990 ns                ;
+; 15.788 ns                               ; 237.42 MHz ( period = 4.212 ns )                    ; pwm_count[1] ; pwm_out_r[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 3.951 ns                ;
+; 15.797 ns                               ; 237.93 MHz ( period = 4.203 ns )                    ; cnt4[2]      ; pwm_out_r[2] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 3.942 ns                ;
+; 15.817 ns                               ; 239.06 MHz ( period = 4.183 ns )                    ; count[3]     ; pwm_count[0] ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 3.922 ns                ;
+; 15.838 ns                               ; 240.27 MHz ( period = 4.162 ns )                    ; count[9]     ; cnt4[1]      ; clock      ; clock    ; 20.000 ns                   ; 19.739 ns                 ; 3.901 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;              ;              ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+--------------+--------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clock'                                                                                                                                                                                                       ;
++-----------------------------------------+-----------------------------------------------------+--------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                           ; From                                                ; To           ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+--------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; 0.888 ns                                ; dout2[1]                                            ; dout3[1]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 0.679 ns                 ;
+; 0.899 ns                                ; dout1[1]                                            ; dout2[1]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 0.690 ns                 ;
+; 1.057 ns                                ; count[23]                                           ; count[23]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 0.848 ns                 ;
+; 1.058 ns                                ; dout3[0]                                            ; buff[0]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 0.849 ns                 ;
+; 1.068 ns                                ; dout1[0]                                            ; dout2[0]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 0.859 ns                 ;
+; 1.119 ns                                ; dir                                                 ; dir          ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 0.910 ns                 ;
+; 1.124 ns                                ; pwm_count[2]                                        ; pwm_count[2] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 0.915 ns                 ;
+; 1.131 ns                                ; dir                                                 ; cnt4[3]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 0.922 ns                 ;
+; 1.223 ns                                ; mode                                                ; mode         ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.014 ns                 ;
+; 1.223 ns                                ; pwm_count[1]                                        ; pwm_count[1] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.014 ns                 ;
+; 1.229 ns                                ; pwm_count[3]                                        ; pwm_count[3] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.020 ns                 ;
+; 1.243 ns                                ; pwm_count[0]                                        ; pwm_count[0] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.034 ns                 ;
+; 1.249 ns                                ; dout3[1]                                            ; buff[1]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.040 ns                 ;
+; 1.279 ns                                ; cnt4[0]                                             ; p_out_r[3]   ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.070 ns                 ;
+; 1.281 ns                                ; pwm_count[3]                                        ; pwm_out_r[0] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.072 ns                 ;
+; 1.321 ns                                ; count[2]                                            ; count[2]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.112 ns                 ;
+; 1.322 ns                                ; count[0]                                            ; count[0]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.113 ns                 ;
+; 1.323 ns                                ; count[15]                                           ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.114 ns                 ;
+; 1.323 ns                                ; count[5]                                            ; count[5]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.114 ns                 ;
+; 1.323 ns                                ; count[11]                                           ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.114 ns                 ;
+; 1.323 ns                                ; count[1]                                            ; count[1]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.114 ns                 ;
+; 1.326 ns                                ; count[12]                                           ; count[12]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.117 ns                 ;
+; 1.326 ns                                ; count[7]                                            ; count[7]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.117 ns                 ;
+; 1.328 ns                                ; count[21]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.119 ns                 ;
+; 1.329 ns                                ; count[10]                                           ; count[10]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.120 ns                 ;
+; 1.345 ns                                ; dout2[1]                                            ; buff[1]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.136 ns                 ;
+; 1.346 ns                                ; count[22]                                           ; count[22]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.137 ns                 ;
+; 1.347 ns                                ; count[17]                                           ; count[17]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.138 ns                 ;
+; 1.350 ns                                ; dout1[0]                                            ; buff[0]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.141 ns                 ;
+; 1.353 ns                                ; count[20]                                           ; count[20]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.144 ns                 ;
+; 1.365 ns                                ; cnt4[3]                                             ; cnt4[3]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.156 ns                 ;
+; 1.411 ns                                ; cnt4[2]                                             ; cnt4[2]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.202 ns                 ;
+; 1.413 ns                                ; dir                                                 ; cnt4[0]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.204 ns                 ;
+; 1.414 ns                                ; dir                                                 ; cnt4[1]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.205 ns                 ;
+; 1.470 ns                                ; count[3]                                            ; count[3]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.261 ns                 ;
+; 1.475 ns                                ; count[4]                                            ; count[4]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.266 ns                 ;
+; 1.476 ns                                ; count[6]                                            ; count[6]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.267 ns                 ;
+; 1.476 ns                                ; count[13]                                           ; count[13]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.267 ns                 ;
+; 1.476 ns                                ; count[8]                                            ; count[8]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.267 ns                 ;
+; 1.480 ns                                ; count[9]                                            ; count[9]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.271 ns                 ;
+; 1.481 ns                                ; count[14]                                           ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.272 ns                 ;
+; 1.481 ns                                ; count[19]                                           ; count[19]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.272 ns                 ;
+; 1.482 ns                                ; count[16]                                           ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.273 ns                 ;
+; 1.483 ns                                ; dout2[0]                                            ; buff[0]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.274 ns                 ;
+; 1.484 ns                                ; dout2[0]                                            ; dout3[0]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.275 ns                 ;
+; 1.492 ns                                ; count[18]                                           ; count[18]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.283 ns                 ;
+; 1.493 ns                                ; cnt4[1]                                             ; p_out_r[2]   ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.284 ns                 ;
+; 1.493 ns                                ; cnt4[1]                                             ; p_out_r[3]   ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.284 ns                 ;
+; 1.503 ns                                ; dout1[1]                                            ; buff[1]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.294 ns                 ;
+; 1.518 ns                                ; cnt4[0]                                             ; cnt4[0]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.309 ns                 ;
+; 1.519 ns                                ; cnt4[1]                                             ; cnt4[1]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.310 ns                 ;
+; 1.710 ns                                ; dir                                                 ; cnt4[2]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.501 ns                 ;
+; 1.725 ns                                ; pwm_count[3]                                        ; pwm_out_r[1] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.516 ns                 ;
+; 1.726 ns                                ; pwm_count[3]                                        ; pwm_out_r[2] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.517 ns                 ;
+; 1.726 ns                                ; pwm_count[3]                                        ; pwm_out_r[3] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.517 ns                 ;
+; 1.920 ns                                ; count[2]                                            ; count[3]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.711 ns                 ;
+; 1.921 ns                                ; count[0]                                            ; count[1]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.712 ns                 ;
+; 1.922 ns                                ; count[5]                                            ; count[6]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.713 ns                 ;
+; 1.922 ns                                ; count[15]                                           ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.713 ns                 ;
+; 1.925 ns                                ; count[12]                                           ; count[13]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.716 ns                 ;
+; 1.925 ns                                ; count[7]                                            ; count[8]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.716 ns                 ;
+; 1.928 ns                                ; count[10]                                           ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.719 ns                 ;
+; 1.945 ns                                ; count[22]                                           ; count[23]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.736 ns                 ;
+; 1.946 ns                                ; count[17]                                           ; count[18]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.737 ns                 ;
+; 1.952 ns                                ; count[20]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.743 ns                 ;
+; 1.998 ns                                ; count[2]                                            ; count[4]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.789 ns                 ;
+; 2.003 ns                                ; count[12]                                           ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.794 ns                 ;
+; 2.003 ns                                ; count[7]                                            ; count[9]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.794 ns                 ;
+; 2.010 ns                                ; cnt4[2]                                             ; cnt4[3]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.801 ns                 ;
+; 2.024 ns                                ; count[17]                                           ; count[19]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.815 ns                 ;
+; 2.076 ns                                ; count[2]                                            ; count[5]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.867 ns                 ;
+; 2.079 ns                                ; count[3]                                            ; count[4]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.870 ns                 ;
+; 2.081 ns                                ; count[12]                                           ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.872 ns                 ;
+; 2.081 ns                                ; count[7]                                            ; count[10]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.872 ns                 ;
+; 2.084 ns                                ; count[4]                                            ; count[5]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.875 ns                 ;
+; 2.085 ns                                ; count[13]                                           ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.876 ns                 ;
+; 2.085 ns                                ; count[8]                                            ; count[9]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.876 ns                 ;
+; 2.089 ns                                ; count[9]                                            ; count[10]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.880 ns                 ;
+; 2.090 ns                                ; count[14]                                           ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.881 ns                 ;
+; 2.090 ns                                ; count[19]                                           ; count[20]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.881 ns                 ;
+; 2.101 ns                                ; count[18]                                           ; count[19]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.892 ns                 ;
+; 2.102 ns                                ; count[17]                                           ; count[20]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.893 ns                 ;
+; 2.127 ns                                ; cnt4[0]                                             ; cnt4[1]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.918 ns                 ;
+; 2.128 ns                                ; cnt4[1]                                             ; cnt4[2]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.919 ns                 ;
+; 2.138 ns                                ; count[11]                                           ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[1]                                            ; count[5]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[1]                                            ; count[6]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[1]                                            ; count[4]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[11]                                           ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[11]                                           ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[11]                                           ; count[13]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[11]                                           ; count[12]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[1]                                            ; count[3]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.138 ns                                ; count[1]                                            ; count[2]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.929 ns                 ;
+; 2.140 ns                                ; pwm_count[2]                                        ; pwm_out_r[3] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.931 ns                 ;
+; 2.143 ns                                ; count[0]                                            ; count[5]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.934 ns                 ;
+; 2.143 ns                                ; count[0]                                            ; count[6]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.934 ns                 ;
+; 2.143 ns                                ; count[0]                                            ; count[4]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.934 ns                 ;
+; 2.143 ns                                ; count[21]                                           ; count[22]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.934 ns                 ;
+; 2.143 ns                                ; count[21]                                           ; count[23]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.934 ns                 ;
+; 2.143 ns                                ; count[0]                                            ; count[3]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.934 ns                 ;
+; 2.143 ns                                ; count[0]                                            ; count[2]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.934 ns                 ;
+; 2.150 ns                                ; count[10]                                           ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.941 ns                 ;
+; 2.150 ns                                ; count[10]                                           ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.941 ns                 ;
+; 2.150 ns                                ; count[10]                                           ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.941 ns                 ;
+; 2.150 ns                                ; count[10]                                           ; count[13]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.941 ns                 ;
+; 2.150 ns                                ; count[10]                                           ; count[12]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.941 ns                 ;
+; 2.154 ns                                ; count[2]                                            ; count[6]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.945 ns                 ;
+; 2.157 ns                                ; count[3]                                            ; count[5]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.948 ns                 ;
+; 2.159 ns                                ; count[12]                                           ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.950 ns                 ;
+; 2.159 ns                                ; count[7]                                            ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.950 ns                 ;
+; 2.162 ns                                ; count[4]                                            ; count[6]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.953 ns                 ;
+; 2.163 ns                                ; count[13]                                           ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.954 ns                 ;
+; 2.163 ns                                ; count[8]                                            ; count[10]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.954 ns                 ;
+; 2.167 ns                                ; count[9]                                            ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.958 ns                 ;
+; 2.168 ns                                ; count[14]                                           ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.959 ns                 ;
+; 2.168 ns                                ; count[19]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.959 ns                 ;
+; 2.174 ns                                ; count[20]                                           ; count[22]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.965 ns                 ;
+; 2.174 ns                                ; count[20]                                           ; count[23]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.965 ns                 ;
+; 2.179 ns                                ; dout3[0]                                            ; dir          ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.970 ns                 ;
+; 2.179 ns                                ; count[18]                                           ; count[20]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.970 ns                 ;
+; 2.180 ns                                ; count[17]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.971 ns                 ;
+; 2.205 ns                                ; cnt4[0]                                             ; cnt4[2]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.996 ns                 ;
+; 2.206 ns                                ; cnt4[1]                                             ; cnt4[3]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 1.997 ns                 ;
+; 2.235 ns                                ; count[3]                                            ; count[6]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.026 ns                 ;
+; 2.241 ns                                ; count[13]                                           ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.032 ns                 ;
+; 2.241 ns                                ; count[8]                                            ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.032 ns                 ;
+; 2.246 ns                                ; pwm_count[2]                                        ; pwm_out_r[2] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.037 ns                 ;
+; 2.257 ns                                ; pwm_count[2]                                        ; pwm_count[3] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.048 ns                 ;
+; 2.257 ns                                ; count[18]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.048 ns                 ;
+; 2.283 ns                                ; cnt4[0]                                             ; cnt4[3]      ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.074 ns                 ;
+; 2.304 ns                                ; count[5]                                            ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[15]                                           ; count[17]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[15]                                           ; count[18]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[15]                                           ; count[19]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[15]                                           ; count[20]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[15]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[5]                                            ; count[7]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[5]                                            ; count[8]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[5]                                            ; count[9]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.304 ns                                ; count[5]                                            ; count[10]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.095 ns                 ;
+; 2.364 ns                                ; pwm_count[2]                                        ; pwm_out_r[0] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.155 ns                 ;
+; 2.375 ns                                ; pwm_count[2]                                        ; pwm_out_r[1] ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.166 ns                 ;
+; 2.381 ns                                ; count[5]                                            ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.172 ns                 ;
+; 2.381 ns                                ; count[5]                                            ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.172 ns                 ;
+; 2.381 ns                                ; count[5]                                            ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.172 ns                 ;
+; 2.381 ns                                ; count[5]                                            ; count[13]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.172 ns                 ;
+; 2.381 ns                                ; count[5]                                            ; count[12]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.172 ns                 ;
+; 2.381 ns                                ; count[15]                                           ; count[22]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.172 ns                 ;
+; 2.381 ns                                ; count[15]                                           ; count[23]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.172 ns                 ;
+; 2.387 ns                                ; count[7]                                            ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.178 ns                 ;
+; 2.387 ns                                ; count[7]                                            ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.178 ns                 ;
+; 2.387 ns                                ; count[7]                                            ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.178 ns                 ;
+; 2.387 ns                                ; count[7]                                            ; count[13]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.178 ns                 ;
+; 2.387 ns                                ; count[7]                                            ; count[12]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.178 ns                 ;
+; 2.393 ns                                ; count[9]                                            ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.184 ns                 ;
+; 2.393 ns                                ; count[9]                                            ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.184 ns                 ;
+; 2.393 ns                                ; count[9]                                            ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.184 ns                 ;
+; 2.393 ns                                ; count[9]                                            ; count[13]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.184 ns                 ;
+; 2.393 ns                                ; count[9]                                            ; count[12]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.184 ns                 ;
+; 2.394 ns                                ; count[19]                                           ; count[22]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.185 ns                 ;
+; 2.394 ns                                ; count[19]                                           ; count[23]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.185 ns                 ;
+; 2.405 ns                                ; count[1]                                            ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[11]                                           ; count[17]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[11]                                           ; count[18]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[11]                                           ; count[19]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[11]                                           ; count[20]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[11]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[1]                                            ; count[7]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[1]                                            ; count[8]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[1]                                            ; count[9]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.405 ns                                ; count[1]                                            ; count[10]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.196 ns                 ;
+; 2.408 ns                                ; count[17]                                           ; count[22]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.199 ns                 ;
+; 2.408 ns                                ; count[17]                                           ; count[23]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.199 ns                 ;
+; 2.410 ns                                ; count[0]                                            ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.201 ns                 ;
+; 2.410 ns                                ; count[0]                                            ; count[7]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.201 ns                 ;
+; 2.410 ns                                ; count[0]                                            ; count[8]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.201 ns                 ;
+; 2.410 ns                                ; count[0]                                            ; count[9]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.201 ns                 ;
+; 2.410 ns                                ; count[0]                                            ; count[10]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.201 ns                 ;
+; 2.417 ns                                ; count[10]                                           ; count[17]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.208 ns                 ;
+; 2.417 ns                                ; count[10]                                           ; count[18]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.208 ns                 ;
+; 2.417 ns                                ; count[10]                                           ; count[19]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.208 ns                 ;
+; 2.417 ns                                ; count[10]                                           ; count[20]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.208 ns                 ;
+; 2.417 ns                                ; count[10]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.208 ns                 ;
+; 2.447 ns                                ; dout2[0]                                            ; dir          ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.238 ns                 ;
+; 2.469 ns                                ; count[8]                                            ; count[15]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.260 ns                 ;
+; 2.469 ns                                ; count[8]                                            ; count[16]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.260 ns                 ;
+; 2.469 ns                                ; count[8]                                            ; count[14]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.260 ns                 ;
+; 2.469 ns                                ; count[8]                                            ; count[13]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.260 ns                 ;
+; 2.469 ns                                ; count[8]                                            ; count[12]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.260 ns                 ;
+; 2.474 ns                                ; count[6]                                            ; count[11]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.265 ns                 ;
+; 2.474 ns                                ; count[6]                                            ; count[7]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.265 ns                 ;
+; 2.474 ns                                ; count[6]                                            ; count[8]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.265 ns                 ;
+; 2.474 ns                                ; count[6]                                            ; count[9]     ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.265 ns                 ;
+; 2.474 ns                                ; count[6]                                            ; count[10]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.265 ns                 ;
+; 2.480 ns                                ; count[16]                                           ; count[17]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.271 ns                 ;
+; 2.480 ns                                ; count[16]                                           ; count[18]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.271 ns                 ;
+; 2.480 ns                                ; count[16]                                           ; count[19]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.271 ns                 ;
+; 2.480 ns                                ; count[16]                                           ; count[20]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.271 ns                 ;
+; 2.480 ns                                ; count[16]                                           ; count[21]    ; clock      ; clock    ; 0.000 ns                   ; -0.209 ns                  ; 2.271 ns                 ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;              ;            ;          ;                            ;                            ;                          ;
++-----------------------------------------+-----------------------------------------------------+--------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++------------------------------------------------------------------+
+; tsu                                                              ;
++-------+--------------+------------+--------+----------+----------+
+; Slack ; Required tsu ; Actual tsu ; From   ; To       ; To Clock ;
++-------+--------------+------------+--------+----------+----------+
+; N/A   ; None         ; 4.608 ns   ; key[0] ; dout1[0] ; clock    ;
+; N/A   ; None         ; 4.443 ns   ; key[1] ; dout1[1] ; clock    ;
++-------+--------------+------------+--------+----------+----------+
+
+
++----------------------------------------------------------------------------+
+; tco                                                                        ;
++-------+--------------+------------+--------------+------------+------------+
+; Slack ; Required tco ; Actual tco ; From         ; To         ; From Clock ;
++-------+--------------+------------+--------------+------------+------------+
+; N/A   ; None         ; 9.181 ns   ; dir          ; led[0]     ; clock      ;
+; N/A   ; None         ; 8.889 ns   ; mode         ; led[1]     ; clock      ;
+; N/A   ; None         ; 8.603 ns   ; p_out_r[3]   ; pwm_out[3] ; clock      ;
+; N/A   ; None         ; 8.588 ns   ; p_out_r[3]   ; pwm_out[1] ; clock      ;
+; N/A   ; None         ; 8.513 ns   ; mode         ; pwm_out[0] ; clock      ;
+; N/A   ; None         ; 8.505 ns   ; mode         ; pwm_out[3] ; clock      ;
+; N/A   ; None         ; 8.488 ns   ; mode         ; pwm_out[1] ; clock      ;
+; N/A   ; None         ; 8.452 ns   ; p_out_r[2]   ; pwm_out[0] ; clock      ;
+; N/A   ; None         ; 8.264 ns   ; pwm_out_r[0] ; pwm_out[0] ; clock      ;
+; N/A   ; None         ; 8.185 ns   ; mode         ; pwm_out[2] ; clock      ;
+; N/A   ; None         ; 8.124 ns   ; p_out_r[2]   ; pwm_out[2] ; clock      ;
+; N/A   ; None         ; 7.643 ns   ; pwm_out_r[3] ; pwm_out[3] ; clock      ;
+; N/A   ; None         ; 7.629 ns   ; pwm_out_r[1] ; pwm_out[1] ; clock      ;
+; N/A   ; None         ; 7.321 ns   ; pwm_out_r[2] ; pwm_out[2] ; clock      ;
++-------+--------------+------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------+
+; th                                                                     ;
++---------------+-------------+-----------+--------+----------+----------+
+; Minimum Slack ; Required th ; Actual th ; From   ; To       ; To Clock ;
++---------------+-------------+-----------+--------+----------+----------+
+; N/A           ; None        ; -4.391 ns ; key[1] ; dout1[1] ; clock    ;
+; N/A           ; None        ; -4.556 ns ; key[0] ; dout1[0] ; clock    ;
++---------------+-------------+-----------+--------+----------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Timing Analyzer
+    Info: Version 5.0 Build 148 04/26/2005 SJ Full Version
+    Info: Processing started: Sun Sep 10 15:53:32 2006
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off step_moto -c step_moto --timing_analysis_only
+Info: Slack time is 13.585 ns for clock "clock" between source register "count[1]" and destination register "cnt4[1]"
+    Info: Fmax is 155.88 MHz (period= 6.415 ns)
+    Info: + Largest register to register requirement is 19.739 ns
+        Info: + Setup relationship between source and destination is 20.000 ns
+            Info: + Latch edge is 20.000 ns
+                Info: Clock period of Destination clock "clock" is 20.000 ns with  offset of 0.000 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Destination register is 1
+            Info: - Launch edge is 0.000 ns
+                Info: Clock period of Source clock "clock" is 20.000 ns with  offset of 0.000 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Source register is 1
+        Info: + Largest clock skew is 0.000 ns
+            Info: + Shortest clock path from clock "clock" to destination register is 2.910 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 48; CLK Node = 'clock'
+                Info: 2: + IC(0.730 ns) + CELL(0.711 ns) = 2.910 ns; Loc. = LC_X25_Y2_N2; Fanout = 13; REG Node = 'cnt4[1]'
+                Info: Total cell delay = 2.180 ns ( 74.91 % )
+                Info: Total interconnect delay = 0.730 ns ( 25.09 % )
+            Info: - Longest clock path from clock "clock" to source register is 2.910 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 48; CLK Node = 'clock'
+                Info: 2: + IC(0.730 ns) + CELL(0.711 ns) = 2.910 ns; Loc. = LC_X23_Y3_N4; Fanout = 3; REG Node = 'count[1]'
+                Info: Total cell delay = 2.180 ns ( 74.91 % )
+                Info: Total interconnect delay = 0.730 ns ( 25.09 % )
+        Info: - Micro clock to output delay of source is 0.224 ns
+        Info: - Micro setup delay of destination is 0.037 ns
+    Info: - Longest register to register delay is 6.154 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X23_Y3_N4; Fanout = 3; REG Node = 'count[1]'
+        Info: 2: + IC(1.244 ns) + CELL(0.590 ns) = 1.834 ns; Loc. = LC_X24_Y2_N9; Fanout = 1; COMB Node = 'pwm_clk~36'
+        Info: 3: + IC(0.434 ns) + CELL(0.590 ns) = 2.858 ns; Loc. = LC_X24_Y2_N8; Fanout = 5; COMB Node = 'pwm_clk~37'
+        Info: 4: + IC(0.428 ns) + CELL(0.442 ns) = 3.728 ns; Loc. = LC_X24_Y2_N3; Fanout = 7; COMB Node = 'div_clk~60'
+        Info: 5: + IC(0.398 ns) + CELL(0.442 ns) = 4.568 ns; Loc. = LC_X24_Y2_N4; Fanout = 6; COMB Node = 'speed_clk'
+        Info: 6: + IC(0.719 ns) + CELL(0.867 ns) = 6.154 ns; Loc. = LC_X25_Y2_N2; Fanout = 13; REG Node = 'cnt4[1]'
+        Info: Total cell delay = 2.931 ns ( 47.63 % )
+        Info: Total interconnect delay = 3.223 ns ( 52.37 % )
+Info: Minimum slack time is 888 ps for clock "clock" between source register "dout2[1]" and destination register "dout3[1]"
+    Info: + Shortest register to register delay is 0.679 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X26_Y2_N8; Fanout = 3; REG Node = 'dout2[1]'
+        Info: 2: + IC(0.564 ns) + CELL(0.115 ns) = 0.679 ns; Loc. = LC_X26_Y2_N9; Fanout = 2; REG Node = 'dout3[1]'
+        Info: Total cell delay = 0.115 ns ( 16.94 % )
+        Info: Total interconnect delay = 0.564 ns ( 83.06 % )
+    Info: - Smallest register to register requirement is -0.209 ns
+        Info: + Hold relationship between source and destination is 0.000 ns
+            Info: + Latch edge is 0.000 ns
+                Info: Clock period of Destination clock "clock" is 20.000 ns with  offset of 0.000 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Destination register is 1
+                Info: Multicycle Hold factor for Destination register is 1
+            Info: - Launch edge is 0.000 ns
+                Info: Clock period of Source clock "clock" is 20.000 ns with  offset of 0.000 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Source register is 1
+                Info: Multicycle Hold factor for Source register is 1
+        Info: + Smallest clock skew is 0.000 ns
+            Info: + Longest clock path from clock "clock" to destination register is 2.910 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 48; CLK Node = 'clock'
+                Info: 2: + IC(0.730 ns) + CELL(0.711 ns) = 2.910 ns; Loc. = LC_X26_Y2_N9; Fanout = 2; REG Node = 'dout3[1]'
+                Info: Total cell delay = 2.180 ns ( 74.91 % )
+                Info: Total interconnect delay = 0.730 ns ( 25.09 % )
+            Info: - Shortest clock path from clock "clock" to source register is 2.910 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 48; CLK Node = 'clock'
+                Info: 2: + IC(0.730 ns) + CELL(0.711 ns) = 2.910 ns; Loc. = LC_X26_Y2_N8; Fanout = 3; REG Node = 'dout2[1]'
+                Info: Total cell delay = 2.180 ns ( 74.91 % )
+                Info: Total interconnect delay = 0.730 ns ( 25.09 % )
+        Info: - Micro clock to output delay of source is 0.224 ns
+        Info: + Micro hold delay of destination is 0.015 ns
+Info: tsu for register "dout1[0]" (data pin = "key[0]", clock pin = "clock") is 4.608 ns
+    Info: + Longest pin to register delay is 7.481 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_121; Fanout = 1; PIN Node = 'key[0]'
+        Info: 2: + IC(5.703 ns) + CELL(0.309 ns) = 7.481 ns; Loc. = LC_X26_Y2_N5; Fanout = 3; REG Node = 'dout1[0]'
+        Info: Total cell delay = 1.778 ns ( 23.77 % )
+        Info: Total interconnect delay = 5.703 ns ( 76.23 % )
+    Info: + Micro setup delay of destination is 0.037 ns
+    Info: - Shortest clock path from clock "clock" to destination register is 2.910 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 48; CLK Node = 'clock'
+        Info: 2: + IC(0.730 ns) + CELL(0.711 ns) = 2.910 ns; Loc. = LC_X26_Y2_N5; Fanout = 3; REG Node = 'dout1[0]'
+        Info: Total cell delay = 2.180 ns ( 74.91 % )
+        Info: Total interconnect delay = 0.730 ns ( 25.09 % )
+Info: tco from clock "clock" to destination pin "led[0]" through register "dir" is 9.181 ns
+    Info: + Longest clock path from clock "clock" to source register is 2.910 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 48; CLK Node = 'clock'
+        Info: 2: + IC(0.730 ns) + CELL(0.711 ns) = 2.910 ns; Loc. = LC_X25_Y2_N5; Fanout = 14; REG Node = 'dir'
+        Info: Total cell delay = 2.180 ns ( 74.91 % )
+        Info: Total interconnect delay = 0.730 ns ( 25.09 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Longest register to pin delay is 6.047 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X25_Y2_N5; Fanout = 14; REG Node = 'dir'
+        Info: 2: + IC(3.923 ns) + CELL(2.124 ns) = 6.047 ns; Loc. = PIN_50; Fanout = 0; PIN Node = 'led[0]'
+        Info: Total cell delay = 2.124 ns ( 35.12 % )
+        Info: Total interconnect delay = 3.923 ns ( 64.88 % )
+Info: th for register "dout1[1]" (data pin = "key[1]", clock pin = "clock") is -4.391 ns
+    Info: + Longest clock path from clock "clock" to destination register is 2.910 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_28; Fanout = 48; CLK Node = 'clock'
+        Info: 2: + IC(0.730 ns) + CELL(0.711 ns) = 2.910 ns; Loc. = LC_X26_Y2_N2; Fanout = 3; REG Node = 'dout1[1]'
+        Info: Total cell delay = 2.180 ns ( 74.91 % )
+        Info: Total interconnect delay = 0.730 ns ( 25.09 % )
+    Info: + Micro hold delay of destination is 0.015 ns
+    Info: - Shortest pin to register delay is 7.316 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_122; Fanout = 1; PIN Node = 'key[1]'
+        Info: 2: + IC(5.732 ns) + CELL(0.115 ns) = 7.316 ns; Loc. = LC_X26_Y2_N2; Fanout = 3; REG Node = 'dout1[1]'
+        Info: Total cell delay = 1.584 ns ( 21.65 % )
+        Info: Total interconnect delay = 5.732 ns ( 78.35 % )
+Info: All timing requirements were met. See Report window for more details.
+Info: Quartus II Timing Analyzer was successful. 0 errors, 0 warnings
+    Info: Processing ended: Sun Sep 10 15:53:33 2006
+    Info: Elapsed time: 00:00:01
+
+

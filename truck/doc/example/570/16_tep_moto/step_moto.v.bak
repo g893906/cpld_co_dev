@@ -1,0 +1,147 @@
+module step_moto(clock,key,led,pwm_out);
+input clock;									//系统输入时钟
+input[1:0] key;									//按键输入
+output[1:0]led;									//LED指示输出
+output[3:0] pwm_out;							//PWM输出
+reg[3:0] pwm_out_r;	
+reg[3:0] p_out_r;	
+reg [23:0] count;								//时钟分频计数器			
+reg [3:0] pwm_count;							//PWM内部计数器
+reg[3:0]cnt4;									//电机步进时序计数器
+reg[15:0]duty_cycle;							//PWM占空比控制
+reg dir;										//电机旋转方向控制
+reg mode;										//电机控制模式
+reg[1:0]dout1,dout2,dout3,buff;					//消抖寄存器								 									
+wire[1:0]key_edge;								//按键消抖输出
+wire pwm_clk;									//PWM计数时钟
+wire speed_clk;									//电机转动速度控制
+wire div_clk;									//消抖动时钟
+
+//时钟分频部分
+always @(posedge clock)        					
+begin
+	count <= count + 1'b1;
+end
+
+assign pwm_clk = (count[6:0] == 7'h7f); 
+assign div_clk = (count[15:0] == 16'hffff); 
+assign speed_clk = (count == 24'hffffff);
+
+//按键消抖部分
+always @(posedge clock)
+begin
+	if(div_clk)
+	begin
+		dout1 <= key;
+		dout2 <= dout1;
+		dout3 <= dout2;
+	end	
+end
+
+//按键边沿检测部分
+always @(posedge clock)
+begin
+	buff <= dout1 | dout2 | dout3;
+end
+
+assign key_edge = ~(dout1 | dout2 | dout3) & buff;
+//按键操作部分
+always @(posedge clock)						//按键1
+begin
+	if(key_edge[0])
+		dir <= ~dir;
+end
+
+always @(posedge clock)						//按键2
+begin
+	if(key_edge[1])
+		mode <= ~mode;
+end
+
+assign led = ~{mode,dir};						//输出LED指示
+assign pwm_out = mode ? ~pwm_out_r : p_out_r;	//输出模块选择（细分/正常）
+
+always @(posedge clock)						//电机正/反转控制
+begin
+	if(speed_clk)
+	begin
+		if(dir == 1'b1)
+			cnt4 <= cnt4 + 1'b1;
+		else
+			cnt4 <= cnt4 - 1'b1;
+	end
+end
+
+always @(posedge clock)        					//PWM波计数器 
+begin
+	if(pwm_clk)
+		pwm_count <= pwm_count + 1'b1;
+end
+
+always @(posedge clock)      					//PWM A通道
+begin
+	if (pwm_count[3:0] < duty_cycle[15:12])
+		pwm_out_r[3] <= 1'b1;
+	else
+		pwm_out_r[3] <= 1'b0;
+end
+
+always @(posedge clock)      					//PWM B通道
+begin
+	if (pwm_count[3:0] < duty_cycle[11:8])		
+		pwm_out_r[2] <= 1'b1;
+	else
+		pwm_out_r[2] <= 1'b0;
+end
+
+always @(posedge clock)      					//PWM C通道
+begin
+	if (pwm_count[3:0] < duty_cycle[7:4])
+		pwm_out_r[1] <= 1'b1;
+	else
+		pwm_out_r[1] <= 1'b0;
+end
+
+always @(posedge clock)      					//PWM D通道
+begin
+	if (pwm_count[3:0] < duty_cycle[3:0])
+		pwm_out_r[0] <= 1'b1;
+	else
+		pwm_out_r[0] <= 1'b0;
+end
+
+always @(posedge clock)							//步进电机控制时序
+begin
+	if(speed_clk)
+	begin
+		case(cnt4[1:0])
+			2'b00:p_out_r = 4'b1100;
+			2'b01:p_out_r = 4'b0110;
+			2'b10:p_out_r = 4'b0011;
+			2'b11:p_out_r = 4'b1001;
+		endcase
+	end
+end
+
+always @(cnt4)						//步进电机4细分控制PWM波参数表				
+begin
+	case(cnt4)						
+		4'h0:duty_cycle = 16'hf000;	
+		4'h1:duty_cycle = 16'he600;	
+		4'h2:duty_cycle = 16'hbb00;	
+		4'h3:duty_cycle = 16'h6e00;	
+		4'h4:duty_cycle = 16'h0f00;	
+		4'h5:duty_cycle = 16'h0e60;	
+		4'h6:duty_cycle = 16'h0bb0;	
+		4'h7:duty_cycle = 16'h06e0;	
+		4'h8:duty_cycle = 16'h00f0;	
+		4'h9:duty_cycle = 16'h00e6;	
+		4'ha:duty_cycle = 16'h00bb;	
+		4'hb:duty_cycle = 16'h006e;	
+		4'hc:duty_cycle = 16'h000f;	
+		4'hd:duty_cycle = 16'h600e;	
+		4'he:duty_cycle = 16'hb00b;	
+		4'hf:duty_cycle = 16'he006;	
+	endcase
+end
+endmodule

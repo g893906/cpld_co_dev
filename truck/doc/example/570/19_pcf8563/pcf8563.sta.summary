@@ -1,0 +1,41 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clock'
+Slack : -13.490
+TNS   : -451.618
+
+Type  : Setup 'sysclk'
+Slack : -8.479
+TNS   : -176.846
+
+Type  : Setup 'shift_clk'
+Slack : -2.974
+TNS   : -22.596
+
+Type  : Hold 'sysclk'
+Slack : -1.940
+TNS   : -1.940
+
+Type  : Hold 'clock'
+Slack : 1.078
+TNS   : 0.000
+
+Type  : Hold 'shift_clk'
+Slack : 1.698
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'sysclk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'clock'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'shift_clk'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Jul 24 16:09:53 2012
+Quartus II Version : 11.0 Build 157 04/27/2011 SJ Full Version
+Revision Name : lcd
+Top-level Entity Name : lcd
+Family : MAX II
+Device : EPM570T100C5
+Timing Models : Final
+Total logic elements : 67 / 570 ( 12 % )
+Total pins : 12 / 76 ( 16 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

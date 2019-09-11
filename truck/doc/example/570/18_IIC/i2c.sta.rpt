@@ -1,0 +1,656 @@
+TimeQuest Timing Analyzer report for i2c
+Tue Jul 24 16:19:29 2012
+Quartus II Version 11.0 Build 157 04/27/2011 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Hold: 'clk'
+ 13. Minimum Pulse Width: 'clk'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Output Enable Times
+ 19. Minimum Output Enable Times
+ 20. Output Disable Times
+ 21. Minimum Output Disable Times
+ 22. Setup Transfers
+ 23. Hold Transfers
+ 24. Report TCCS
+ 25. Report RSKM
+ 26. Unconstrained Paths
+ 27. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                      ;
++--------------------+---------------------------------------------------+
+; Quartus II Version ; Version 11.0 Build 157 04/27/2011 SJ Full Version ;
+; Revision Name      ; i2c                                               ;
+; Device Family      ; MAX II                                            ;
+; Device Name        ; EPM570T100C5                                      ;
+; Timing Models      ; Final                                             ;
+; Delay Model        ; Slow Model                                        ;
+; Rise/Fall Delays   ; Unavailable                                       ;
++--------------------+---------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 94.84 MHz ; 94.84 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Setup Summary                  ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -9.544 ; -426.986      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 1.397 ; 0.000         ;
++-------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -2.289 ; -2.289        ;
++-------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                              ;
++--------+----------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -9.544 ; phase1               ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 10.211     ;
+; -9.431 ; phase1               ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 10.098     ;
+; -9.393 ; inner_state.stop     ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 10.060     ;
+; -9.348 ; inner_state.stop     ; inner_state.ack     ; clk          ; clk         ; 1.000        ; 0.000      ; 10.015     ;
+; -9.335 ; inner_state.stop     ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 10.002     ;
+; -9.306 ; inner_state.eighth   ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.973      ;
+; -9.275 ; inner_state.seventh  ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.942      ;
+; -9.216 ; sda_buf              ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.883      ;
+; -9.155 ; inner_state.start    ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.822      ;
+; -9.099 ; inner_state.sixth    ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.766      ;
+; -8.998 ; inner_state.third    ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.665      ;
+; -8.910 ; inner_state.start    ; inner_state.seventh ; clk          ; clk         ; 1.000        ; 0.000      ; 9.577      ;
+; -8.855 ; inner_state.ack      ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.522      ;
+; -8.841 ; inner_state.fourth   ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.508      ;
+; -8.825 ; i2c_state.write_data ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.492      ;
+; -8.819 ; i2c_state.write_data ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.486      ;
+; -8.819 ; link                 ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.486      ;
+; -8.815 ; inner_state.start    ; inner_state.ack     ; clk          ; clk         ; 1.000        ; 0.000      ; 9.482      ;
+; -8.803 ; inner_state.fifth    ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.470      ;
+; -8.802 ; inner_state.start    ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.469      ;
+; -8.738 ; inner_state.ack      ; inner_state.ack     ; clk          ; clk         ; 1.000        ; 0.000      ; 9.405      ;
+; -8.735 ; phase3               ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.402      ;
+; -8.725 ; inner_state.ack      ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.392      ;
+; -8.695 ; inner_state.start    ; inner_state.sixth   ; clk          ; clk         ; 1.000        ; 0.000      ; 9.362      ;
+; -8.685 ; i2c_state.ini        ; inner_state.ack     ; clk          ; clk         ; 1.000        ; 0.000      ; 9.352      ;
+; -8.681 ; inner_state.sixth    ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.348      ;
+; -8.664 ; phase0               ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.331      ;
+; -8.649 ; i2c_state.sendaddr   ; inner_state.seventh ; clk          ; clk         ; 1.000        ; 0.000      ; 9.316      ;
+; -8.641 ; phase3               ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.308      ;
+; -8.634 ; i2c_state.read_data  ; inner_state.seventh ; clk          ; clk         ; 1.000        ; 0.000      ; 9.301      ;
+; -8.633 ; inner_state.start    ; inner_state.fourth  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.300      ;
+; -8.630 ; inner_state.start    ; inner_state.third   ; clk          ; clk         ; 1.000        ; 0.000      ; 9.297      ;
+; -8.599 ; inner_state.start    ; inner_state.first   ; clk          ; clk         ; 1.000        ; 0.000      ; 9.266      ;
+; -8.595 ; cnt_delay[3]         ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.262      ;
+; -8.589 ; cnt_delay[3]         ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.256      ;
+; -8.585 ; i2c_state.write_data ; inner_state.seventh ; clk          ; clk         ; 1.000        ; 0.000      ; 9.252      ;
+; -8.582 ; i2c_state.ini        ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.249      ;
+; -8.580 ; inner_state.third    ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.247      ;
+; -8.577 ; inner_state.start    ; inner_state.eighth  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.244      ;
+; -8.572 ; phase1               ; inner_state.ack     ; clk          ; clk         ; 1.000        ; 0.000      ; 9.239      ;
+; -8.552 ; inner_state.eighth   ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.219      ;
+; -8.544 ; i2c_state.sendaddr   ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.211      ;
+; -8.538 ; i2c_state.sendaddr   ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.205      ;
+; -8.517 ; i2c_state.write_data ; inner_state.third   ; clk          ; clk         ; 1.000        ; 0.000      ; 9.184      ;
+; -8.507 ; phase3               ; inner_state.seventh ; clk          ; clk         ; 1.000        ; 0.000      ; 9.174      ;
+; -8.502 ; main_state.01        ; i2c_state.sendaddr  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.169      ;
+; -8.493 ; inner_state.first    ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.160      ;
+; -8.485 ; writeData_reg[0]     ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 9.152      ;
+; -8.481 ; inner_state.stop     ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.148      ;
+; -8.475 ; inner_state.stop     ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.142      ;
+; -8.474 ; i2c_state.write_data ; inner_state.eighth  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.141      ;
+; -8.455 ; cnt_delay[3]         ; main_state.10       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.122      ;
+; -8.449 ; inner_state.start    ; inner_state.fifth   ; clk          ; clk         ; 1.000        ; 0.000      ; 9.116      ;
+; -8.441 ; cnt_delay[2]         ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.108      ;
+; -8.436 ; inner_state.stop     ; inner_state.seventh ; clk          ; clk         ; 1.000        ; 0.000      ; 9.103      ;
+; -8.435 ; cnt_delay[2]         ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.102      ;
+; -8.392 ; i2c_state.write_data ; inner_state.ack     ; clk          ; clk         ; 1.000        ; 0.000      ; 9.059      ;
+; -8.386 ; i2c_state.write_data ; main_state.10       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.053      ;
+; -8.385 ; inner_state.fifth    ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 9.052      ;
+; -8.368 ; i2c_state.ini        ; inner_state.eighth  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.035      ;
+; -8.363 ; inner_state.start    ; inner_state.second  ; clk          ; clk         ; 1.000        ; 0.000      ; 9.030      ;
+; -8.359 ; cnt_delay[16]        ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.026      ;
+; -8.353 ; cnt_delay[16]        ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 9.020      ;
+; -8.348 ; i2c_state.write_data ; inner_state.fifth   ; clk          ; clk         ; 1.000        ; 0.000      ; 9.015      ;
+; -8.301 ; cnt_delay[2]         ; main_state.10       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.968      ;
+; -8.292 ; phase3               ; inner_state.sixth   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.959      ;
+; -8.289 ; i2c_state.write_data ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 8.956      ;
+; -8.271 ; inner_state.sixth    ; inner_state.seventh ; clk          ; clk         ; 1.000        ; 0.000      ; 8.938      ;
+; -8.266 ; i2c_state.sendaddr   ; inner_state.ack     ; clk          ; clk         ; 1.000        ; 0.000      ; 8.933      ;
+; -8.252 ; i2c_state.sendaddr   ; inner_state.third   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.919      ;
+; -8.251 ; main_state.10        ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.918      ;
+; -8.245 ; main_state.10        ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.912      ;
+; -8.237 ; i2c_state.read_data  ; inner_state.third   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.904      ;
+; -8.233 ; inner_state.eighth   ; inner_state.ack     ; clk          ; clk         ; 1.000        ; 0.000      ; 8.900      ;
+; -8.230 ; phase3               ; inner_state.fourth  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.897      ;
+; -8.227 ; phase3               ; inner_state.third   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.894      ;
+; -8.221 ; inner_state.stop     ; inner_state.sixth   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.888      ;
+; -8.221 ; i2c_state.read_data  ; inner_state.eighth  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.888      ;
+; -8.219 ; cnt_delay[16]        ; main_state.10       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.886      ;
+; -8.216 ; cnt_delay[9]         ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.883      ;
+; -8.210 ; cnt_delay[9]         ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.877      ;
+; -8.203 ; cnt_delay[15]        ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.870      ;
+; -8.201 ; cnt_delay[0]         ; main_state.00       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.868      ;
+; -8.197 ; cnt_delay[15]        ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.864      ;
+; -8.196 ; phase3               ; inner_state.first   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.863      ;
+; -8.195 ; cnt_delay[0]         ; main_state.01       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.862      ;
+; -8.193 ; i2c_state.sendaddr   ; inner_state.eighth  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.860      ;
+; -8.174 ; phase3               ; inner_state.eighth  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.841      ;
+; -8.167 ; i2c_state.read_ini   ; inner_state.eighth  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.834      ;
+; -8.163 ; i2c_state.sendaddr   ; link                ; clk          ; clk         ; 1.000        ; 0.000      ; 8.830      ;
+; -8.159 ; inner_state.stop     ; inner_state.fourth  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.826      ;
+; -8.156 ; inner_state.stop     ; inner_state.third   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.823      ;
+; -8.149 ; inner_state.second   ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 8.816      ;
+; -8.125 ; inner_state.stop     ; inner_state.first   ; clk          ; clk         ; 1.000        ; 0.000      ; 8.792      ;
+; -8.107 ; i2c_state.write_data ; sda_buf             ; clk          ; clk         ; 1.000        ; 0.000      ; 8.774      ;
+; -8.105 ; i2c_state.sendaddr   ; main_state.10       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.772      ;
+; -8.103 ; inner_state.stop     ; inner_state.eighth  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.770      ;
+; -8.102 ; i2c_state.sendaddr   ; inner_state.second  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.769      ;
+; -8.087 ; i2c_state.read_data  ; inner_state.second  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.754      ;
+; -8.076 ; cnt_delay[9]         ; main_state.10       ; clk          ; clk         ; 1.000        ; 0.000      ; 8.743      ;
++--------+----------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                               ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node            ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+; 1.397 ; readData_reg[1]      ; readData_reg[2]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.618      ;
+; 1.400 ; readData_reg[0]      ; readData_reg[1]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.621      ;
+; 1.643 ; readData_reg[2]      ; readData_reg[3]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.864      ;
+; 1.677 ; inner_state.stop     ; inner_state.stop     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.898      ;
+; 1.928 ; i2c_state.ini        ; i2c_state.ini        ; clk          ; clk         ; 0.000        ; 0.000      ; 2.149      ;
+; 1.986 ; phase3               ; phase3               ; clk          ; clk         ; 0.000        ; 0.000      ; 2.207      ;
+; 2.108 ; clk_div[4]           ; phase2               ; clk          ; clk         ; 0.000        ; 0.000      ; 2.329      ;
+; 2.124 ; clk_div[1]           ; clk_div[6]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.345      ;
+; 2.132 ; clk_div[1]           ; clk_div[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.353      ;
+; 2.187 ; i2c_state.sendaddr   ; i2c_state.sendaddr   ; clk          ; clk         ; 0.000        ; 0.000      ; 2.408      ;
+; 2.220 ; main_state.00        ; main_state.00        ; clk          ; clk         ; 0.000        ; 0.000      ; 2.441      ;
+; 2.221 ; phase0               ; phase0               ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.232 ; i2c_state.read_data  ; i2c_state.read_data  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.453      ;
+; 2.273 ; phase2               ; phase2               ; clk          ; clk         ; 0.000        ; 0.000      ; 2.494      ;
+; 2.278 ; phase2               ; scl~reg0             ; clk          ; clk         ; 0.000        ; 0.000      ; 2.499      ;
+; 2.285 ; clk_div[7]           ; clk_div[7]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.506      ;
+; 2.381 ; clk_div[0]           ; clk_div[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.602      ;
+; 2.391 ; clk_div[0]           ; phase2               ; clk          ; clk         ; 0.000        ; 0.000      ; 2.612      ;
+; 2.394 ; clk_div[0]           ; clk_div[5]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.615      ;
+; 2.533 ; i2c_state.read_ini   ; i2c_state.read_data  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.754      ;
+; 2.591 ; clk_div[1]           ; clk_div[5]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.812      ;
+; 2.633 ; phase1               ; phase1               ; clk          ; clk         ; 0.000        ; 0.000      ; 2.854      ;
+; 2.657 ; clk_div[6]           ; phase2               ; clk          ; clk         ; 0.000        ; 0.000      ; 2.878      ;
+; 2.665 ; i2c_state.write_data ; i2c_state.write_data ; clk          ; clk         ; 0.000        ; 0.000      ; 2.886      ;
+; 2.670 ; clk_div[6]           ; clk_div[6]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.891      ;
+; 2.678 ; clk_div[6]           ; clk_div[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.899      ;
+; 2.717 ; clk_div[0]           ; clk_div[6]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.938      ;
+; 2.721 ; main_state.01        ; main_state.10        ; clk          ; clk         ; 0.000        ; 0.000      ; 2.942      ;
+; 2.806 ; inner_state.second   ; inner_state.second   ; clk          ; clk         ; 0.000        ; 0.000      ; 3.027      ;
+; 2.809 ; phase0               ; scl~reg0             ; clk          ; clk         ; 0.000        ; 0.000      ; 3.030      ;
+; 2.897 ; cnt_delay[18]        ; start_delaycnt       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.118      ;
+; 2.926 ; clk_div[3]           ; clk_div[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.147      ;
+; 2.936 ; clk_div[3]           ; phase2               ; clk          ; clk         ; 0.000        ; 0.000      ; 3.157      ;
+; 2.939 ; clk_div[3]           ; clk_div[5]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.160      ;
+; 2.940 ; inner_state.fourth   ; inner_state.fourth   ; clk          ; clk         ; 0.000        ; 0.000      ; 3.161      ;
+; 3.087 ; clk_div[3]           ; phase3               ; clk          ; clk         ; 0.000        ; 0.000      ; 3.308      ;
+; 3.137 ; clk_div[6]           ; clk_div[5]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.358      ;
+; 3.154 ; main_state.01        ; main_state.01        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.375      ;
+; 3.160 ; main_state.01        ; main_state.00        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.381      ;
+; 3.242 ; main_state.10        ; main_state.10        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.463      ;
+; 3.249 ; main_state.10        ; i2c_state.ini        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.470      ;
+; 3.262 ; clk_div[3]           ; clk_div[6]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.483      ;
+; 3.303 ; start_delaycnt       ; start_delaycnt       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.524      ;
+; 3.310 ; inner_state.first    ; inner_state.first    ; clk          ; clk         ; 0.000        ; 0.000      ; 3.531      ;
+; 3.328 ; i2c_state.read_ini   ; i2c_state.read_ini   ; clk          ; clk         ; 0.000        ; 0.000      ; 3.549      ;
+; 3.379 ; main_state.10        ; i2c_state.read_ini   ; clk          ; clk         ; 0.000        ; 0.000      ; 3.600      ;
+; 3.392 ; clk_div[0]           ; phase0               ; clk          ; clk         ; 0.000        ; 0.000      ; 3.613      ;
+; 3.398 ; start_delaycnt       ; cnt_delay[9]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.619      ;
+; 3.398 ; start_delaycnt       ; cnt_delay[7]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.619      ;
+; 3.398 ; start_delaycnt       ; cnt_delay[6]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.619      ;
+; 3.398 ; start_delaycnt       ; cnt_delay[11]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.619      ;
+; 3.398 ; start_delaycnt       ; cnt_delay[4]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.619      ;
+; 3.398 ; start_delaycnt       ; cnt_delay[3]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.619      ;
+; 3.398 ; start_delaycnt       ; cnt_delay[2]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.619      ;
+; 3.398 ; start_delaycnt       ; cnt_delay[5]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.619      ;
+; 3.415 ; main_state.10        ; i2c_state.read_data  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.636      ;
+; 3.421 ; main_state.01        ; i2c_state.ini        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.642      ;
+; 3.445 ; main_state.01        ; inner_state.third    ; clk          ; clk         ; 0.000        ; 0.000      ; 3.666      ;
+; 3.446 ; start_delaycnt       ; cnt_delay[18]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.667      ;
+; 3.446 ; start_delaycnt       ; cnt_delay[13]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.667      ;
+; 3.446 ; start_delaycnt       ; cnt_delay[12]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.667      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[16]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[15]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[14]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[17]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[19]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[10]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.469 ; start_delaycnt       ; cnt_delay[8]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.690      ;
+; 3.561 ; clk_div[4]           ; clk_div[6]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.782      ;
+; 3.565 ; inner_state.ack      ; inner_state.ack      ; clk          ; clk         ; 0.000        ; 0.000      ; 3.786      ;
+; 3.569 ; clk_div[4]           ; clk_div[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.790      ;
+; 3.593 ; sda_buf              ; sda_buf              ; clk          ; clk         ; 0.000        ; 0.000      ; 3.814      ;
+; 3.670 ; main_state.10        ; i2c_state.sendaddr   ; clk          ; clk         ; 0.000        ; 0.000      ; 3.891      ;
+; 3.680 ; main_state.10        ; i2c_state.write_data ; clk          ; clk         ; 0.000        ; 0.000      ; 3.901      ;
+; 3.684 ; cnt_delay[11]        ; cnt_delay[8]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.905      ;
+; 3.691 ; cnt_delay[11]        ; cnt_delay[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 3.912      ;
+; 3.698 ; cnt_delay[11]        ; cnt_delay[10]        ; clk          ; clk         ; 0.000        ; 0.000      ; 3.919      ;
+; 3.783 ; main_state.01        ; inner_state.seventh  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.004      ;
+; 3.787 ; main_state.01        ; inner_state.fifth    ; clk          ; clk         ; 0.000        ; 0.000      ; 4.008      ;
+; 3.832 ; cnt_delay[17]        ; cnt_delay[8]         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.053      ;
+; 3.833 ; clk_div[1]           ; clk_div[1]           ; clk          ; clk         ; 0.000        ; 0.000      ; 4.054      ;
+; 3.839 ; cnt_delay[17]        ; cnt_delay[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.060      ;
+; 3.846 ; cnt_delay[17]        ; cnt_delay[10]        ; clk          ; clk         ; 0.000        ; 0.000      ; 4.067      ;
+; 3.862 ; scl~reg0             ; scl~reg0             ; clk          ; clk         ; 0.000        ; 0.000      ; 4.083      ;
+; 3.907 ; cnt_delay[11]        ; cnt_delay[19]        ; clk          ; clk         ; 0.000        ; 0.000      ; 4.128      ;
+; 3.937 ; clk_div[3]           ; phase0               ; clk          ; clk         ; 0.000        ; 0.000      ; 4.158      ;
+; 3.992 ; cnt_delay[1]         ; cnt_delay[8]         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.213      ;
+; 3.999 ; cnt_delay[1]         ; cnt_delay[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.220      ;
+; 4.006 ; cnt_delay[1]         ; cnt_delay[10]        ; clk          ; clk         ; 0.000        ; 0.000      ; 4.227      ;
+; 4.008 ; cnt_delay[19]        ; start_delaycnt       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.229      ;
+; 4.013 ; clk_div[5]           ; clk_div[5]           ; clk          ; clk         ; 0.000        ; 0.000      ; 4.234      ;
+; 4.028 ; clk_div[4]           ; clk_div[5]           ; clk          ; clk         ; 0.000        ; 0.000      ; 4.249      ;
+; 4.055 ; cnt_delay[17]        ; cnt_delay[19]        ; clk          ; clk         ; 0.000        ; 0.000      ; 4.276      ;
+; 4.069 ; cnt_delay[5]         ; cnt_delay[8]         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.290      ;
+; 4.076 ; cnt_delay[5]         ; cnt_delay[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 4.297      ;
+; 4.077 ; clk_div[1]           ; phase3               ; clk          ; clk         ; 0.000        ; 0.000      ; 4.298      ;
+; 4.083 ; cnt_delay[5]         ; cnt_delay[10]        ; clk          ; clk         ; 0.000        ; 0.000      ; 4.304      ;
+; 4.093 ; clk_div[5]           ; clk_div[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 4.314      ;
++-------+----------------------+----------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                            ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target               ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clk_div[0]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clk_div[0]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clk_div[1]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clk_div[1]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clk_div[2]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clk_div[2]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clk_div[3]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clk_div[3]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clk_div[4]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clk_div[4]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clk_div[5]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clk_div[5]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clk_div[6]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clk_div[6]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clk_div[7]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clk_div[7]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[0]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[0]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[10]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[10]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[11]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[11]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[12]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[12]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[13]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[13]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[14]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[14]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[15]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[15]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[16]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[16]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[17]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[17]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[18]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[18]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[19]        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[19]        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[1]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[1]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[2]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[2]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[3]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[3]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[4]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[4]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[5]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[5]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[6]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[6]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[7]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[7]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[8]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[8]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; cnt_delay[9]         ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; cnt_delay[9]         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; i2c_state.ini        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; i2c_state.ini        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; i2c_state.read_data  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; i2c_state.read_data  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; i2c_state.read_ini   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; i2c_state.read_ini   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; i2c_state.sendaddr   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; i2c_state.sendaddr   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; i2c_state.write_data ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; i2c_state.write_data ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.ack      ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.ack      ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.eighth   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.eighth   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.fifth    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.fifth    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.first    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.first    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.fourth   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.fourth   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.second   ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.second   ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.seventh  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.seventh  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.sixth    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.sixth    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.start    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.start    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.stop     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.stop     ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; inner_state.third    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; inner_state.third    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; link                 ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; link                 ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; main_state.00        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; main_state.00        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; main_state.01        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; main_state.01        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; main_state.10        ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; main_state.10        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; phase0               ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; phase0               ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; phase1               ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+
+
++---------------------------------------------------------------------------+
+; Setup Times                                                               ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; data_in[*]  ; clk        ; 3.853  ; 3.853  ; Rise       ; clk             ;
+;  data_in[0] ; clk        ; 3.469  ; 3.469  ; Rise       ; clk             ;
+;  data_in[1] ; clk        ; 2.959  ; 2.959  ; Rise       ; clk             ;
+;  data_in[2] ; clk        ; 2.950  ; 2.950  ; Rise       ; clk             ;
+;  data_in[3] ; clk        ; 3.853  ; 3.853  ; Rise       ; clk             ;
+; rd_input    ; clk        ; 9.416  ; 9.416  ; Rise       ; clk             ;
+; sda         ; clk        ; 11.399 ; 11.399 ; Rise       ; clk             ;
+; wr_input    ; clk        ; 9.510  ; 9.510  ; Rise       ; clk             ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; data_in[*]  ; clk        ; -2.396 ; -2.396 ; Rise       ; clk             ;
+;  data_in[0] ; clk        ; -2.915 ; -2.915 ; Rise       ; clk             ;
+;  data_in[1] ; clk        ; -2.405 ; -2.405 ; Rise       ; clk             ;
+;  data_in[2] ; clk        ; -2.396 ; -2.396 ; Rise       ; clk             ;
+;  data_in[3] ; clk        ; -3.299 ; -3.299 ; Rise       ; clk             ;
+; rd_input    ; clk        ; -6.075 ; -6.075 ; Rise       ; clk             ;
+; sda         ; clk        ; -3.142 ; -3.142 ; Rise       ; clk             ;
+; wr_input    ; clk        ; -2.330 ; -2.330 ; Rise       ; clk             ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; leddata[*]  ; clk        ; 8.654 ; 8.654 ; Rise       ; clk             ;
+;  leddata[0] ; clk        ; 8.493 ; 8.493 ; Rise       ; clk             ;
+;  leddata[1] ; clk        ; 8.654 ; 8.654 ; Rise       ; clk             ;
+;  leddata[2] ; clk        ; 7.793 ; 7.793 ; Rise       ; clk             ;
+;  leddata[3] ; clk        ; 8.558 ; 8.558 ; Rise       ; clk             ;
+; scl         ; clk        ; 8.383 ; 8.383 ; Rise       ; clk             ;
+; sda         ; clk        ; 8.987 ; 8.987 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; leddata[*]  ; clk        ; 7.793 ; 7.793 ; Rise       ; clk             ;
+;  leddata[0] ; clk        ; 8.493 ; 8.493 ; Rise       ; clk             ;
+;  leddata[1] ; clk        ; 8.654 ; 8.654 ; Rise       ; clk             ;
+;  leddata[2] ; clk        ; 7.793 ; 7.793 ; Rise       ; clk             ;
+;  leddata[3] ; clk        ; 8.558 ; 8.558 ; Rise       ; clk             ;
+; scl         ; clk        ; 8.383 ; 8.383 ; Rise       ; clk             ;
+; sda         ; clk        ; 8.987 ; 8.987 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------+
+; Output Enable Times                                                  ;
++-----------+------------+-------+------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+------+------------+-----------------+
+; sda       ; clk        ; 8.583 ;      ; Rise       ; clk             ;
++-----------+------------+-------+------+------------+-----------------+
+
+
++----------------------------------------------------------------------+
+; Minimum Output Enable Times                                          ;
++-----------+------------+-------+------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+------+------------+-----------------+
+; sda       ; clk        ; 8.583 ;      ; Rise       ; clk             ;
++-----------+------------+-------+------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Output Disable Times                                                          ;
++-----------+------------+-----------+-----------+------------+-----------------+
+; Data Port ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++-----------+------------+-----------+-----------+------------+-----------------+
+; sda       ; clk        ; 8.583     ;           ; Rise       ; clk             ;
++-----------+------------+-----------+-----------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Minimum Output Disable Times                                                  ;
++-----------+------------+-----------+-----------+------------+-----------------+
+; Data Port ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++-----------+------------+-----------+-----------+------------+-----------------+
+; sda       ; clk        ; 8.583     ;           ; Rise       ; clk             ;
++-----------+------------+-----------+-----------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1557     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1557     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 8     ; 8    ;
+; Unconstrained Input Port Paths  ; 77    ; 77   ;
+; Unconstrained Output Ports      ; 6     ; 6    ;
+; Unconstrained Output Port Paths ; 7     ; 7    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 11.0 Build 157 04/27/2011 SJ Full Version
+    Info: Processing started: Tue Jul 24 16:19:19 2012
+Info: Command: quartus_sta i2c -c i2c
+Info: qsta_default_script.tcl version: #1
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: Synopsys Design Constraints File file not found: 'i2c.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name clk clk
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -9.544
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -9.544      -426.986 clk 
+Info: Worst-case hold slack is 1.397
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     1.397         0.000 clk 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -2.289
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -2.289        -2.289 clk 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 188 megabytes
+    Info: Processing ended: Tue Jul 24 16:19:29 2012
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:06
+
+

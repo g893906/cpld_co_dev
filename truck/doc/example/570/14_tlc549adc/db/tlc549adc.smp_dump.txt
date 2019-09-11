@@ -1,0 +1,8 @@
+
+State Machine - |tlc549adc|adc:inst|adc_state
+Name adc_state.adc_receive adc_state.adc_conversion adc_state.adc_ready adc_state.idle adc_state.adc_data_load 
+adc_state.idle 0 0 0 0 0 
+adc_state.adc_ready 0 0 1 1 0 
+adc_state.adc_conversion 0 1 0 1 0 
+adc_state.adc_receive 1 0 0 1 0 
+adc_state.adc_data_load 0 0 0 1 1 

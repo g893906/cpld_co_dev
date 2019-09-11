@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Jul 24 15:57:54 2012
+Quartus II Version : 11.0 Build 157 04/27/2011 SJ Full Version
+Revision Name : key_led
+Top-level Entity Name : key_led
+Family : MAX II
+Device : EPM570T100C5
+Timing Models : Final
+Total logic elements : 13 / 570 ( 2 % )
+Total pins : 12 / 76 ( 16 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

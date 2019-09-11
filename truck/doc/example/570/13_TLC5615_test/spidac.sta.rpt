@@ -1,0 +1,679 @@
+TimeQuest Timing Analyzer report for spidac
+Tue Jul 24 16:12:59 2012
+Quartus II Version 11.0 Build 157 04/27/2011 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clkdiv4'
+ 12. Setup: 'clkdiv2'
+ 13. Setup: 'clk'
+ 14. Hold: 'clk'
+ 15. Hold: 'clkdiv2'
+ 16. Hold: 'clkdiv4'
+ 17. Minimum Pulse Width: 'clk'
+ 18. Minimum Pulse Width: 'clkdiv2'
+ 19. Minimum Pulse Width: 'clkdiv4'
+ 20. Setup Times
+ 21. Hold Times
+ 22. Clock to Output Times
+ 23. Minimum Clock to Output Times
+ 24. Setup Transfers
+ 25. Hold Transfers
+ 26. Report TCCS
+ 27. Report RSKM
+ 28. Unconstrained Paths
+ 29. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                      ;
++--------------------+---------------------------------------------------+
+; Quartus II Version ; Version 11.0 Build 157 04/27/2011 SJ Full Version ;
+; Revision Name      ; spidac                                            ;
+; Device Family      ; MAX II                                            ;
+; Device Name        ; EPM570T100C5                                      ;
+; Timing Models      ; Final                                             ;
+; Delay Model        ; Slow Model                                        ;
+; Rise/Fall Delays   ; Unavailable                                       ;
++--------------------+---------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ; < 0.1%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                              ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }     ;
+; clkdiv2    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clkdiv2 } ;
+; clkdiv4    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clkdiv4 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+
+
++--------------------------------------------------+
+; Fmax Summary                                     ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 118.09 MHz ; 118.09 MHz      ; clkdiv4    ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------+
+; Setup Summary                    ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; clkdiv4 ; -5.921 ; -107.197      ;
+; clkdiv2 ; 0.466  ; 0.000         ;
+; clk     ; 3.913  ; 0.000         ;
++---------+--------+---------------+
+
+
++----------------------------------+
+; Hold Summary                     ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; clk     ; -3.967 ; -3.967        ;
+; clkdiv2 ; -0.520 ; -0.520        ;
+; clkdiv4 ; 1.650  ; 0.000         ;
++---------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++----------------------------------+
+; Minimum Pulse Width Summary      ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; clk     ; -2.289 ; -2.289        ;
+; clkdiv2 ; 0.234  ; 0.000         ;
+; clkdiv4 ; 0.234  ; 0.000         ;
++---------+--------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Setup: 'clkdiv4'                                                                                            ;
++--------+--------------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node    ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------+---------------+--------------+-------------+--------------+------------+------------+
+; -5.921 ; state[3]     ; shift_reg[3]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.921 ; state[3]     ; shift_reg[4]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.921 ; state[3]     ; shift_reg[5]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.921 ; state[3]     ; shift_reg[6]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.921 ; state[3]     ; shift_reg[7]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.921 ; state[3]     ; shift_reg[8]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.921 ; state[3]     ; shift_reg[9]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.921 ; state[3]     ; shift_reg[10] ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.921 ; state[3]     ; shift_reg[11] ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.588      ;
+; -5.508 ; bit_cnt[0]   ; state[2]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.175      ;
+; -5.371 ; state[1]     ; shift_reg[3]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.371 ; state[1]     ; shift_reg[4]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.371 ; state[1]     ; shift_reg[5]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.371 ; state[1]     ; shift_reg[6]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.371 ; state[1]     ; shift_reg[7]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.371 ; state[1]     ; shift_reg[8]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.371 ; state[1]     ; shift_reg[9]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.371 ; state[1]     ; shift_reg[10] ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.371 ; state[1]     ; shift_reg[11] ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 6.038      ;
+; -5.327 ; state[2]     ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.994      ;
+; -5.327 ; state[2]     ; bit_cnt[0]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.994      ;
+; -5.225 ; state[0]     ; shift_reg[3]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.225 ; state[0]     ; shift_reg[4]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.225 ; state[0]     ; shift_reg[5]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.225 ; state[0]     ; shift_reg[6]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.225 ; state[0]     ; shift_reg[7]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.225 ; state[0]     ; shift_reg[8]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.225 ; state[0]     ; shift_reg[9]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.225 ; state[0]     ; shift_reg[10] ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.225 ; state[0]     ; shift_reg[11] ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.892      ;
+; -5.101 ; bit_cnt[0]   ; state[3]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.768      ;
+; -5.096 ; bit_cnt[1]   ; state[2]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.763      ;
+; -5.059 ; state[2]     ; state[2]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.726      ;
+; -4.991 ; state[3]     ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.658      ;
+; -4.991 ; state[3]     ; bit_cnt[0]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.658      ;
+; -4.689 ; bit_cnt[1]   ; state[3]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.356      ;
+; -4.609 ; bit_cnt[3]   ; state[2]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.276      ;
+; -4.509 ; bit_cnt[2]   ; state[2]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.176      ;
+; -4.441 ; state[1]     ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.108      ;
+; -4.441 ; state[1]     ; bit_cnt[0]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.108      ;
+; -4.438 ; state[2]     ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.105      ;
+; -4.438 ; state[2]     ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.105      ;
+; -4.395 ; state[3]     ; state[0]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 5.062      ;
+; -4.294 ; state[0]     ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.961      ;
+; -4.294 ; state[0]     ; bit_cnt[0]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.961      ;
+; -4.248 ; state[2]     ; wait_on       ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.915      ;
+; -4.202 ; bit_cnt[3]   ; state[3]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.869      ;
+; -4.146 ; bit_cnt[0]   ; state[0]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.813      ;
+; -4.102 ; bit_cnt[2]   ; state[3]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.769      ;
+; -4.102 ; state[3]     ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.769      ;
+; -4.102 ; state[3]     ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.769      ;
+; -4.026 ; state[0]     ; state[2]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.693      ;
+; -3.947 ; state[0]     ; wait_on       ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.614      ;
+; -3.903 ; state[1]     ; wait_on       ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.570      ;
+; -3.824 ; state[2]     ; shift_reg[3]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.824 ; state[2]     ; shift_reg[4]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.824 ; state[2]     ; shift_reg[5]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.824 ; state[2]     ; shift_reg[6]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.824 ; state[2]     ; shift_reg[7]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.824 ; state[2]     ; shift_reg[8]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.824 ; state[2]     ; shift_reg[9]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.824 ; state[2]     ; shift_reg[10] ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.824 ; state[2]     ; shift_reg[11] ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.491      ;
+; -3.738 ; state[3]     ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.405      ;
+; -3.734 ; bit_cnt[1]   ; state[0]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.401      ;
+; -3.734 ; wait_cnt[2]  ; state[2]      ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 3.901      ;
+; -3.731 ; wait_cnt[2]  ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 3.898      ;
+; -3.671 ; state[2]     ; state[0]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.338      ;
+; -3.652 ; state[3]     ; state[3]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.319      ;
+; -3.583 ; wait_cnt[0]  ; state[2]      ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 3.750      ;
+; -3.580 ; wait_cnt[0]  ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 3.747      ;
+; -3.552 ; state[1]     ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.219      ;
+; -3.552 ; state[1]     ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.219      ;
+; -3.405 ; state[0]     ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.072      ;
+; -3.405 ; state[0]     ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.072      ;
+; -3.354 ; state[1]     ; state[3]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 4.021      ;
+; -3.290 ; state[3]     ; state[1]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.957      ;
+; -3.247 ; bit_cnt[3]   ; state[0]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.914      ;
+; -3.210 ; wait_cnt[1]  ; state[2]      ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 3.377      ;
+; -3.207 ; wait_cnt[1]  ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 3.374      ;
+; -3.205 ; state[2]     ; state[3]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.872      ;
+; -3.188 ; state[1]     ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.855      ;
+; -3.179 ; state[1]     ; state[2]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.846      ;
+; -3.147 ; bit_cnt[2]   ; state[0]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.814      ;
+; -3.093 ; wait_on      ; wait_on       ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.760      ;
+; -3.042 ; state[0]     ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.709      ;
+; -2.882 ; wait_on      ; wait_cnt[1]   ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 3.049      ;
+; -2.882 ; wait_on      ; wait_cnt[2]   ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 3.049      ;
+; -2.866 ; bit_cnt[1]   ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.533      ;
+; -2.863 ; bit_cnt[1]   ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.530      ;
+; -2.800 ; wait_cnt[2]  ; wait_on       ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 2.967      ;
+; -2.733 ; bit_cnt[0]   ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.400      ;
+; -2.730 ; bit_cnt[0]   ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.397      ;
+; -2.649 ; wait_cnt[0]  ; wait_on       ; clkdiv4      ; clkdiv4     ; 0.500        ; 0.000      ; 2.816      ;
+; -2.641 ; state[0]     ; state[3]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.308      ;
+; -2.505 ; shift_reg[2] ; shift_reg[3]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.172      ;
+; -2.495 ; state[3]     ; wait_on       ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.162      ;
+; -2.477 ; state[2]     ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.144      ;
+; -2.475 ; state[2]     ; state[1]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.142      ;
+; -2.458 ; state[1]     ; state[0]      ; clkdiv4      ; clkdiv4     ; 1.000        ; 0.000      ; 3.125      ;
++--------+--------------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Setup: 'clkdiv2'                                                                                  ;
++-------+-----------+---------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+---------+--------------+-------------+--------------+------------+------------+
+; 0.466 ; clkdiv4   ; clkdiv4 ; clkdiv4      ; clkdiv2     ; 0.500        ; 1.784      ; 1.861      ;
+; 0.966 ; clkdiv4   ; clkdiv4 ; clkdiv4      ; clkdiv2     ; 1.000        ; 1.784      ; 1.861      ;
++-------+-----------+---------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                      ;
++-------+-----------+---------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+---------+--------------+-------------+--------------+------------+------------+
+; 3.913 ; clkdiv2   ; clkdiv2 ; clkdiv2      ; clk         ; 0.500        ; 5.508      ; 2.138      ;
+; 4.413 ; clkdiv2   ; clkdiv2 ; clkdiv2      ; clk         ; 1.000        ; 5.508      ; 2.138      ;
++-------+-----------+---------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                        ;
++--------+-----------+---------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+---------+--------------+-------------+--------------+------------+------------+
+; -3.967 ; clkdiv2   ; clkdiv2 ; clkdiv2      ; clk         ; 0.000        ; 5.508      ; 2.138      ;
+; -3.467 ; clkdiv2   ; clkdiv2 ; clkdiv2      ; clk         ; -0.500       ; 5.508      ; 2.138      ;
++--------+-----------+---------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Hold: 'clkdiv2'                                                                                    ;
++--------+-----------+---------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+---------+--------------+-------------+--------------+------------+------------+
+; -0.520 ; clkdiv4   ; clkdiv4 ; clkdiv4      ; clkdiv2     ; 0.000        ; 1.784      ; 1.861      ;
+; -0.020 ; clkdiv4   ; clkdiv4 ; clkdiv4      ; clkdiv2     ; -0.500       ; 1.784      ; 1.861      ;
++--------+-----------+---------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Hold: 'clkdiv4'                                                                                             ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+; 1.650 ; shift_reg[3]  ; shift_reg[4]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.871      ;
+; 1.650 ; shift_reg[10] ; shift_reg[11] ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.871      ;
+; 1.659 ; shift_reg[5]  ; shift_reg[6]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.880      ;
+; 1.664 ; shift_reg[4]  ; shift_reg[5]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.885      ;
+; 1.665 ; shift_reg[6]  ; shift_reg[7]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.886      ;
+; 1.711 ; wait_cnt[1]   ; wait_cnt[1]   ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.932      ;
+; 1.718 ; wait_cnt[1]   ; wait_cnt[2]   ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.939      ;
+; 1.726 ; bit_cnt[2]    ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.947      ;
+; 1.732 ; bit_cnt[2]    ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 1.953      ;
+; 1.909 ; shift_reg[7]  ; shift_reg[8]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.130      ;
+; 1.909 ; shift_reg[8]  ; shift_reg[9]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.130      ;
+; 1.914 ; shift_reg[9]  ; shift_reg[10] ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.135      ;
+; 1.917 ; bit_cnt[0]    ; bit_cnt[0]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.138      ;
+; 1.928 ; bit_cnt[0]    ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.149      ;
+; 1.974 ; wait_cnt[0]   ; wait_cnt[0]   ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.195      ;
+; 1.985 ; wait_cnt[0]   ; wait_cnt[1]   ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.206      ;
+; 1.993 ; wait_cnt[0]   ; wait_cnt[2]   ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.214      ;
+; 2.090 ; state[2]      ; bit_cnt[0]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.311      ;
+; 2.107 ; bit_cnt[1]    ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.328      ;
+; 2.168 ; wait_cnt[2]   ; wait_cnt[2]   ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.389      ;
+; 2.173 ; shift_reg[2]  ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.394      ;
+; 2.205 ; state[0]      ; state[0]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.426      ;
+; 2.208 ; state[0]      ; state[1]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.429      ;
+; 2.242 ; bit_cnt[3]    ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.463      ;
+; 2.309 ; state[1]      ; state[1]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.530      ;
+; 2.311 ; state[1]      ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.532      ;
+; 2.682 ; state[3]      ; shift_reg[5]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.903      ;
+; 2.687 ; state[3]      ; shift_reg[6]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.908      ;
+; 2.694 ; state[3]      ; shift_reg[11] ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.915      ;
+; 2.701 ; state[3]      ; shift_reg[4]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.922      ;
+; 2.708 ; state[3]      ; shift_reg[7]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.929      ;
+; 2.722 ; wait_cnt[1]   ; wait_on       ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 2.443      ;
+; 2.756 ; state[3]      ; state[2]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 2.977      ;
+; 2.780 ; wait_on       ; wait_cnt[0]   ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 2.501      ;
+; 2.904 ; state[1]      ; state[0]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.125      ;
+; 2.921 ; state[2]      ; state[1]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.142      ;
+; 2.923 ; state[2]      ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.144      ;
+; 2.941 ; state[3]      ; wait_on       ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.162      ;
+; 2.951 ; shift_reg[2]  ; shift_reg[3]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.172      ;
+; 3.011 ; state[3]      ; shift_reg[10] ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.232      ;
+; 3.022 ; state[3]      ; shift_reg[3]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.243      ;
+; 3.022 ; state[3]      ; shift_reg[9]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.243      ;
+; 3.023 ; state[3]      ; shift_reg[8]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.244      ;
+; 3.087 ; state[0]      ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.308      ;
+; 3.095 ; wait_cnt[0]   ; wait_on       ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 2.816      ;
+; 3.176 ; bit_cnt[0]    ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.397      ;
+; 3.179 ; bit_cnt[0]    ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.400      ;
+; 3.216 ; state[2]      ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.437      ;
+; 3.225 ; state[1]      ; state[2]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.446      ;
+; 3.246 ; wait_cnt[2]   ; wait_on       ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 2.967      ;
+; 3.309 ; bit_cnt[1]    ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.530      ;
+; 3.312 ; bit_cnt[1]    ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.533      ;
+; 3.328 ; wait_on       ; wait_cnt[1]   ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 3.049      ;
+; 3.328 ; wait_on       ; wait_cnt[2]   ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 3.049      ;
+; 3.348 ; state[2]      ; state[2]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.569      ;
+; 3.353 ; state[2]      ; wait_on       ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.574      ;
+; 3.470 ; state[3]      ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.691      ;
+; 3.488 ; state[0]      ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.709      ;
+; 3.539 ; wait_on       ; wait_on       ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.760      ;
+; 3.593 ; bit_cnt[2]    ; state[0]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.814      ;
+; 3.651 ; state[2]      ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.872      ;
+; 3.653 ; wait_cnt[1]   ; state[3]      ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 3.374      ;
+; 3.656 ; wait_cnt[1]   ; state[2]      ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 3.377      ;
+; 3.693 ; bit_cnt[3]    ; state[0]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.914      ;
+; 3.736 ; state[3]      ; state[1]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 3.957      ;
+; 3.800 ; state[1]      ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.021      ;
+; 3.851 ; state[0]      ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.072      ;
+; 3.851 ; state[0]      ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.072      ;
+; 3.998 ; state[1]      ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.219      ;
+; 3.998 ; state[1]      ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.219      ;
+; 4.026 ; wait_cnt[0]   ; state[3]      ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 3.747      ;
+; 4.029 ; wait_cnt[0]   ; state[2]      ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 3.750      ;
+; 4.096 ; state[2]      ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.317      ;
+; 4.096 ; state[2]      ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.317      ;
+; 4.117 ; state[2]      ; state[0]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.338      ;
+; 4.177 ; wait_cnt[2]   ; state[3]      ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 3.898      ;
+; 4.180 ; bit_cnt[1]    ; state[0]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.401      ;
+; 4.180 ; wait_cnt[2]   ; state[2]      ; clkdiv4      ; clkdiv4     ; -0.500       ; 0.000      ; 3.901      ;
+; 4.184 ; state[3]      ; shift_reg[2]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.405      ;
+; 4.270 ; state[2]      ; shift_reg[3]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.270 ; state[2]      ; shift_reg[4]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.270 ; state[2]      ; shift_reg[5]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.270 ; state[2]      ; shift_reg[6]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.270 ; state[2]      ; shift_reg[7]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.270 ; state[2]      ; shift_reg[8]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.270 ; state[2]      ; shift_reg[9]  ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.270 ; state[2]      ; shift_reg[10] ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.270 ; state[2]      ; shift_reg[11] ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.491      ;
+; 4.349 ; state[1]      ; wait_on       ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.570      ;
+; 4.393 ; state[0]      ; wait_on       ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.614      ;
+; 4.472 ; state[0]      ; state[2]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.693      ;
+; 4.548 ; bit_cnt[2]    ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.769      ;
+; 4.548 ; state[3]      ; bit_cnt[3]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.769      ;
+; 4.548 ; state[3]      ; bit_cnt[2]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.769      ;
+; 4.592 ; bit_cnt[0]    ; state[0]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.813      ;
+; 4.648 ; bit_cnt[3]    ; state[3]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.869      ;
+; 4.740 ; state[0]      ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.961      ;
+; 4.740 ; state[0]      ; bit_cnt[0]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 4.961      ;
+; 4.841 ; state[3]      ; state[0]      ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 5.062      ;
+; 4.887 ; state[1]      ; bit_cnt[1]    ; clkdiv4      ; clkdiv4     ; 0.000        ; 0.000      ; 5.108      ;
++-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                   ;
++--------+--------------+----------------+------------------+-------+------------+-------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target      ;
++--------+--------------+----------------+------------------+-------+------------+-------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk         ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; clkdiv2     ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; clkdiv2     ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clkdiv2|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clkdiv2|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout ;
++--------+--------------+----------------+------------------+-------+------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clkdiv2'                                                                   ;
++-------+--------------+----------------+------------------+---------+------------+----------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target         ;
++-------+--------------+----------------+------------------+---------+------------+----------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv2 ; Rise       ; clkdiv4        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv2 ; Rise       ; clkdiv4        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv2 ; Rise       ; clkdiv2|regout ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv2 ; Rise       ; clkdiv2|regout ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv2 ; Rise       ; clkdiv4|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv2 ; Rise       ; clkdiv4|clk    ;
++-------+--------------+----------------+------------------+---------+------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clkdiv4'                                                                      ;
++-------+--------------+----------------+------------------+---------+------------+-------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target            ;
++-------+--------------+----------------+------------------+---------+------------+-------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; bit_cnt[0]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; bit_cnt[0]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; bit_cnt[1]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; bit_cnt[1]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; bit_cnt[2]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; bit_cnt[2]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; bit_cnt[3]        ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; bit_cnt[3]        ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[10]     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[10]     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[11]     ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[11]     ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[2]      ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[2]      ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[3]      ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[3]      ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[4]      ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[4]      ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[5]      ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[5]      ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[6]      ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[6]      ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[7]      ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[7]      ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[8]      ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[8]      ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[9]      ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[9]      ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; state[0]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; state[0]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; state[1]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; state[1]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; state[2]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; state[2]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; state[3]          ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; state[3]          ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Fall       ; wait_cnt[0]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Fall       ; wait_cnt[0]       ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Fall       ; wait_cnt[1]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Fall       ; wait_cnt[1]       ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Fall       ; wait_cnt[2]       ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Fall       ; wait_cnt[2]       ;
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; clkdiv4 ; Rise       ; wait_on           ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; clkdiv4 ; Rise       ; wait_on           ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; bit_cnt[0]|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; bit_cnt[0]|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; bit_cnt[1]|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; bit_cnt[1]|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; bit_cnt[2]|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; bit_cnt[2]|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; bit_cnt[3]|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; bit_cnt[3]|clk    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; clkdiv4|regout    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; clkdiv4|regout    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[10]|clk ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[10]|clk ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[11]|clk ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[11]|clk ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[2]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[2]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[3]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[3]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[4]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[4]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[5]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[5]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[6]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[6]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[7]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[7]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[8]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[8]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; shift_reg[9]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; shift_reg[9]|clk  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; state[0]|clk      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; state[0]|clk      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; state[1]|clk      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; state[1]|clk      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; state[2]|clk      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; state[2]|clk      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; state[3]|clk      ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; state[3]|clk      ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; wait_cnt[0]|clk   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; wait_cnt[0]|clk   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; wait_cnt[1]|clk   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; wait_cnt[1]|clk   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; wait_cnt[2]|clk   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; wait_cnt[2]|clk   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; clkdiv4 ; Rise       ; wait_on|clk       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; clkdiv4 ; Rise       ; wait_on|clk       ;
++-------+--------------+----------------+------------------+---------+------------+-------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; Reset     ; clkdiv4    ; 6.124 ; 6.124 ; Rise       ; clkdiv4         ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; Reset     ; clkdiv4    ; -3.387 ; -3.387 ; Rise       ; clkdiv4         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; DAC_nCS   ; clkdiv4    ; 10.634 ; 10.634 ; Rise       ; clkdiv4         ;
+; dac_din   ; clkdiv4    ; 11.098 ; 11.098 ; Rise       ; clkdiv4         ;
+; dac_sclk  ; clkdiv4    ; 10.645 ; 10.645 ; Rise       ; clkdiv4         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; DAC_nCS   ; clkdiv4    ; 10.634 ; 10.634 ; Rise       ; clkdiv4         ;
+; dac_din   ; clkdiv4    ; 11.098 ; 11.098 ; Rise       ; clkdiv4         ;
+; dac_sclk  ; clkdiv4    ; 10.645 ; 10.645 ; Rise       ; clkdiv4         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clkdiv2    ; clk      ; 1        ; 1        ; 0        ; 0        ;
+; clkdiv4    ; clkdiv2  ; 1        ; 1        ; 0        ; 0        ;
+; clkdiv4    ; clkdiv4  ; 136      ; 9        ; 3        ; 6        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clkdiv2    ; clk      ; 1        ; 1        ; 0        ; 0        ;
+; clkdiv4    ; clkdiv2  ; 1        ; 1        ; 0        ; 0        ;
+; clkdiv4    ; clkdiv4  ; 136      ; 9        ; 3        ; 6        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 24    ; 24   ;
+; Unconstrained Output Ports      ; 3     ; 3    ;
+; Unconstrained Output Port Paths ; 3     ; 3    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 11.0 Build 157 04/27/2011 SJ Full Version
+    Info: Processing started: Tue Jul 24 16:12:50 2012
+Info: Command: quartus_sta spidac -c spidac
+Info: qsta_default_script.tcl version: #1
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: Synopsys Design Constraints File file not found: 'spidac.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name clkdiv4 clkdiv4
+    Info: create_clock -period 1.000 -name clkdiv2 clkdiv2
+    Info: create_clock -period 1.000 -name clk clk
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -5.921
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -5.921      -107.197 clkdiv4 
+    Info:     0.466         0.000 clkdiv2 
+    Info:     3.913         0.000 clk 
+Info: Worst-case hold slack is -3.967
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.967        -3.967 clk 
+    Info:    -0.520        -0.520 clkdiv2 
+    Info:     1.650         0.000 clkdiv4 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -2.289
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -2.289        -2.289 clk 
+    Info:     0.234         0.000 clkdiv2 
+    Info:     0.234         0.000 clkdiv4 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 186 megabytes
+    Info: Processing ended: Tue Jul 24 16:12:59 2012
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:05
+
+

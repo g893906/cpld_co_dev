@@ -1,0 +1,149 @@
+Quartus II
+Version 11.0 Build 157 04/27/2011 SJ Full Version
+49
+4364
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+pcf8563
+# storage
+db|pcf8563.(0).cnf
+db|pcf8563.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+pcf8563.v
+afd1a93058a8f195cede6170d96fdbd3
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+prepare
+0
+PARAMETER_SIGNED_DEC
+DEF
+start
+1
+PARAMETER_SIGNED_DEC
+DEF
+transmit_slave_address
+2
+PARAMETER_SIGNED_DEC
+DEF
+check_ack1
+3
+PARAMETER_SIGNED_DEC
+DEF
+transmit_sub_address
+4
+PARAMETER_SIGNED_DEC
+DEF
+check_ack2
+5
+PARAMETER_SIGNED_DEC
+DEF
+transmit_data
+6
+PARAMETER_SIGNED_DEC
+DEF
+check_ack3
+7
+PARAMETER_SIGNED_DEC
+DEF
+transmit_data1
+8
+PARAMETER_SIGNED_DEC
+DEF
+transmit_data2
+9
+PARAMETER_SIGNED_DEC
+DEF
+check_ack4
+10
+PARAMETER_SIGNED_DEC
+DEF
+check_ack44
+11
+PARAMETER_SIGNED_DEC
+DEF
+start1
+12
+PARAMETER_SIGNED_DEC
+DEF
+start2
+13
+PARAMETER_SIGNED_DEC
+DEF
+transmit_slave_address1
+14
+PARAMETER_SIGNED_DEC
+DEF
+transmit_slave_address2
+15
+PARAMETER_SIGNED_DEC
+DEF
+transmit_sub_address1
+16
+PARAMETER_SIGNED_DEC
+DEF
+check_ack5
+17
+PARAMETER_SIGNED_DEC
+DEF
+check_ack6
+18
+PARAMETER_SIGNED_DEC
+DEF
+check_ack7
+19
+PARAMETER_SIGNED_DEC
+DEF
+read_data1
+20
+PARAMETER_SIGNED_DEC
+DEF
+stop
+21
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# complete
+

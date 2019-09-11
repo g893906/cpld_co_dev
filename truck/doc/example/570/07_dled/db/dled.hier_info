@@ -1,0 +1,80 @@
+|dled
+clk => int_div:inst1.clock
+
+
+|dled|scan_led:inst2
+clk_1k => dig_r[0].CLK
+clk_1k => dig_r[1].CLK
+clk_1k => dig_r[2].CLK
+clk_1k => dig_r[3].CLK
+clk_1k => dig_r[4].CLK
+clk_1k => dig_r[5].CLK
+clk_1k => dig_r[6].CLK
+clk_1k => dig_r[7].CLK
+clk_1k => disp_dat[0].CLK
+clk_1k => disp_dat[1].CLK
+clk_1k => disp_dat[2].CLK
+clk_1k => disp_dat[3].CLK
+clk_1k => count[0].CLK
+clk_1k => count[1].CLK
+clk_1k => count[2].CLK
+d[0] => Mux3.IN7
+d[1] => Mux2.IN7
+d[2] => Mux1.IN7
+d[3] => Mux0.IN7
+d[4] => Mux3.IN6
+d[5] => Mux2.IN6
+d[6] => Mux1.IN6
+d[7] => Mux0.IN6
+d[8] => Mux3.IN5
+d[9] => Mux2.IN5
+d[10] => Mux1.IN5
+d[11] => Mux0.IN5
+d[12] => Mux3.IN4
+d[13] => Mux2.IN4
+d[14] => Mux1.IN4
+d[15] => Mux0.IN4
+d[16] => Mux3.IN3
+d[17] => Mux2.IN3
+d[18] => Mux1.IN3
+d[19] => Mux0.IN3
+d[20] => Mux3.IN2
+d[21] => Mux2.IN2
+d[22] => Mux1.IN2
+d[23] => Mux0.IN2
+d[24] => Mux3.IN1
+d[25] => Mux2.IN1
+d[26] => Mux1.IN1
+d[27] => Mux0.IN1
+d[28] => Mux3.IN0
+d[29] => Mux2.IN0
+d[30] => Mux1.IN0
+d[31] => Mux0.IN0
+
+
+|dled|int_div:inst1
+clock => clk_p_r.CLK
+clock => count_p[0].CLK
+clock => count_p[1].CLK
+clock => count_p[2].CLK
+clock => count_p[3].CLK
+clock => count_p[4].CLK
+clock => count_p[5].CLK
+clock => count_p[6].CLK
+clock => count_p[7].CLK
+clock => count_p[8].CLK
+clock => count_p[9].CLK
+clock => count_p[10].CLK
+clock => count_p[11].CLK
+clock => count_p[12].CLK
+clock => count_p[13].CLK
+clock => count_p[14].CLK
+clock => count_p[15].CLK
+
+
+|dled|constant:inst
+
+
+|dled|constant:inst|constant_lpm_constant_3v8:constant_lpm_constant_3v8_component
+
+

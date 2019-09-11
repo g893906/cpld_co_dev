@@ -1,0 +1,409 @@
+--文件名:pcf8563.vhd
+--功  能:读出pcf8563中的时钟信号
+--说  明PCF8563芯片是PHILIPS公司推出的一款工业级内含I2C总线接口功能的具有极低功耗的多功能时钟/日历芯片。
+--该程序实现的功能是把PCF8563芯片中的时钟读出来显示，而且编写该程序的主要目的是教会大家如何对该时钟芯片进行编程控制，
+--因此我们只是把芯片中时钟的秒位、分位读出，并用数码管显示。PCF8563芯片的功能十分的强大，我们可以应用它设计出很多有用的
+--产品，目前，我们教会大家应用这种芯片的方法。用户可以根据自身的需要对芯片不同的地址和数据进行操作实现自己功能。
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL; 
+entity pcf8563 is
+    Port ( sysclk,reset : in std_logic;
+           sda,scl : inout std_logic;
+   sel : out std_logic_vector(3 downto 0);
+   seg_data :out std_logic_vector(8 downto 1));
+end pcf8563;
+
+
+architecture Behavioral of pcf8563 is
+type state is (prepare,start,transmit_slave_address,check_ack1,transmit_sub_address,check_ack2,
+transmit_data,check_ack3,transmit_data1,transmit_data2,check_ack4,check_ack44,start1,start2,transmit_slave_address1,
+transmit_slave_address2,transmit_sub_address1,check_ack5,check_ack6,check_ack7,read_data1,
+start3,transmit_slave_address3,check_ack8,read_data2,stop);     --定义状态机的各子状态；
+
+signal current_state:state;                         --定义信号；
+signal clock,shift_clk:std_logic;
+signal code_led : std_logic_vector(3 downto 0);
+signal reg_led_second,reg_led_minute : std_logic_vector(8 downto 1);
+
+begin               
+pulse:process(sysclk,reset)                   --进程1，分频得到f为4khz的时钟信号
+variable count:integer range 0 to 12500;
+begin
+   if reset='0' then count:=0;
+   elsif rising_edge(sysclk) then
+     count:=count+1;
+       if count=6500 then clock<='1';
+     elsif count=12500 then clock<='0';count:=0;    --frequency:4kHz 
+     end if;
+   end if;
+end process pulse;
+
+
+statemachine:process(clock,reset)           --进程2，状态机的转换
+variable slave_address1,sub_address1,data1,slave_address2,sub_address2:std_logic_vector(8 downto 1);
+variable cnt:std_logic_vector(6 downto 0);
+variable cnt1:integer range 0 to 8;
+variable count1:integer range 0 to 40;
+
+begin
+if reset='0' then   --异步复位
+	count1:=0;
+	cnt:="0000000";
+	cnt1:=8;
+	sda<='1';
+	scl<='1';
+	slave_address1:="10100010";
+	slave_address2:="10100011";
+	sub_address1:="00000000"; 
+	sub_address2:="00000010";
+	current_state<=prepare;
+	data1:="00000000";  
+	reg_led_minute<="11111111";
+	reg_led_second<="11111111";
+
+elsif rising_edge(clock) then  
+  
+case current_state is
+  when prepare=>cnt:=cnt+1;       --准备状态，等各个器件复位
+       if cnt="0000010" then 
+       cnt:="0000000";
+       current_state<=start;
+       else current_state<=prepare;
+  end if;
+  
+  when start=>count1:=count1+1;   --起始信号产生状态
+        case count1 is
+        when 1=>sda<='1';
+        when 2=>scl<='1';
+        when 3=>sda<='0';
+        when 4=>scl<='0';
+        when 5=>count1:=0;current_state<=transmit_slave_address;
+        when others=>null;
+        end case;
+        
+  when transmit_slave_address=>count1:=count1+1;  --发送器件从地址
+        case count1 is
+        when 1=>sda<=slave_address1(cnt1);  --FROM 8BIT TO 1BIT slave_address1:="10100010";
+        when 2=>scl<='1';
+        when 3=>scl<='0';
+        when 4=>cnt1:=cnt1-1;count1:=0;
+        if cnt1=0 then cnt1:=8;
+        current_state<=check_ack1;
+        else current_state<=transmit_slave_address;
+        end if;
+        when others=>null;
+        end case;
+        
+  when check_ack1=>count1:=count1+1;         --查询应答信号
+        case count1 is
+        when 1=>sda<='0';
+        when 2=>scl<='1';
+        when 3=>scl<='0';             
+        when 4=>current_state<=transmit_sub_address;      
+        count1:=0;
+        when others=>null;
+        end case;
+        
+ when transmit_sub_address=>count1:=count1+1; --发送器件子地址
+        case count1 is       
+        when 1=>sda<=sub_address1(cnt1);  --FROM 8BIT TO 1BIT sub_address1:="00000000";;
+        when 2=>scl<='1';
+        when 3=>scl<='0';
+        when 4=>cnt1:=cnt1-1;count1:=0;
+        if cnt1=0 then cnt1:=8;
+        current_state<=check_ack2;
+        else current_state<=transmit_sub_address;
+        end if;
+        when others=>null;
+        end case;
+        
+  when check_ack2=>count1:=count1+1;         --查询应答信号
+        case count1 is
+        when 1=>sda<='0';
+        when 2=>scl<='1';        
+        when 3=>scl<='0';                       
+        when 4=>current_state<=transmit_data;count1:=0;
+        when others=>null;
+        end case;
+      
+  when transmit_data=>count1:=count1+1;  --发送数据
+        case count1 is        
+        when 1=>sda<=data1(cnt1);    --data1:="00000000";  
+        when 2=>scl<='1';
+        when 3=>scl<='0';
+        when 4=>cnt1:=cnt1-1;count1:=0;
+        if cnt1=0 then cnt1:=8;
+        current_state<=check_ack3;
+        else current_state<=transmit_data;
+        end if;
+        when others=>null;
+        end case;
+        
+  when check_ack3=>count1:=count1+1;       --查询应答信号
+        case count1 is
+        when 1=>sda<='0';
+        when 2=>scl<='1';   
+        when 3=>scl<='0';                    
+        when 4=>current_state<=transmit_data1;
+        count1:=0;
+        when others=>null;
+        end case;
+        
+  when transmit_data1=>count1:=count1+1; --发送数据
+        case count1 is        
+        when 1=>sda<=data1(cnt1);          --data1:="00000000";  
+        when 2=>scl<='1';
+        when 3=>scl<='0';
+        when 4=>cnt1:=cnt1-1;count1:=0;
+        if cnt1=0 then cnt1:=8;
+        current_state<=check_ack4;
+        else current_state<=transmit_data1;
+        end if;
+        when others=>null;
+        end case;
+        
+        
+   when check_ack4=>count1:=count1+1;      --查询应答信号
+        case count1 is
+        when 1=>sda<='0';
+        when 2=>scl<='1';   
+        when 3=>scl<='0';                    
+        when 4=>current_state<=transmit_data2;
+        count1:=0;
+        when others=>null;
+        end case;
+        
+        
+   when transmit_data2=>count1:=count1+1;  --发送数据
+        case count1 is        
+        when 1=>sda<=data1(cnt1);    --data1:="00000000";  
+        when 2=>scl<='1';
+        when 3=>scl<='0';
+        when 4=>cnt1:=cnt1-1;count1:=0;
+       if cnt1=0 then cnt1:=8;
+       current_state<=check_ack44;
+       else current_state<=transmit_data2;
+       end if;
+        when others=>null;
+        end case;
+        
+   when check_ack44=>count1:=count1+1;        --查询应答信号
+        case count1 is
+        when 1=>sda<='0';
+        when 2=>scl<='1'; 
+        when 3=>scl<='0';                     
+        when 4=>current_state<=start1;
+        count1:=0;
+        when others=>null;
+        end case;
+        
+   when start1=>count1:=count1+1;       --起始信号产生状态
+        case count1 is
+        when 1=>sda<='1';
+        when 3=>scl<='1';
+        when 5=>sda<='0';
+        when 7=>scl<='0';
+        when 9=>count1:=0;current_state<=transmit_slave_address1;
+        when others=>null;
+        end case;
+        
+  when transmit_slave_address1=>count1:=count1+1;  --发送器件从地址
+        case count1 is
+        when 1=>sda<=slave_address1(cnt1);
+        when 3=>scl<='1';
+        when 6=>scl<='0';
+        when 8=>cnt1:=cnt1-1;count1:=0;
+       if cnt1=0 then cnt1:=8;
+       current_state<=check_ack5;
+       else current_state<=transmit_slave_address1;
+       end if;
+        when others=>null;
+        end case;
+  when check_ack5=>count1:=count1+1;        --查询应答信号
+        case count1 is
+        when 3=>sda<='0';
+        when 6=>scl<='1';      
+        when 8=>scl<='0';                     
+        when 10=>current_state<=transmit_sub_address1;  
+        count1:=0;
+        when others=>null;
+        end case;
+  when transmit_sub_address1=>count1:=count1+1; --发送器件子地址
+        case count1 is       
+        when 1=>sda<=sub_address2(cnt1);  
+        when 3=>scl<='1';
+        when 6=>scl<='0';
+        when 9=>cnt1:=cnt1-1;count1:=0;
+        if cnt1=0 then 
+        cnt1:=8;
+        current_state<=check_ack6;
+        else current_state<=transmit_sub_address1;
+        end if;
+        when others=>null;
+        end case;
+  when check_ack6=>count1:=count1+1;     --查询应答信号
+        case count1 is
+        when 3=>sda<='0';
+        when 6=>scl<='1';   
+        when 8=>scl<='0';   
+        when 10=>current_state<=start2;
+        count1:=0;
+        when others=>null;
+        end case;
+  when start2=>count1:=count1+1;        --重新起始信号产生状态
+        case count1 is
+        when 1=>sda<='1';
+        when 3=>scl<='1';
+        when 6=>sda<='0';
+        when 8=>scl<='0';
+        when 10=>count1:=0;current_state<=transmit_slave_address2; 
+        when others=>null;
+        end case; 
+     
+  when transmit_slave_address2=>count1:=count1+1;  --发送器件从地址
+        case count1 is
+        when 1=>sda<=slave_address2(cnt1);
+        when 3=>scl<='1';
+        when 6=>scl<='0';
+        when 8=>cnt1:=cnt1-1;count1:=0;
+			if cnt1=0 then cnt1:=8;
+			current_state<=check_ack7;
+			else current_state<=transmit_slave_address2;
+			end if;
+        when others=>null;
+        end case;
+         
+  when check_ack7=>count1:=count1+1;         --查询应答信号
+        case count1 is
+        when 3=>sda<='0';
+        when 6=>scl<='1';
+        when 8=>scl<='0';
+        when 10=>current_state<=read_data1;
+                 count1:=0;
+        when others=>null;
+        end case;
+      
+  when read_data1=>count1:=count1+1;             --读操作
+        case count1 is
+        when 1=>sda<='Z';
+        when 4=>scl<='1';
+        when 8=>reg_led_second(cnt1)<=sda;
+        when 10=>scl<='0';
+        when 12=>cnt1:=cnt1-1;count1:=0;
+			if cnt1=0 then cnt1:=8;
+			current_state<=start3;
+			else current_state<=read_data1;
+			end if;
+        when others=>null;
+        end case;
+ 
+        
+  when start3=>count1:=count1+1;       --重新起始信号产生状态
+        case count1 is
+        when 1=>sda<='1';
+        when 3=>scl<='1';
+        when 6=>sda<='0';
+        when 8=>scl<='0';
+        when 10=>count1:=0;current_state<=transmit_slave_address3; 
+        when others=>null;
+        end case; 
+     
+  when transmit_slave_address3=>count1:=count1+1; --发送器件从地址
+        case count1 is
+        when 1=>sda<=slave_address2(cnt1);
+        when 3=>scl<='1';
+        when 6=>scl<='0';
+        when 8=>cnt1:=cnt1-1;count1:=0;
+			if cnt1=0 then cnt1:=8;
+			current_state<=check_ack8;
+			else current_state<=transmit_slave_address3;
+			end if;
+        when others=>null;
+        end case;
+         
+  when check_ack8=>count1:=count1+1;        --查询应答信号
+        case count1 is
+        when 3=>sda<='0';
+        when 6=>scl<='1';
+        when 8=>scl<='0';
+        when 10=>current_state<=read_data2;
+                 count1:=0;
+        when others=>null;
+        end case;                                                           
+
+
+
+     
+  when read_data2=>count1:=count1+1;           --读操作
+        case count1 is
+        when 1=>sda<='Z';
+        when 4=>scl<='1';
+        when 8=>reg_led_minute(cnt1)<=sda;
+        when 10=>scl<='0';
+        when 12=>cnt1:=cnt1-1;count1:=0;
+			if cnt1=0 then cnt1:=8;
+			current_state<=stop;
+			else current_state<=read_data2;
+			end if;
+        when others=>null;
+        end case;   
+        
+   when stop=>count1:=count1+1;                 --产生停止信号
+        case count1 is
+        when 1=>sda<='0';
+        when 3=>scl<='1';
+        when 10=>sda<='1';
+        when 15=>count1:=0;current_state<=start1;
+        when others=>null;
+        end case; 
+   end case;        
+  end if;
+end process;
+
+process(sysclk)                                                --动态扫描模块
+variable cnt : integer range 0 to 50000;
+begin
+   if rising_edge(sysclk) then cnt:=cnt+1;
+      if cnt<25000 then shift_clk<='1';
+         elsif cnt<50000 then shift_clk<='0';
+         else cnt:=0;
+         end if;
+   end if;
+end process;
+
+process(shift_clk)
+variable cnt : integer range 0 to 3;
+begin
+   if rising_edge(shift_clk) then         
+         cnt:=cnt+1;
+      if cnt=0 then sel<="1110";code_led<='0'&reg_led_minute(7 downto 5);
+      elsif cnt=1 then sel<="1101";code_led<=reg_led_minute(4 downto 1);
+      elsif cnt=2 then sel<="1011";code_led<='0'&reg_led_second(7 downto 5);
+      else sel<="0111";code_led<=reg_led_second(4 downto 1);
+      end if;
+   end if;
+end process;
+
+
+with code_led select                                --数码管译码
+   seg_data <=x"c0" when "0000",
+         x"f9" when "0001",
+         x"a4" when "0010",
+         x"b0" when "0011",
+         x"99" when "0100",
+         x"92" when "0101",
+         x"82" when "0110",
+         x"f8" when "0111",
+         x"80" when "1000",
+         x"90" when "1001",     
+         x"88" when "1010",
+         x"83" when "1011",
+         x"c6" when "1100",
+         x"a1" when "1101",
+         x"86" when "1110",
+         x"8e" when "1111",
+         x"00" when others;
+      
+end Behavioral; 

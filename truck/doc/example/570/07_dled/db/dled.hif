@@ -1,0 +1,197 @@
+Quartus II
+Version 11.0 Build 157 04/27/2011 SJ Full Version
+49
+4364
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+scan_led
+# storage
+db|dled.(1).cnf
+db|dled.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+scan_led.v
+29bf4c26974a7bce393865c8604673ed
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+scan_led:inst2
+}
+# macro_sequence
+
+# end
+# entity
+int_div
+# storage
+db|dled.(2).cnf
+db|dled.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+int_div.v
+4e7c9c8972d5d5aa17be34e3e8ca55d
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+F_DIV
+50000
+PARAMETER_UNKNOWN
+USR
+F_DIV_WIDTH
+16
+PARAMETER_UNKNOWN
+USR
+}
+# hierarchies {
+int_div:inst1
+}
+# macro_sequence
+
+# end
+# entity
+constant
+# storage
+db|dled.(3).cnf
+db|dled.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+constant.v
+338861bf7a8a45f619d619b254519
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+constant:inst
+}
+# macro_sequence
+
+# end
+# entity
+constant_lpm_constant_3v8
+# storage
+db|dled.(4).cnf
+db|dled.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+constant.v
+338861bf7a8a45f619d619b254519
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+constant:inst|constant_lpm_constant_3v8:constant_lpm_constant_3v8_component
+}
+# macro_sequence
+
+# end
+# entity
+dled
+# storage
+db|dled.(0).cnf
+db|dled.(0).cnf
+# case_insensitive
+# source_file
+dled.bdf
+6e2594fbc67cca4a763ab3a1cbc2bc21
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# complete
+

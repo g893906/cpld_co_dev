@@ -1,0 +1,29 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clk'
+Slack : -9.698
+TNS   : -317.920
+
+Type  : Setup 'ps2scan:ps2scan|ps2_byte_r[0]'
+Slack : -5.460
+TNS   : -21.476
+
+Type  : Hold 'ps2scan:ps2scan|ps2_byte_r[0]'
+Slack : -8.604
+TNS   : -37.849
+
+Type  : Hold 'clk'
+Slack : 1.376
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'ps2scan:ps2scan|ps2_byte_r[0]'
+Slack : -2.154
+TNS   : -48.304
+
+------------------------------------------------------------

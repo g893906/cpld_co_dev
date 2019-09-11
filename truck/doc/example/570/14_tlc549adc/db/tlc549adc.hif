@@ -1,0 +1,191 @@
+Quartus II
+Version 11.0 Build 157 04/27/2011 SJ Full Version
+49
+4364
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+tlc549adc
+# storage
+db|tlc549adc.(0).cnf
+db|tlc549adc.(0).cnf
+# case_insensitive
+# source_file
+tlc549adc.bdf
+66b660565769c6c4785ad7b88843dbe
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+adc
+# storage
+db|tlc549adc.(1).cnf
+db|tlc549adc.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+adc.v
+2536ae9a8fd60418bfbfd6fabc7776c
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+CLK_DIV_VALUE
+31
+PARAMETER_UNKNOWN
+USR
+CLK_DIV_BITS
+5
+PARAMETER_UNKNOWN
+USR
+idle
+000
+PARAMETER_UNSIGNED_BIN
+USR
+adc_ready
+001
+PARAMETER_UNSIGNED_BIN
+USR
+adc_receive
+011
+PARAMETER_UNSIGNED_BIN
+USR
+adc_conversion
+010
+PARAMETER_UNSIGNED_BIN
+USR
+adc_data_load
+110
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+adc:inst
+}
+# macro_sequence
+
+# end
+# entity
+scan_led
+# storage
+db|tlc549adc.(2).cnf
+db|tlc549adc.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+scan_led.v
+ce8914329a36fda71ee89c3582497b
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+scan_led:inst14
+}
+# macro_sequence
+
+# end
+# entity
+int_div
+# storage
+db|tlc549adc.(3).cnf
+db|tlc549adc.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+int_div.v
+4e7c9c8972d5d5aa17be34e3e8ca55d
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+F_DIV
+50000
+PARAMETER_UNKNOWN
+USR
+F_DIV_WIDTH
+16
+PARAMETER_UNKNOWN
+USR
+}
+# hierarchies {
+int_div:inst15
+}
+# macro_sequence
+
+# end
+# complete
+

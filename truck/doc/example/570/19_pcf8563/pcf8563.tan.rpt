@@ -1,0 +1,631 @@
+Classic Timing Analyzer report for pcf8563
+Wed Jul 28 13:21:14 2010
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'sysclk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                            ;
++------------------------------+-------+---------------+----------------------------------+-------------+---------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From        ; To                  ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+-------------+---------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 4.180 ns                         ; reset       ; count[10]           ; --         ; sysclk   ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 16.029 ns                        ; code_led[3] ; seg_data[3]         ; sysclk     ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 4.393 ns                         ; reset       ; cnt1[2]             ; --         ; sysclk   ; 0            ;
+; Clock Setup: 'sysclk'        ; N/A   ; None          ; 76.40 MHz ( period = 13.089 ns ) ; count1[5]   ; current_state.start ; sysclk     ; sysclk   ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;             ;                     ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+-------------+---------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPM240T100C5       ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; sysclk          ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'sysclk'                                                                                                                                                                                                                                                        ;
++-----------------------------------------+-----------------------------------------------------+---------------------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                  ; To                       ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+---------------------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 76.40 MHz ( period = 13.089 ns )                    ; count1[5]                             ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 12.380 ns               ;
+; N/A                                     ; 76.78 MHz ( period = 13.025 ns )                    ; count1[4]                             ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 12.316 ns               ;
+; N/A                                     ; 77.23 MHz ( period = 12.948 ns )                    ; count1[4]                             ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 12.239 ns               ;
+; N/A                                     ; 77.47 MHz ( period = 12.909 ns )                    ; current_state.transmit_slave_address2 ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 12.200 ns               ;
+; N/A                                     ; 77.53 MHz ( period = 12.898 ns )                    ; count1[3]                             ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 12.189 ns               ;
+; N/A                                     ; 77.58 MHz ( period = 12.890 ns )                    ; count1[5]                             ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.181 ns               ;
+; N/A                                     ; 77.58 MHz ( period = 12.890 ns )                    ; count1[5]                             ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.181 ns               ;
+; N/A                                     ; 77.58 MHz ( period = 12.890 ns )                    ; count1[5]                             ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.181 ns               ;
+; N/A                                     ; 77.58 MHz ( period = 12.890 ns )                    ; count1[5]                             ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.181 ns               ;
+; N/A                                     ; 77.58 MHz ( period = 12.890 ns )                    ; count1[5]                             ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.181 ns               ;
+; N/A                                     ; 77.58 MHz ( period = 12.890 ns )                    ; count1[5]                             ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.181 ns               ;
+; N/A                                     ; 77.97 MHz ( period = 12.826 ns )                    ; count1[4]                             ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.117 ns               ;
+; N/A                                     ; 77.97 MHz ( period = 12.826 ns )                    ; count1[4]                             ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.117 ns               ;
+; N/A                                     ; 77.97 MHz ( period = 12.826 ns )                    ; count1[4]                             ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.117 ns               ;
+; N/A                                     ; 77.97 MHz ( period = 12.826 ns )                    ; count1[4]                             ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.117 ns               ;
+; N/A                                     ; 77.97 MHz ( period = 12.826 ns )                    ; count1[4]                             ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.117 ns               ;
+; N/A                                     ; 77.97 MHz ( period = 12.826 ns )                    ; count1[4]                             ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.117 ns               ;
+; N/A                                     ; 78.43 MHz ( period = 12.750 ns )                    ; count1[3]                             ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 12.041 ns               ;
+; N/A                                     ; 78.68 MHz ( period = 12.710 ns )                    ; current_state.transmit_slave_address2 ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.001 ns               ;
+; N/A                                     ; 78.68 MHz ( period = 12.710 ns )                    ; current_state.transmit_slave_address2 ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.001 ns               ;
+; N/A                                     ; 78.68 MHz ( period = 12.710 ns )                    ; current_state.transmit_slave_address2 ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.001 ns               ;
+; N/A                                     ; 78.68 MHz ( period = 12.710 ns )                    ; current_state.transmit_slave_address2 ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.001 ns               ;
+; N/A                                     ; 78.68 MHz ( period = 12.710 ns )                    ; current_state.transmit_slave_address2 ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.001 ns               ;
+; N/A                                     ; 78.68 MHz ( period = 12.710 ns )                    ; current_state.transmit_slave_address2 ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 12.001 ns               ;
+; N/A                                     ; 78.75 MHz ( period = 12.699 ns )                    ; count1[3]                             ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.990 ns               ;
+; N/A                                     ; 78.75 MHz ( period = 12.699 ns )                    ; count1[3]                             ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.990 ns               ;
+; N/A                                     ; 78.75 MHz ( period = 12.699 ns )                    ; count1[3]                             ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.990 ns               ;
+; N/A                                     ; 78.75 MHz ( period = 12.699 ns )                    ; count1[3]                             ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.990 ns               ;
+; N/A                                     ; 78.75 MHz ( period = 12.699 ns )                    ; count1[3]                             ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.990 ns               ;
+; N/A                                     ; 78.75 MHz ( period = 12.699 ns )                    ; count1[3]                             ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.990 ns               ;
+; N/A                                     ; 78.96 MHz ( period = 12.665 ns )                    ; current_state.read_data1              ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.956 ns               ;
+; N/A                                     ; 79.00 MHz ( period = 12.659 ns )                    ; count1[2]                             ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.950 ns               ;
+; N/A                                     ; 80.22 MHz ( period = 12.466 ns )                    ; current_state.read_data1              ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.757 ns               ;
+; N/A                                     ; 80.22 MHz ( period = 12.466 ns )                    ; current_state.read_data1              ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.757 ns               ;
+; N/A                                     ; 80.22 MHz ( period = 12.466 ns )                    ; current_state.read_data1              ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.757 ns               ;
+; N/A                                     ; 80.22 MHz ( period = 12.466 ns )                    ; current_state.read_data1              ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.757 ns               ;
+; N/A                                     ; 80.22 MHz ( period = 12.466 ns )                    ; current_state.read_data1              ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.757 ns               ;
+; N/A                                     ; 80.22 MHz ( period = 12.466 ns )                    ; current_state.read_data1              ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.757 ns               ;
+; N/A                                     ; 80.26 MHz ( period = 12.460 ns )                    ; count1[2]                             ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.751 ns               ;
+; N/A                                     ; 80.26 MHz ( period = 12.460 ns )                    ; count1[2]                             ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.751 ns               ;
+; N/A                                     ; 80.26 MHz ( period = 12.460 ns )                    ; count1[2]                             ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.751 ns               ;
+; N/A                                     ; 80.26 MHz ( period = 12.460 ns )                    ; count1[2]                             ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.751 ns               ;
+; N/A                                     ; 80.26 MHz ( period = 12.460 ns )                    ; count1[2]                             ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.751 ns               ;
+; N/A                                     ; 80.26 MHz ( period = 12.460 ns )                    ; count1[2]                             ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.751 ns               ;
+; N/A                                     ; 80.32 MHz ( period = 12.450 ns )                    ; count1[2]                             ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 11.741 ns               ;
+; N/A                                     ; 80.91 MHz ( period = 12.360 ns )                    ; count1[1]                             ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.651 ns               ;
+; N/A                                     ; 80.98 MHz ( period = 12.349 ns )                    ; count1[0]                             ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.640 ns               ;
+; N/A                                     ; 81.23 MHz ( period = 12.311 ns )                    ; current_state.transmit_slave_address1 ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.602 ns               ;
+; N/A                                     ; 81.66 MHz ( period = 12.246 ns )                    ; current_state.check_ack6              ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.537 ns               ;
+; N/A                                     ; 82.23 MHz ( period = 12.161 ns )                    ; count1[1]                             ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.452 ns               ;
+; N/A                                     ; 82.23 MHz ( period = 12.161 ns )                    ; count1[1]                             ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.452 ns               ;
+; N/A                                     ; 82.23 MHz ( period = 12.161 ns )                    ; count1[1]                             ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.452 ns               ;
+; N/A                                     ; 82.23 MHz ( period = 12.161 ns )                    ; count1[1]                             ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.452 ns               ;
+; N/A                                     ; 82.23 MHz ( period = 12.161 ns )                    ; count1[1]                             ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.452 ns               ;
+; N/A                                     ; 82.23 MHz ( period = 12.161 ns )                    ; count1[1]                             ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.452 ns               ;
+; N/A                                     ; 82.30 MHz ( period = 12.150 ns )                    ; count1[0]                             ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.441 ns               ;
+; N/A                                     ; 82.30 MHz ( period = 12.150 ns )                    ; count1[0]                             ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.441 ns               ;
+; N/A                                     ; 82.30 MHz ( period = 12.150 ns )                    ; count1[0]                             ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.441 ns               ;
+; N/A                                     ; 82.30 MHz ( period = 12.150 ns )                    ; count1[0]                             ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.441 ns               ;
+; N/A                                     ; 82.30 MHz ( period = 12.150 ns )                    ; count1[0]                             ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.441 ns               ;
+; N/A                                     ; 82.30 MHz ( period = 12.150 ns )                    ; count1[0]                             ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.441 ns               ;
+; N/A                                     ; 82.56 MHz ( period = 12.112 ns )                    ; current_state.transmit_slave_address1 ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.403 ns               ;
+; N/A                                     ; 82.56 MHz ( period = 12.112 ns )                    ; current_state.transmit_slave_address1 ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.403 ns               ;
+; N/A                                     ; 82.56 MHz ( period = 12.112 ns )                    ; current_state.transmit_slave_address1 ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.403 ns               ;
+; N/A                                     ; 82.56 MHz ( period = 12.112 ns )                    ; current_state.transmit_slave_address1 ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.403 ns               ;
+; N/A                                     ; 82.56 MHz ( period = 12.112 ns )                    ; current_state.transmit_slave_address1 ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.403 ns               ;
+; N/A                                     ; 82.56 MHz ( period = 12.112 ns )                    ; current_state.transmit_slave_address1 ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.403 ns               ;
+; N/A                                     ; 82.73 MHz ( period = 12.088 ns )                    ; current_state.start2                  ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.379 ns               ;
+; N/A                                     ; 83.01 MHz ( period = 12.047 ns )                    ; current_state.check_ack6              ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.338 ns               ;
+; N/A                                     ; 83.01 MHz ( period = 12.047 ns )                    ; current_state.check_ack6              ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.338 ns               ;
+; N/A                                     ; 83.01 MHz ( period = 12.047 ns )                    ; current_state.check_ack6              ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.338 ns               ;
+; N/A                                     ; 83.01 MHz ( period = 12.047 ns )                    ; current_state.check_ack6              ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.338 ns               ;
+; N/A                                     ; 83.01 MHz ( period = 12.047 ns )                    ; current_state.check_ack6              ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.338 ns               ;
+; N/A                                     ; 83.01 MHz ( period = 12.047 ns )                    ; current_state.check_ack6              ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.338 ns               ;
+; N/A                                     ; 83.15 MHz ( period = 12.026 ns )                    ; count1[5]                             ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 11.317 ns               ;
+; N/A                                     ; 83.81 MHz ( period = 11.932 ns )                    ; count1[4]                             ; sda~en                   ; sysclk     ; sysclk   ; None                        ; None                      ; 11.223 ns               ;
+; N/A                                     ; 84.11 MHz ( period = 11.889 ns )                    ; current_state.start2                  ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.180 ns               ;
+; N/A                                     ; 84.11 MHz ( period = 11.889 ns )                    ; current_state.start2                  ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.180 ns               ;
+; N/A                                     ; 84.11 MHz ( period = 11.889 ns )                    ; current_state.start2                  ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.180 ns               ;
+; N/A                                     ; 84.11 MHz ( period = 11.889 ns )                    ; current_state.start2                  ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.180 ns               ;
+; N/A                                     ; 84.11 MHz ( period = 11.889 ns )                    ; current_state.start2                  ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.180 ns               ;
+; N/A                                     ; 84.11 MHz ( period = 11.889 ns )                    ; current_state.start2                  ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 11.180 ns               ;
+; N/A                                     ; 84.12 MHz ( period = 11.888 ns )                    ; count1[5]                             ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 11.179 ns               ;
+; N/A                                     ; 84.66 MHz ( period = 11.812 ns )                    ; current_state.check_ack7              ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.103 ns               ;
+; N/A                                     ; 85.22 MHz ( period = 11.734 ns )                    ; count1[3]                             ; sda~en                   ; sysclk     ; sysclk   ; None                        ; None                      ; 11.025 ns               ;
+; N/A                                     ; 85.22 MHz ( period = 11.734 ns )                    ; current_state.check_ack1              ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 11.025 ns               ;
+; N/A                                     ; 85.41 MHz ( period = 11.708 ns )                    ; current_state.transmit_slave_address2 ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.999 ns               ;
+; N/A                                     ; 85.43 MHz ( period = 11.705 ns )                    ; count1[4]                             ; scl~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.996 ns               ;
+; N/A                                     ; 85.49 MHz ( period = 11.697 ns )                    ; count1[3]                             ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.988 ns               ;
+; N/A                                     ; 85.51 MHz ( period = 11.694 ns )                    ; current_state.transmit_slave_address2 ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.985 ns               ;
+; N/A                                     ; 85.87 MHz ( period = 11.646 ns )                    ; current_state.transmit_data           ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 10.937 ns               ;
+; N/A                                     ; 86.08 MHz ( period = 11.617 ns )                    ; count1[4]                             ; current_state.start1     ; sysclk     ; sysclk   ; None                        ; None                      ; 10.908 ns               ;
+; N/A                                     ; 86.11 MHz ( period = 11.613 ns )                    ; current_state.check_ack7              ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.904 ns               ;
+; N/A                                     ; 86.11 MHz ( period = 11.613 ns )                    ; current_state.check_ack7              ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.904 ns               ;
+; N/A                                     ; 86.11 MHz ( period = 11.613 ns )                    ; current_state.check_ack7              ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.904 ns               ;
+; N/A                                     ; 86.11 MHz ( period = 11.613 ns )                    ; current_state.check_ack7              ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.904 ns               ;
+; N/A                                     ; 86.11 MHz ( period = 11.613 ns )                    ; current_state.check_ack7              ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.904 ns               ;
+; N/A                                     ; 86.11 MHz ( period = 11.613 ns )                    ; current_state.check_ack7              ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.904 ns               ;
+; N/A                                     ; 86.36 MHz ( period = 11.580 ns )                    ; current_state.transmit_sub_address    ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 10.871 ns               ;
+; N/A                                     ; 86.36 MHz ( period = 11.579 ns )                    ; count1[4]                             ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.870 ns               ;
+; N/A                                     ; 86.69 MHz ( period = 11.535 ns )                    ; current_state.check_ack1              ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.826 ns               ;
+; N/A                                     ; 86.69 MHz ( period = 11.535 ns )                    ; current_state.check_ack1              ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.826 ns               ;
+; N/A                                     ; 86.69 MHz ( period = 11.535 ns )                    ; current_state.check_ack1              ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.826 ns               ;
+; N/A                                     ; 86.69 MHz ( period = 11.535 ns )                    ; current_state.check_ack1              ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.826 ns               ;
+; N/A                                     ; 86.69 MHz ( period = 11.535 ns )                    ; current_state.check_ack1              ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.826 ns               ;
+; N/A                                     ; 86.69 MHz ( period = 11.535 ns )                    ; current_state.check_ack1              ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.826 ns               ;
+; N/A                                     ; 86.90 MHz ( period = 11.507 ns )                    ; count1[3]                             ; scl~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.798 ns               ;
+; N/A                                     ; 87.23 MHz ( period = 11.464 ns )                    ; current_state.read_data1              ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.755 ns               ;
+; N/A                                     ; 87.28 MHz ( period = 11.458 ns )                    ; count1[2]                             ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.749 ns               ;
+; N/A                                     ; 87.36 MHz ( period = 11.447 ns )                    ; current_state.transmit_data           ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.738 ns               ;
+; N/A                                     ; 87.36 MHz ( period = 11.447 ns )                    ; current_state.transmit_data           ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.738 ns               ;
+; N/A                                     ; 87.36 MHz ( period = 11.447 ns )                    ; current_state.transmit_data           ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.738 ns               ;
+; N/A                                     ; 87.36 MHz ( period = 11.447 ns )                    ; current_state.transmit_data           ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.738 ns               ;
+; N/A                                     ; 87.36 MHz ( period = 11.447 ns )                    ; current_state.transmit_data           ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.738 ns               ;
+; N/A                                     ; 87.36 MHz ( period = 11.447 ns )                    ; current_state.transmit_data           ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.738 ns               ;
+; N/A                                     ; 87.46 MHz ( period = 11.434 ns )                    ; count1[2]                             ; sda~en                   ; sysclk     ; sysclk   ; None                        ; None                      ; 10.725 ns               ;
+; N/A                                     ; 87.47 MHz ( period = 11.432 ns )                    ; current_state.check_ack5              ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 10.723 ns               ;
+; N/A                                     ; 87.55 MHz ( period = 11.422 ns )                    ; current_state.start1                  ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 10.713 ns               ;
+; N/A                                     ; 87.57 MHz ( period = 11.419 ns )                    ; count1[3]                             ; current_state.start1     ; sysclk     ; sysclk   ; None                        ; None                      ; 10.710 ns               ;
+; N/A                                     ; 87.71 MHz ( period = 11.401 ns )                    ; count1[4]                             ; cnt1[0]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.692 ns               ;
+; N/A                                     ; 87.71 MHz ( period = 11.401 ns )                    ; count1[4]                             ; cnt1[2]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.692 ns               ;
+; N/A                                     ; 87.71 MHz ( period = 11.401 ns )                    ; count1[4]                             ; cnt1[1]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.692 ns               ;
+; N/A                                     ; 87.87 MHz ( period = 11.381 ns )                    ; current_state.transmit_sub_address    ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.672 ns               ;
+; N/A                                     ; 87.87 MHz ( period = 11.381 ns )                    ; current_state.transmit_sub_address    ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.672 ns               ;
+; N/A                                     ; 87.87 MHz ( period = 11.381 ns )                    ; current_state.transmit_sub_address    ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.672 ns               ;
+; N/A                                     ; 87.87 MHz ( period = 11.381 ns )                    ; current_state.transmit_sub_address    ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.672 ns               ;
+; N/A                                     ; 87.87 MHz ( period = 11.381 ns )                    ; current_state.transmit_sub_address    ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.672 ns               ;
+; N/A                                     ; 87.87 MHz ( period = 11.381 ns )                    ; current_state.transmit_sub_address    ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.672 ns               ;
+; N/A                                     ; 88.27 MHz ( period = 11.329 ns )                    ; current_state.check_ack1              ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.620 ns               ;
+; N/A                                     ; 88.38 MHz ( period = 11.315 ns )                    ; count1[0]                             ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.606 ns               ;
+; N/A                                     ; 88.83 MHz ( period = 11.257 ns )                    ; current_state.transmit_slave_address  ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 10.548 ns               ;
+; N/A                                     ; 88.88 MHz ( period = 11.251 ns )                    ; current_state.transmit_data           ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.542 ns               ;
+; N/A                                     ; 89.00 MHz ( period = 11.236 ns )                    ; current_state.check_ack2              ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 10.527 ns               ;
+; N/A                                     ; 89.02 MHz ( period = 11.233 ns )                    ; current_state.check_ack5              ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.524 ns               ;
+; N/A                                     ; 89.02 MHz ( period = 11.233 ns )                    ; current_state.check_ack5              ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.524 ns               ;
+; N/A                                     ; 89.02 MHz ( period = 11.233 ns )                    ; current_state.check_ack5              ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.524 ns               ;
+; N/A                                     ; 89.02 MHz ( period = 11.233 ns )                    ; current_state.check_ack5              ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.524 ns               ;
+; N/A                                     ; 89.02 MHz ( period = 11.233 ns )                    ; current_state.check_ack5              ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.524 ns               ;
+; N/A                                     ; 89.02 MHz ( period = 11.233 ns )                    ; current_state.check_ack5              ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.524 ns               ;
+; N/A                                     ; 89.10 MHz ( period = 11.223 ns )                    ; current_state.start1                  ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.514 ns               ;
+; N/A                                     ; 89.10 MHz ( period = 11.223 ns )                    ; current_state.start1                  ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.514 ns               ;
+; N/A                                     ; 89.10 MHz ( period = 11.223 ns )                    ; current_state.start1                  ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.514 ns               ;
+; N/A                                     ; 89.10 MHz ( period = 11.223 ns )                    ; current_state.start1                  ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.514 ns               ;
+; N/A                                     ; 89.10 MHz ( period = 11.223 ns )                    ; current_state.start1                  ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.514 ns               ;
+; N/A                                     ; 89.10 MHz ( period = 11.223 ns )                    ; current_state.start1                  ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.514 ns               ;
+; N/A                                     ; 89.23 MHz ( period = 11.207 ns )                    ; count1[2]                             ; scl~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.498 ns               ;
+; N/A                                     ; 89.26 MHz ( period = 11.203 ns )                    ; count1[3]                             ; cnt1[0]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.494 ns               ;
+; N/A                                     ; 89.26 MHz ( period = 11.203 ns )                    ; count1[3]                             ; cnt1[2]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.494 ns               ;
+; N/A                                     ; 89.26 MHz ( period = 11.203 ns )                    ; count1[3]                             ; cnt1[1]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.494 ns               ;
+; N/A                                     ; 89.41 MHz ( period = 11.185 ns )                    ; current_state.transmit_sub_address    ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.476 ns               ;
+; N/A                                     ; 89.70 MHz ( period = 11.148 ns )                    ; count1[0]                             ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.439 ns               ;
+; N/A                                     ; 89.86 MHz ( period = 11.129 ns )                    ; current_state.stop                    ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 10.420 ns               ;
+; N/A                                     ; 89.94 MHz ( period = 11.119 ns )                    ; count1[2]                             ; current_state.start1     ; sysclk     ; sysclk   ; None                        ; None                      ; 10.410 ns               ;
+; N/A                                     ; 90.01 MHz ( period = 11.110 ns )                    ; current_state.transmit_slave_address1 ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.401 ns               ;
+; N/A                                     ; 90.07 MHz ( period = 11.102 ns )                    ; current_state.transmit_slave_address2 ; cnt1[0]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.393 ns               ;
+; N/A                                     ; 90.07 MHz ( period = 11.102 ns )                    ; current_state.transmit_slave_address2 ; cnt1[2]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.393 ns               ;
+; N/A                                     ; 90.07 MHz ( period = 11.102 ns )                    ; current_state.transmit_slave_address2 ; cnt1[1]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.393 ns               ;
+; N/A                                     ; 90.12 MHz ( period = 11.096 ns )                    ; current_state.transmit_slave_address1 ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.387 ns               ;
+; N/A                                     ; 90.43 MHz ( period = 11.058 ns )                    ; current_state.transmit_slave_address  ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.349 ns               ;
+; N/A                                     ; 90.43 MHz ( period = 11.058 ns )                    ; current_state.transmit_slave_address  ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.349 ns               ;
+; N/A                                     ; 90.43 MHz ( period = 11.058 ns )                    ; current_state.transmit_slave_address  ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.349 ns               ;
+; N/A                                     ; 90.43 MHz ( period = 11.058 ns )                    ; current_state.transmit_slave_address  ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.349 ns               ;
+; N/A                                     ; 90.43 MHz ( period = 11.058 ns )                    ; current_state.transmit_slave_address  ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.349 ns               ;
+; N/A                                     ; 90.43 MHz ( period = 11.058 ns )                    ; current_state.transmit_slave_address  ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.349 ns               ;
+; N/A                                     ; 90.54 MHz ( period = 11.045 ns )                    ; current_state.check_ack6              ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.336 ns               ;
+; N/A                                     ; 90.60 MHz ( period = 11.037 ns )                    ; current_state.check_ack2              ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.328 ns               ;
+; N/A                                     ; 90.60 MHz ( period = 11.037 ns )                    ; current_state.check_ack2              ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.328 ns               ;
+; N/A                                     ; 90.60 MHz ( period = 11.037 ns )                    ; current_state.check_ack2              ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.328 ns               ;
+; N/A                                     ; 90.60 MHz ( period = 11.037 ns )                    ; current_state.check_ack2              ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.328 ns               ;
+; N/A                                     ; 90.60 MHz ( period = 11.037 ns )                    ; current_state.check_ack2              ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.328 ns               ;
+; N/A                                     ; 90.60 MHz ( period = 11.037 ns )                    ; current_state.check_ack2              ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.328 ns               ;
+; N/A                                     ; 90.83 MHz ( period = 11.010 ns )                    ; count1[5]                             ; sda~en                   ; sysclk     ; sysclk   ; None                        ; None                      ; 10.301 ns               ;
+; N/A                                     ; 91.07 MHz ( period = 10.981 ns )                    ; cnt1[0]                               ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.272 ns               ;
+; N/A                                     ; 91.14 MHz ( period = 10.972 ns )                    ; current_state.transmit_sub_address1   ; current_state.start      ; sysclk     ; sysclk   ; None                        ; None                      ; 10.263 ns               ;
+; N/A                                     ; 91.35 MHz ( period = 10.947 ns )                    ; count1[1]                             ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.238 ns               ;
+; N/A                                     ; 91.37 MHz ( period = 10.945 ns )                    ; current_state.check_ack1              ; scl~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.236 ns               ;
+; N/A                                     ; 91.43 MHz ( period = 10.937 ns )                    ; count1[5]                             ; scl~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.228 ns               ;
+; N/A                                     ; 91.49 MHz ( period = 10.930 ns )                    ; current_state.stop                    ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.221 ns               ;
+; N/A                                     ; 91.49 MHz ( period = 10.930 ns )                    ; current_state.stop                    ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.221 ns               ;
+; N/A                                     ; 91.49 MHz ( period = 10.930 ns )                    ; current_state.stop                    ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.221 ns               ;
+; N/A                                     ; 91.49 MHz ( period = 10.930 ns )                    ; current_state.stop                    ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.221 ns               ;
+; N/A                                     ; 91.49 MHz ( period = 10.930 ns )                    ; current_state.stop                    ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.221 ns               ;
+; N/A                                     ; 91.49 MHz ( period = 10.930 ns )                    ; current_state.stop                    ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.221 ns               ;
+; N/A                                     ; 91.51 MHz ( period = 10.928 ns )                    ; count1[1]                             ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.219 ns               ;
+; N/A                                     ; 91.72 MHz ( period = 10.903 ns )                    ; count1[2]                             ; cnt1[0]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.194 ns               ;
+; N/A                                     ; 91.72 MHz ( period = 10.903 ns )                    ; count1[2]                             ; cnt1[2]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.194 ns               ;
+; N/A                                     ; 91.72 MHz ( period = 10.903 ns )                    ; count1[2]                             ; cnt1[1]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.194 ns               ;
+; N/A                                     ; 91.85 MHz ( period = 10.887 ns )                    ; current_state.start2                  ; current_state.check_ack1 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.178 ns               ;
+; N/A                                     ; 92.02 MHz ( period = 10.867 ns )                    ; current_state.transmit_data           ; scl~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.158 ns               ;
+; N/A                                     ; 92.06 MHz ( period = 10.862 ns )                    ; current_state.transmit_slave_address  ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.153 ns               ;
+; N/A                                     ; 92.33 MHz ( period = 10.831 ns )                    ; current_state.check_ack2              ; sda~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.122 ns               ;
+; N/A                                     ; 92.58 MHz ( period = 10.801 ns )                    ; current_state.transmit_sub_address    ; scl~reg0                 ; sysclk     ; sysclk   ; None                        ; None                      ; 10.092 ns               ;
+; N/A                                     ; 92.82 MHz ( period = 10.773 ns )                    ; current_state.transmit_sub_address1   ; count1[5]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.064 ns               ;
+; N/A                                     ; 92.82 MHz ( period = 10.773 ns )                    ; current_state.transmit_sub_address1   ; count1[4]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.064 ns               ;
+; N/A                                     ; 92.82 MHz ( period = 10.773 ns )                    ; current_state.transmit_sub_address1   ; count1[3]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.064 ns               ;
+; N/A                                     ; 92.82 MHz ( period = 10.773 ns )                    ; current_state.transmit_sub_address1   ; count1[2]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.064 ns               ;
+; N/A                                     ; 92.82 MHz ( period = 10.773 ns )                    ; current_state.transmit_sub_address1   ; count1[1]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.064 ns               ;
+; N/A                                     ; 92.82 MHz ( period = 10.773 ns )                    ; current_state.transmit_sub_address1   ; count1[0]                ; sysclk     ; sysclk   ; None                        ; None                      ; 10.064 ns               ;
+; N/A                                     ; 93.14 MHz ( period = 10.736 ns )                    ; count1[1]                             ; cnt1[0]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.027 ns               ;
+; N/A                                     ; 93.14 MHz ( period = 10.736 ns )                    ; count1[1]                             ; cnt1[2]                  ; sysclk     ; sysclk   ; None                        ; None                      ; 10.027 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                       ;                          ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+---------------------------------------+--------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; tsu                                                                                          ;
++-------+--------------+------------+-------+---------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From  ; To                                    ; To Clock ;
++-------+--------------+------------+-------+---------------------------------------+----------+
+; N/A   ; None         ; 4.180 ns   ; reset ; count[13]                             ; sysclk   ;
+; N/A   ; None         ; 4.180 ns   ; reset ; count[12]                             ; sysclk   ;
+; N/A   ; None         ; 4.180 ns   ; reset ; count[11]                             ; sysclk   ;
+; N/A   ; None         ; 4.180 ns   ; reset ; count[7]                              ; sysclk   ;
+; N/A   ; None         ; 4.180 ns   ; reset ; count[9]                              ; sysclk   ;
+; N/A   ; None         ; 4.180 ns   ; reset ; count[8]                              ; sysclk   ;
+; N/A   ; None         ; 4.180 ns   ; reset ; count[10]                             ; sysclk   ;
+; N/A   ; None         ; 3.788 ns   ; reset ; count[2]                              ; sysclk   ;
+; N/A   ; None         ; 3.788 ns   ; reset ; count[3]                              ; sysclk   ;
+; N/A   ; None         ; 3.788 ns   ; reset ; count[1]                              ; sysclk   ;
+; N/A   ; None         ; 3.788 ns   ; reset ; count[4]                              ; sysclk   ;
+; N/A   ; None         ; 3.788 ns   ; reset ; count[5]                              ; sysclk   ;
+; N/A   ; None         ; 3.788 ns   ; reset ; count[6]                              ; sysclk   ;
+; N/A   ; None         ; 3.788 ns   ; reset ; count[0]                              ; sysclk   ;
+; N/A   ; None         ; 3.704 ns   ; reset ; cnt2[12]                              ; sysclk   ;
+; N/A   ; None         ; 3.704 ns   ; reset ; cnt2[11]                              ; sysclk   ;
+; N/A   ; None         ; 3.704 ns   ; reset ; cnt2[13]                              ; sysclk   ;
+; N/A   ; None         ; 3.704 ns   ; reset ; cnt2[7]                               ; sysclk   ;
+; N/A   ; None         ; 3.704 ns   ; reset ; cnt2[8]                               ; sysclk   ;
+; N/A   ; None         ; 3.704 ns   ; reset ; cnt2[9]                               ; sysclk   ;
+; N/A   ; None         ; 3.704 ns   ; reset ; cnt2[10]                              ; sysclk   ;
+; N/A   ; None         ; 3.450 ns   ; reset ; cnt2[4]                               ; sysclk   ;
+; N/A   ; None         ; 3.450 ns   ; reset ; cnt2[3]                               ; sysclk   ;
+; N/A   ; None         ; 3.450 ns   ; reset ; cnt2[1]                               ; sysclk   ;
+; N/A   ; None         ; 3.450 ns   ; reset ; cnt2[2]                               ; sysclk   ;
+; N/A   ; None         ; 3.450 ns   ; reset ; cnt2[5]                               ; sysclk   ;
+; N/A   ; None         ; 3.450 ns   ; reset ; cnt2[6]                               ; sysclk   ;
+; N/A   ; None         ; 3.450 ns   ; reset ; cnt2[0]                               ; sysclk   ;
+; N/A   ; None         ; 3.143 ns   ; reset ; clock                                 ; sysclk   ;
+; N/A   ; None         ; 3.006 ns   ; reset ; shift_clk                             ; sysclk   ;
+; N/A   ; None         ; 0.942 ns   ; reset ; count1[5]                             ; sysclk   ;
+; N/A   ; None         ; 0.942 ns   ; reset ; count1[4]                             ; sysclk   ;
+; N/A   ; None         ; 0.942 ns   ; reset ; count1[3]                             ; sysclk   ;
+; N/A   ; None         ; 0.942 ns   ; reset ; count1[2]                             ; sysclk   ;
+; N/A   ; None         ; 0.942 ns   ; reset ; count1[1]                             ; sysclk   ;
+; N/A   ; None         ; 0.942 ns   ; reset ; count1[0]                             ; sysclk   ;
+; N/A   ; None         ; 0.594 ns   ; reset ; sda~reg0                              ; sysclk   ;
+; N/A   ; None         ; 0.485 ns   ; sda   ; reg_led_second[4]                     ; sysclk   ;
+; N/A   ; None         ; 0.177 ns   ; sda   ; reg_led_second[7]                     ; sysclk   ;
+; N/A   ; None         ; 0.174 ns   ; sda   ; reg_led_second[6]                     ; sysclk   ;
+; N/A   ; None         ; -0.028 ns  ; sda   ; reg_led_second[5]                     ; sysclk   ;
+; N/A   ; None         ; -0.357 ns  ; sda   ; reg_led_second[2]                     ; sysclk   ;
+; N/A   ; None         ; -0.422 ns  ; reset ; sda~en                                ; sysclk   ;
+; N/A   ; None         ; -0.572 ns  ; sda   ; reg_led_second[3]                     ; sysclk   ;
+; N/A   ; None         ; -0.781 ns  ; sda   ; reg_led_second[1]                     ; sysclk   ;
+; N/A   ; None         ; -0.844 ns  ; reset ; cnt[1]                                ; sysclk   ;
+; N/A   ; None         ; -0.844 ns  ; reset ; cnt[0]                                ; sysclk   ;
+; N/A   ; None         ; -1.186 ns  ; reset ; reg_led_second[5]                     ; sysclk   ;
+; N/A   ; None         ; -1.186 ns  ; reset ; reg_led_second[6]                     ; sysclk   ;
+; N/A   ; None         ; -1.186 ns  ; reset ; reg_led_second[7]                     ; sysclk   ;
+; N/A   ; None         ; -1.234 ns  ; reset ; reg_led_second[4]                     ; sysclk   ;
+; N/A   ; None         ; -1.234 ns  ; reset ; current_state.start                   ; sysclk   ;
+; N/A   ; None         ; -1.357 ns  ; reset ; cnt1[0]                               ; sysclk   ;
+; N/A   ; None         ; -1.357 ns  ; reset ; cnt1[2]                               ; sysclk   ;
+; N/A   ; None         ; -1.357 ns  ; reset ; cnt1[1]                               ; sysclk   ;
+; N/A   ; None         ; -1.372 ns  ; reset ; current_state.transmit_slave_address  ; sysclk   ;
+; N/A   ; None         ; -1.372 ns  ; reset ; current_state.transmit_data           ; sysclk   ;
+; N/A   ; None         ; -1.372 ns  ; reset ; current_state.check_ack2              ; sysclk   ;
+; N/A   ; None         ; -1.372 ns  ; reset ; current_state.transmit_sub_address    ; sysclk   ;
+; N/A   ; None         ; -1.372 ns  ; reset ; current_state.check_ack1              ; sysclk   ;
+; N/A   ; None         ; -1.372 ns  ; reset ; current_state.transmit_slave_address2 ; sysclk   ;
+; N/A   ; None         ; -1.808 ns  ; reset ; current_state.prepare                 ; sysclk   ;
+; N/A   ; None         ; -1.937 ns  ; reset ; current_state.start1                  ; sysclk   ;
+; N/A   ; None         ; -1.937 ns  ; reset ; current_state.start2                  ; sysclk   ;
+; N/A   ; None         ; -2.096 ns  ; reset ; current_state.transmit_slave_address1 ; sysclk   ;
+; N/A   ; None         ; -2.447 ns  ; reset ; current_state.check_ack6              ; sysclk   ;
+; N/A   ; None         ; -2.521 ns  ; reset ; current_state.transmit_data2          ; sysclk   ;
+; N/A   ; None         ; -2.521 ns  ; reset ; current_state.check_ack4              ; sysclk   ;
+; N/A   ; None         ; -2.521 ns  ; reset ; current_state.transmit_data1          ; sysclk   ;
+; N/A   ; None         ; -2.521 ns  ; reset ; current_state.check_ack3              ; sysclk   ;
+; N/A   ; None         ; -2.521 ns  ; reset ; current_state.check_ack44             ; sysclk   ;
+; N/A   ; None         ; -2.539 ns  ; reset ; reg_led_second[1]                     ; sysclk   ;
+; N/A   ; None         ; -2.539 ns  ; reset ; reg_led_second[2]                     ; sysclk   ;
+; N/A   ; None         ; -2.539 ns  ; reset ; reg_led_second[3]                     ; sysclk   ;
+; N/A   ; None         ; -2.556 ns  ; reset ; current_state.read_data1              ; sysclk   ;
+; N/A   ; None         ; -2.556 ns  ; reset ; current_state.check_ack7              ; sysclk   ;
+; N/A   ; None         ; -2.556 ns  ; reset ; current_state.stop                    ; sysclk   ;
+; N/A   ; None         ; -2.556 ns  ; reset ; current_state.check_ack5              ; sysclk   ;
+; N/A   ; None         ; -2.574 ns  ; reset ; scl~reg0                              ; sysclk   ;
+; N/A   ; None         ; -2.794 ns  ; reset ; current_state.transmit_sub_address1   ; sysclk   ;
+; N/A   ; None         ; -3.103 ns  ; reset ; cnt1[3]                               ; sysclk   ;
++-------+--------------+------------+-------+---------------------------------------+----------+
+
+
++----------------------------------------------------------------------------+
+; tco                                                                        ;
++-------+--------------+------------+-------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From        ; To          ; From Clock ;
++-------+--------------+------------+-------------+-------------+------------+
+; N/A   ; None         ; 16.029 ns  ; code_led[3] ; seg_data[3] ; sysclk     ;
+; N/A   ; None         ; 15.786 ns  ; code_led[1] ; seg_data[3] ; sysclk     ;
+; N/A   ; None         ; 15.702 ns  ; code_led[0] ; seg_data[1] ; sysclk     ;
+; N/A   ; None         ; 15.616 ns  ; code_led[3] ; seg_data[2] ; sysclk     ;
+; N/A   ; None         ; 15.611 ns  ; code_led[3] ; seg_data[4] ; sysclk     ;
+; N/A   ; None         ; 15.601 ns  ; code_led[0] ; seg_data[3] ; sysclk     ;
+; N/A   ; None         ; 15.582 ns  ; code_led[3] ; seg_data[6] ; sysclk     ;
+; N/A   ; None         ; 15.494 ns  ; code_led[3] ; seg_data[5] ; sysclk     ;
+; N/A   ; None         ; 15.476 ns  ; code_led[3] ; seg_data[0] ; sysclk     ;
+; N/A   ; None         ; 15.373 ns  ; code_led[1] ; seg_data[2] ; sysclk     ;
+; N/A   ; None         ; 15.369 ns  ; code_led[1] ; seg_data[4] ; sysclk     ;
+; N/A   ; None         ; 15.340 ns  ; code_led[1] ; seg_data[6] ; sysclk     ;
+; N/A   ; None         ; 15.308 ns  ; code_led[2] ; seg_data[3] ; sysclk     ;
+; N/A   ; None         ; 15.251 ns  ; code_led[1] ; seg_data[5] ; sysclk     ;
+; N/A   ; None         ; 15.238 ns  ; code_led[1] ; seg_data[0] ; sysclk     ;
+; N/A   ; None         ; 15.202 ns  ; code_led[0] ; seg_data[4] ; sysclk     ;
+; N/A   ; None         ; 15.188 ns  ; code_led[0] ; seg_data[2] ; sysclk     ;
+; N/A   ; None         ; 15.174 ns  ; code_led[0] ; seg_data[6] ; sysclk     ;
+; N/A   ; None         ; 15.066 ns  ; code_led[0] ; seg_data[5] ; sysclk     ;
+; N/A   ; None         ; 15.064 ns  ; code_led[0] ; seg_data[0] ; sysclk     ;
+; N/A   ; None         ; 14.922 ns  ; code_led[2] ; seg_data[1] ; sysclk     ;
+; N/A   ; None         ; 14.913 ns  ; code_led[2] ; seg_data[4] ; sysclk     ;
+; N/A   ; None         ; 14.895 ns  ; code_led[2] ; seg_data[2] ; sysclk     ;
+; N/A   ; None         ; 14.885 ns  ; code_led[2] ; seg_data[6] ; sysclk     ;
+; N/A   ; None         ; 14.774 ns  ; code_led[2] ; seg_data[0] ; sysclk     ;
+; N/A   ; None         ; 14.773 ns  ; code_led[2] ; seg_data[5] ; sysclk     ;
+; N/A   ; None         ; 14.732 ns  ; code_led[1] ; seg_data[1] ; sysclk     ;
+; N/A   ; None         ; 14.512 ns  ; code_led[3] ; seg_data[1] ; sysclk     ;
+; N/A   ; None         ; 13.941 ns  ; sel[0]~reg0 ; sel[0]      ; sysclk     ;
+; N/A   ; None         ; 13.894 ns  ; sel[2]~reg0 ; sel[2]      ; sysclk     ;
+; N/A   ; None         ; 13.889 ns  ; sel[3]~reg0 ; sel[3]      ; sysclk     ;
+; N/A   ; None         ; 13.888 ns  ; sel[1]~reg0 ; sel[1]      ; sysclk     ;
+; N/A   ; None         ; 13.248 ns  ; scl~reg0    ; scl         ; sysclk     ;
+; N/A   ; None         ; 12.931 ns  ; sda~reg0    ; sda         ; sysclk     ;
+; N/A   ; None         ; 11.791 ns  ; sda~en      ; sda         ; sysclk     ;
++-------+--------------+------------+-------------+-------------+------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; th                                                                                                 ;
++---------------+-------------+-----------+-------+---------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From  ; To                                    ; To Clock ;
++---------------+-------------+-----------+-------+---------------------------------------+----------+
+; N/A           ; None        ; 4.393 ns  ; reset ; cnt1[2]                               ; sysclk   ;
+; N/A           ; None        ; 3.657 ns  ; reset ; cnt1[3]                               ; sysclk   ;
+; N/A           ; None        ; 3.563 ns  ; reset ; cnt1[1]                               ; sysclk   ;
+; N/A           ; None        ; 3.562 ns  ; reset ; cnt1[0]                               ; sysclk   ;
+; N/A           ; None        ; 3.348 ns  ; reset ; current_state.transmit_sub_address1   ; sysclk   ;
+; N/A           ; None        ; 3.347 ns  ; reset ; sda~en                                ; sysclk   ;
+; N/A           ; None        ; 3.128 ns  ; reset ; scl~reg0                              ; sysclk   ;
+; N/A           ; None        ; 3.110 ns  ; reset ; current_state.read_data1              ; sysclk   ;
+; N/A           ; None        ; 3.110 ns  ; reset ; current_state.check_ack7              ; sysclk   ;
+; N/A           ; None        ; 3.110 ns  ; reset ; current_state.stop                    ; sysclk   ;
+; N/A           ; None        ; 3.110 ns  ; reset ; current_state.check_ack5              ; sysclk   ;
+; N/A           ; None        ; 3.093 ns  ; reset ; reg_led_second[1]                     ; sysclk   ;
+; N/A           ; None        ; 3.093 ns  ; reset ; reg_led_second[2]                     ; sysclk   ;
+; N/A           ; None        ; 3.093 ns  ; reset ; reg_led_second[3]                     ; sysclk   ;
+; N/A           ; None        ; 3.075 ns  ; reset ; current_state.transmit_data2          ; sysclk   ;
+; N/A           ; None        ; 3.075 ns  ; reset ; current_state.check_ack4              ; sysclk   ;
+; N/A           ; None        ; 3.075 ns  ; reset ; current_state.transmit_data1          ; sysclk   ;
+; N/A           ; None        ; 3.075 ns  ; reset ; current_state.check_ack3              ; sysclk   ;
+; N/A           ; None        ; 3.075 ns  ; reset ; current_state.check_ack44             ; sysclk   ;
+; N/A           ; None        ; 3.001 ns  ; reset ; current_state.check_ack6              ; sysclk   ;
+; N/A           ; None        ; 2.716 ns  ; reset ; cnt[0]                                ; sysclk   ;
+; N/A           ; None        ; 2.709 ns  ; reset ; cnt[1]                                ; sysclk   ;
+; N/A           ; None        ; 2.650 ns  ; reset ; current_state.transmit_slave_address1 ; sysclk   ;
+; N/A           ; None        ; 2.491 ns  ; reset ; current_state.start1                  ; sysclk   ;
+; N/A           ; None        ; 2.491 ns  ; reset ; current_state.start2                  ; sysclk   ;
+; N/A           ; None        ; 2.362 ns  ; reset ; current_state.prepare                 ; sysclk   ;
+; N/A           ; None        ; 2.331 ns  ; reset ; sda~reg0                              ; sysclk   ;
+; N/A           ; None        ; 1.926 ns  ; reset ; current_state.transmit_slave_address  ; sysclk   ;
+; N/A           ; None        ; 1.926 ns  ; reset ; current_state.transmit_data           ; sysclk   ;
+; N/A           ; None        ; 1.926 ns  ; reset ; current_state.check_ack2              ; sysclk   ;
+; N/A           ; None        ; 1.926 ns  ; reset ; current_state.transmit_sub_address    ; sysclk   ;
+; N/A           ; None        ; 1.926 ns  ; reset ; current_state.check_ack1              ; sysclk   ;
+; N/A           ; None        ; 1.926 ns  ; reset ; current_state.transmit_slave_address2 ; sysclk   ;
+; N/A           ; None        ; 1.788 ns  ; reset ; reg_led_second[4]                     ; sysclk   ;
+; N/A           ; None        ; 1.788 ns  ; reset ; current_state.start                   ; sysclk   ;
+; N/A           ; None        ; 1.740 ns  ; reset ; reg_led_second[5]                     ; sysclk   ;
+; N/A           ; None        ; 1.740 ns  ; reset ; reg_led_second[6]                     ; sysclk   ;
+; N/A           ; None        ; 1.740 ns  ; reset ; reg_led_second[7]                     ; sysclk   ;
+; N/A           ; None        ; 1.335 ns  ; sda   ; reg_led_second[1]                     ; sysclk   ;
+; N/A           ; None        ; 1.126 ns  ; sda   ; reg_led_second[3]                     ; sysclk   ;
+; N/A           ; None        ; 0.912 ns  ; reset ; count1[5]                             ; sysclk   ;
+; N/A           ; None        ; 0.912 ns  ; reset ; count1[4]                             ; sysclk   ;
+; N/A           ; None        ; 0.912 ns  ; reset ; count1[3]                             ; sysclk   ;
+; N/A           ; None        ; 0.912 ns  ; reset ; count1[2]                             ; sysclk   ;
+; N/A           ; None        ; 0.912 ns  ; reset ; count1[1]                             ; sysclk   ;
+; N/A           ; None        ; 0.912 ns  ; reset ; count1[0]                             ; sysclk   ;
+; N/A           ; None        ; 0.911 ns  ; sda   ; reg_led_second[2]                     ; sysclk   ;
+; N/A           ; None        ; 0.582 ns  ; sda   ; reg_led_second[5]                     ; sysclk   ;
+; N/A           ; None        ; 0.380 ns  ; sda   ; reg_led_second[6]                     ; sysclk   ;
+; N/A           ; None        ; 0.377 ns  ; sda   ; reg_led_second[7]                     ; sysclk   ;
+; N/A           ; None        ; 0.069 ns  ; sda   ; reg_led_second[4]                     ; sysclk   ;
+; N/A           ; None        ; -2.452 ns ; reset ; shift_clk                             ; sysclk   ;
+; N/A           ; None        ; -2.589 ns ; reset ; clock                                 ; sysclk   ;
+; N/A           ; None        ; -2.896 ns ; reset ; cnt2[4]                               ; sysclk   ;
+; N/A           ; None        ; -2.896 ns ; reset ; cnt2[3]                               ; sysclk   ;
+; N/A           ; None        ; -2.896 ns ; reset ; cnt2[1]                               ; sysclk   ;
+; N/A           ; None        ; -2.896 ns ; reset ; cnt2[2]                               ; sysclk   ;
+; N/A           ; None        ; -2.896 ns ; reset ; cnt2[5]                               ; sysclk   ;
+; N/A           ; None        ; -2.896 ns ; reset ; cnt2[6]                               ; sysclk   ;
+; N/A           ; None        ; -2.896 ns ; reset ; cnt2[0]                               ; sysclk   ;
+; N/A           ; None        ; -3.150 ns ; reset ; cnt2[12]                              ; sysclk   ;
+; N/A           ; None        ; -3.150 ns ; reset ; cnt2[11]                              ; sysclk   ;
+; N/A           ; None        ; -3.150 ns ; reset ; cnt2[13]                              ; sysclk   ;
+; N/A           ; None        ; -3.150 ns ; reset ; cnt2[7]                               ; sysclk   ;
+; N/A           ; None        ; -3.150 ns ; reset ; cnt2[8]                               ; sysclk   ;
+; N/A           ; None        ; -3.150 ns ; reset ; cnt2[9]                               ; sysclk   ;
+; N/A           ; None        ; -3.150 ns ; reset ; cnt2[10]                              ; sysclk   ;
+; N/A           ; None        ; -3.234 ns ; reset ; count[2]                              ; sysclk   ;
+; N/A           ; None        ; -3.234 ns ; reset ; count[3]                              ; sysclk   ;
+; N/A           ; None        ; -3.234 ns ; reset ; count[1]                              ; sysclk   ;
+; N/A           ; None        ; -3.234 ns ; reset ; count[4]                              ; sysclk   ;
+; N/A           ; None        ; -3.234 ns ; reset ; count[5]                              ; sysclk   ;
+; N/A           ; None        ; -3.234 ns ; reset ; count[6]                              ; sysclk   ;
+; N/A           ; None        ; -3.234 ns ; reset ; count[0]                              ; sysclk   ;
+; N/A           ; None        ; -3.626 ns ; reset ; count[13]                             ; sysclk   ;
+; N/A           ; None        ; -3.626 ns ; reset ; count[12]                             ; sysclk   ;
+; N/A           ; None        ; -3.626 ns ; reset ; count[11]                             ; sysclk   ;
+; N/A           ; None        ; -3.626 ns ; reset ; count[7]                              ; sysclk   ;
+; N/A           ; None        ; -3.626 ns ; reset ; count[9]                              ; sysclk   ;
+; N/A           ; None        ; -3.626 ns ; reset ; count[8]                              ; sysclk   ;
+; N/A           ; None        ; -3.626 ns ; reset ; count[10]                             ; sysclk   ;
++---------------+-------------+-----------+-------+---------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Full Version
+    Info: Processing started: Wed Jul 28 13:21:13 2010
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off pcf8563 -c pcf8563
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "sysclk" is an undefined clock
+Warning: Found 2 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "clock" as buffer
+    Info: Detected ripple clock "shift_clk" as buffer
+Info: Clock "sysclk" has Internal fmax of 76.4 MHz between source register "count1[5]" and destination register "current_state.start" (period= 13.089 ns)
+    Info: + Longest register to register delay is 12.380 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X6_Y4_N6; Fanout = 12; REG Node = 'count1[5]'
+        Info: 2: + IC(1.315 ns) + CELL(0.740 ns) = 2.055 ns; Loc. = LC_X6_Y4_N8; Fanout = 16; COMB Node = 'Decoder0~2'
+        Info: 3: + IC(1.833 ns) + CELL(0.200 ns) = 4.088 ns; Loc. = LC_X4_Y4_N6; Fanout = 2; COMB Node = 'current_state~241'
+        Info: 4: + IC(0.766 ns) + CELL(0.511 ns) = 5.365 ns; Loc. = LC_X4_Y4_N8; Fanout = 1; COMB Node = 'current_state~243'
+        Info: 5: + IC(0.711 ns) + CELL(0.200 ns) = 6.276 ns; Loc. = LC_X4_Y4_N4; Fanout = 1; COMB Node = 'current_state~244'
+        Info: 6: + IC(0.534 ns) + CELL(0.200 ns) = 7.010 ns; Loc. = LC_X4_Y4_N5; Fanout = 2; COMB Node = 'current_state~249'
+        Info: 7: + IC(0.771 ns) + CELL(0.511 ns) = 8.292 ns; Loc. = LC_X4_Y4_N2; Fanout = 2; COMB Node = 'current_state~251'
+        Info: 8: + IC(3.497 ns) + CELL(0.591 ns) = 12.380 ns; Loc. = LC_X2_Y2_N3; Fanout = 9; REG Node = 'current_state.start'
+        Info: Total cell delay = 2.953 ns ( 23.85 % )
+        Info: Total interconnect delay = 9.427 ns ( 76.15 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "sysclk" to destination register is 8.194 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_12; Fanout = 30; CLK Node = 'sysclk'
+            Info: 2: + IC(1.267 ns) + CELL(1.294 ns) = 3.724 ns; Loc. = LC_X2_Y1_N8; Fanout = 45; REG Node = 'clock'
+            Info: 3: + IC(3.552 ns) + CELL(0.918 ns) = 8.194 ns; Loc. = LC_X2_Y2_N3; Fanout = 9; REG Node = 'current_state.start'
+            Info: Total cell delay = 3.375 ns ( 41.19 % )
+            Info: Total interconnect delay = 4.819 ns ( 58.81 % )
+        Info: - Longest clock path from clock "sysclk" to source register is 8.194 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_12; Fanout = 30; CLK Node = 'sysclk'
+            Info: 2: + IC(1.267 ns) + CELL(1.294 ns) = 3.724 ns; Loc. = LC_X2_Y1_N8; Fanout = 45; REG Node = 'clock'
+            Info: 3: + IC(3.552 ns) + CELL(0.918 ns) = 8.194 ns; Loc. = LC_X6_Y4_N6; Fanout = 12; REG Node = 'count1[5]'
+            Info: Total cell delay = 3.375 ns ( 41.19 % )
+            Info: Total interconnect delay = 4.819 ns ( 58.81 % )
+    Info: + Micro clock to output delay of source is 0.376 ns
+    Info: + Micro setup delay of destination is 0.333 ns
+Info: tsu for register "count[13]" (data pin = "reset", clock pin = "sysclk") is 4.180 ns
+    Info: + Longest pin to register delay is 7.195 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_90; Fanout = 60; PIN Node = 'reset'
+        Info: 2: + IC(2.499 ns) + CELL(0.740 ns) = 4.371 ns; Loc. = LC_X5_Y1_N2; Fanout = 14; COMB Node = 'count~66'
+        Info: 3: + IC(1.064 ns) + CELL(1.760 ns) = 7.195 ns; Loc. = LC_X6_Y1_N6; Fanout = 3; REG Node = 'count[13]'
+        Info: Total cell delay = 3.632 ns ( 50.48 % )
+        Info: Total interconnect delay = 3.563 ns ( 49.52 % )
+    Info: + Micro setup delay of destination is 0.333 ns
+    Info: - Shortest clock path from clock "sysclk" to destination register is 3.348 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_12; Fanout = 30; CLK Node = 'sysclk'
+        Info: 2: + IC(1.267 ns) + CELL(0.918 ns) = 3.348 ns; Loc. = LC_X6_Y1_N6; Fanout = 3; REG Node = 'count[13]'
+        Info: Total cell delay = 2.081 ns ( 62.16 % )
+        Info: Total interconnect delay = 1.267 ns ( 37.84 % )
+Info: tco from clock "sysclk" to destination pin "seg_data[3]" through register "code_led[3]" is 16.029 ns
+    Info: + Longest clock path from clock "sysclk" to source register is 9.047 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_12; Fanout = 30; CLK Node = 'sysclk'
+        Info: 2: + IC(1.267 ns) + CELL(1.294 ns) = 3.724 ns; Loc. = LC_X7_Y2_N8; Fanout = 10; REG Node = 'shift_clk'
+        Info: 3: + IC(4.405 ns) + CELL(0.918 ns) = 9.047 ns; Loc. = LC_X3_Y2_N8; Fanout = 7; REG Node = 'code_led[3]'
+        Info: Total cell delay = 3.375 ns ( 37.31 % )
+        Info: Total interconnect delay = 5.672 ns ( 62.69 % )
+    Info: + Micro clock to output delay of source is 0.376 ns
+    Info: + Longest register to pin delay is 6.606 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X3_Y2_N8; Fanout = 7; REG Node = 'code_led[3]'
+        Info: 2: + IC(1.058 ns) + CELL(0.914 ns) = 1.972 ns; Loc. = LC_X3_Y2_N2; Fanout = 1; COMB Node = 'WideOr15~0'
+        Info: 3: + IC(2.312 ns) + CELL(2.322 ns) = 6.606 ns; Loc. = PIN_27; Fanout = 0; PIN Node = 'seg_data[3]'
+        Info: Total cell delay = 3.236 ns ( 48.99 % )
+        Info: Total interconnect delay = 3.370 ns ( 51.01 % )
+Info: th for register "cnt1[2]" (data pin = "reset", clock pin = "sysclk") is 4.393 ns
+    Info: + Longest clock path from clock "sysclk" to destination register is 8.194 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_12; Fanout = 30; CLK Node = 'sysclk'
+        Info: 2: + IC(1.267 ns) + CELL(1.294 ns) = 3.724 ns; Loc. = LC_X2_Y1_N8; Fanout = 45; REG Node = 'clock'
+        Info: 3: + IC(3.552 ns) + CELL(0.918 ns) = 8.194 ns; Loc. = LC_X5_Y4_N3; Fanout = 7; REG Node = 'cnt1[2]'
+        Info: Total cell delay = 3.375 ns ( 41.19 % )
+        Info: Total interconnect delay = 4.819 ns ( 58.81 % )
+    Info: + Micro hold delay of destination is 0.221 ns
+    Info: - Shortest pin to register delay is 4.022 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_90; Fanout = 60; PIN Node = 'reset'
+        Info: 2: + IC(2.086 ns) + CELL(0.804 ns) = 4.022 ns; Loc. = LC_X5_Y4_N3; Fanout = 7; REG Node = 'cnt1[2]'
+        Info: Total cell delay = 1.936 ns ( 48.14 % )
+        Info: Total interconnect delay = 2.086 ns ( 51.86 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 165 megabytes
+    Info: Processing ended: Wed Jul 28 13:21:14 2010
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

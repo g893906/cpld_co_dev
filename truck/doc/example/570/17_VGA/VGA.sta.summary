@@ -1,0 +1,29 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'vga_clk'
+Slack : -8.583
+TNS   : -195.352
+
+Type  : Setup 'clock'
+Slack : 2.418
+TNS   : 0.000
+
+Type  : Hold 'clock'
+Slack : -2.472
+TNS   : -2.472
+
+Type  : Hold 'vga_clk'
+Slack : 1.920
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clock'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'vga_clk'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

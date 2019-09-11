@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Jul 24 16:12:49 2012
+Quartus II Version : 11.0 Build 157 04/27/2011 SJ Full Version
+Revision Name : spidac
+Top-level Entity Name : spidac
+Family : MAX II
+Device : EPM570T100C5
+Timing Models : Final
+Total logic elements : 34 / 570 ( 6 % )
+Total pins : 5 / 76 ( 7 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

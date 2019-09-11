@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Jul 24 16:08:46 2012
+Quartus II Version : 11.0 Build 157 04/27/2011 SJ Full Version
+Revision Name : ps2_key
+Top-level Entity Name : ps2_key
+Family : MAX II
+Device : EPM570T100C5
+Timing Models : Final
+Total logic elements : 119 / 570 ( 21 % )
+Total pins : 5 / 76 ( 7 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )
