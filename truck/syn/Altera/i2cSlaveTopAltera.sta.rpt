@@ -1,0 +1,1077 @@
+TimeQuest Timing Analyzer report for i2cSlaveTopAltera
+Mon Sep 30 11:54:38 2019
+Quartus II Version 11.0 Build 157 04/27/2011 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Setup: 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'
+ 13. Setup: 'pulse:u1_pulse|r_pulse'
+ 14. Setup: 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'
+ 15. Setup: 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'
+ 16. Hold: 'clk'
+ 17. Hold: 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'
+ 18. Hold: 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'
+ 19. Hold: 'pulse:u1_pulse|r_pulse'
+ 20. Hold: 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'
+ 21. Minimum Pulse Width: 'clk'
+ 22. Minimum Pulse Width: 'pulse:u1_pulse|r_pulse'
+ 23. Minimum Pulse Width: 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'
+ 24. Minimum Pulse Width: 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'
+ 25. Minimum Pulse Width: 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Setup Transfers
+ 31. Hold Transfers
+ 32. Report TCCS
+ 33. Report RSKM
+ 34. Unconstrained Paths
+ 35. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                      ;
++--------------------+---------------------------------------------------+
+; Quartus II Version ; Version 11.0 Build 157 04/27/2011 SJ Full Version ;
+; Revision Name      ; i2cSlaveTopAltera                                 ;
+; Device Family      ; MAX II                                            ;
+; Device Name        ; EPM570T100C5                                      ;
+; Timing Models      ; Final                                             ;
+; Delay Model        ; Slow Model                                        ;
+; Rise/Fall Delays   ; Unavailable                                       ;
++--------------------+---------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ; < 0.1%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                                                         ;
++----------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------------------------------------------+
+; Clock Name                                                     ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                                            ;
++----------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------------------------------------------+
+; clk                                                            ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                                                            ;
+; pulse:u1_pulse|r_pulse                                         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { pulse:u1_pulse|r_pulse }                                         ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q } ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q } ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q } ;
++----------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Fmax Summary                                                                                         ;
++------------+-----------------+----------------------------------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                                                     ; Note ;
++------------+-----------------+----------------------------------------------------------------+------+
+; 207.13 MHz ; 207.13 MHz      ; clk                                                            ;      ;
+; 455.79 MHz ; 455.79 MHz      ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;      ;
++------------+-----------------+----------------------------------------------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------------------------------------------------------------+
+; Setup Summary                                                                           ;
++----------------------------------------------------------------+--------+---------------+
+; Clock                                                          ; Slack  ; End Point TNS ;
++----------------------------------------------------------------+--------+---------------+
+; clk                                                            ; -3.828 ; -14.503       ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; -1.194 ; -1.194        ;
+; pulse:u1_pulse|r_pulse                                         ; 0.092  ; 0.000         ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 0.469  ; 0.000         ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 1.155  ; 0.000         ;
++----------------------------------------------------------------+--------+---------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Hold Summary                                                                            ;
++----------------------------------------------------------------+--------+---------------+
+; Clock                                                          ; Slack  ; End Point TNS ;
++----------------------------------------------------------------+--------+---------------+
+; clk                                                            ; -1.802 ; -1.802        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; -1.209 ; -1.209        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; -0.523 ; -0.523        ;
+; pulse:u1_pulse|r_pulse                                         ; -0.146 ; -0.146        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 1.640  ; 0.000         ;
++----------------------------------------------------------------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++-----------------------------------------------------------------------------------------+
+; Minimum Pulse Width Summary                                                             ;
++----------------------------------------------------------------+--------+---------------+
+; Clock                                                          ; Slack  ; End Point TNS ;
++----------------------------------------------------------------+--------+---------------+
+; clk                                                            ; -2.289 ; -2.289        ;
+; pulse:u1_pulse|r_pulse                                         ; 0.234  ; 0.000         ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 0.234  ; 0.000         ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 0.234  ; 0.000         ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 0.234  ; 0.000         ;
++----------------------------------------------------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                             ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; -3.828 ; pulse:u1_pulse|div[1]  ; pulse:u1_pulse|div[1]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 4.495      ;
+; -3.431 ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|div[1]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 4.098      ;
+; -3.402 ; pulse:u1_pulse|div[1]  ; pulse:u1_pulse|div[2]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 4.069      ;
+; -3.092 ; pulse:u1_pulse|div[2]  ; pulse:u1_pulse|div[1]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 3.759      ;
+; -3.005 ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|div[2]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 3.672      ;
+; -2.899 ; pulse:u1_pulse|div[1]  ; pulse:u1_pulse|r_pulse ; clk                    ; clk         ; 1.000        ; 0.000      ; 3.566      ;
+; -2.853 ; pulse:u1_pulse|div[3]  ; pulse:u1_pulse|div[1]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 3.520      ;
+; -2.666 ; pulse:u1_pulse|div[2]  ; pulse:u1_pulse|div[2]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 3.333      ;
+; -2.502 ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|r_pulse ; clk                    ; clk         ; 1.000        ; 0.000      ; 3.169      ;
+; -2.458 ; pulse:u1_pulse|div[1]  ; pulse:u1_pulse|div[3]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 3.125      ;
+; -2.427 ; pulse:u1_pulse|div[3]  ; pulse:u1_pulse|div[2]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 3.094      ;
+; -2.163 ; pulse:u1_pulse|div[2]  ; pulse:u1_pulse|r_pulse ; clk                    ; clk         ; 1.000        ; 0.000      ; 2.830      ;
+; -2.061 ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|div[3]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 2.728      ;
+; -1.916 ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|div[0]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 2.583      ;
+; -1.850 ; pulse:u1_pulse|div[3]  ; pulse:u1_pulse|r_pulse ; clk                    ; clk         ; 1.000        ; 0.000      ; 2.517      ;
+; -1.795 ; pulse:u1_pulse|div[3]  ; pulse:u1_pulse|div[3]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 2.462      ;
+; -1.722 ; pulse:u1_pulse|div[2]  ; pulse:u1_pulse|div[3]  ; clk                    ; clk         ; 1.000        ; 0.000      ; 2.389      ;
+; 1.748  ; pulse:u1_pulse|r_pulse ; pulse:u1_pulse|r_pulse ; pulse:u1_pulse|r_pulse ; clk         ; 0.500        ; 3.681      ; 2.476      ;
+; 2.248  ; pulse:u1_pulse|r_pulse ; pulse:u1_pulse|r_pulse ; pulse:u1_pulse|r_pulse ; clk         ; 1.000        ; 3.681      ; 2.476      ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'                                                                                                                                                                                                                                             ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                      ; To Node                                                        ; Launch Clock                                                   ; Latch Clock                                                    ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; -1.194 ; ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 1.000        ; 0.000      ; 1.861      ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'pulse:u1_pulse|r_pulse'                                                                                                                                                                                                                                            ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------------+--------------+------------+------------+
+; Slack ; From Node                                                      ; To Node                                                        ; Launch Clock                                                   ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------------+--------------+------------+------------+
+; 0.092 ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; pulse:u1_pulse|r_pulse ; 0.500        ; 1.818      ; 2.269      ;
+; 0.592 ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; pulse:u1_pulse|r_pulse ; 1.000        ; 1.818      ; 2.269      ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'                                                                                                                                                                                                                                            ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; Slack ; From Node                                                      ; To Node                                                        ; Launch Clock                                                   ; Latch Clock                                                    ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; 0.469 ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 0.500        ; 1.787      ; 1.861      ;
+; 0.969 ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 1.000        ; 1.787      ; 1.861      ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'                                                                                                                                                                                                                                            ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; Slack ; From Node                                                      ; To Node                                                        ; Launch Clock                                                   ; Latch Clock                                                    ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; 1.155 ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 0.500        ; 2.748      ; 2.136      ;
+; 1.655 ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 1.000        ; 2.748      ; 2.136      ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                              ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; -1.802 ; pulse:u1_pulse|r_pulse ; pulse:u1_pulse|r_pulse ; pulse:u1_pulse|r_pulse ; clk         ; 0.000        ; 3.681      ; 2.476      ;
+; -1.302 ; pulse:u1_pulse|r_pulse ; pulse:u1_pulse|r_pulse ; pulse:u1_pulse|r_pulse ; clk         ; -0.500       ; 3.681      ; 2.476      ;
+; 2.168  ; pulse:u1_pulse|div[2]  ; pulse:u1_pulse|div[3]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.389      ;
+; 2.241  ; pulse:u1_pulse|div[3]  ; pulse:u1_pulse|div[3]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.462      ;
+; 2.275  ; pulse:u1_pulse|div[1]  ; pulse:u1_pulse|div[1]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.496      ;
+; 2.278  ; pulse:u1_pulse|div[1]  ; pulse:u1_pulse|div[2]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.499      ;
+; 2.296  ; pulse:u1_pulse|div[3]  ; pulse:u1_pulse|r_pulse ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.517      ;
+; 2.362  ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|div[0]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.583      ;
+; 2.365  ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|div[2]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.586      ;
+; 2.368  ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|div[1]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.589      ;
+; 2.506  ; pulse:u1_pulse|div[2]  ; pulse:u1_pulse|div[2]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.727      ;
+; 2.507  ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|div[3]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.728      ;
+; 2.609  ; pulse:u1_pulse|div[2]  ; pulse:u1_pulse|r_pulse ; clk                    ; clk         ; 0.000        ; 0.000      ; 2.830      ;
+; 2.873  ; pulse:u1_pulse|div[3]  ; pulse:u1_pulse|div[2]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.094      ;
+; 2.904  ; pulse:u1_pulse|div[1]  ; pulse:u1_pulse|div[3]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.125      ;
+; 2.948  ; pulse:u1_pulse|div[0]  ; pulse:u1_pulse|r_pulse ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.169      ;
+; 3.299  ; pulse:u1_pulse|div[3]  ; pulse:u1_pulse|div[1]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.520      ;
+; 3.345  ; pulse:u1_pulse|div[1]  ; pulse:u1_pulse|r_pulse ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.566      ;
+; 3.538  ; pulse:u1_pulse|div[2]  ; pulse:u1_pulse|div[1]  ; clk                    ; clk         ; 0.000        ; 0.000      ; 3.759      ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'                                                                                                                                                                                                                                              ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                      ; To Node                                                        ; Launch Clock                                                   ; Latch Clock                                                    ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; -1.209 ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 0.000        ; 2.748      ; 2.136      ;
+; -0.709 ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; -0.500       ; 2.748      ; 2.136      ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'                                                                                                                                                                                                                                              ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                      ; To Node                                                        ; Launch Clock                                                   ; Latch Clock                                                    ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; -0.523 ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 0.000        ; 1.787      ; 1.861      ;
+; -0.023 ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; -0.500       ; 1.787      ; 1.861      ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'pulse:u1_pulse|r_pulse'                                                                                                                                                                                                                                              ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------------+--------------+------------+------------+
+; Slack  ; From Node                                                      ; To Node                                                        ; Launch Clock                                                   ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------------+--------------+------------+------------+
+; -0.146 ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; pulse:u1_pulse|r_pulse ; 0.000        ; 1.818      ; 2.269      ;
+; 0.354  ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; pulse:u1_pulse|r_pulse ; -0.500       ; 1.818      ; 2.269      ;
++--------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'                                                                                                                                                                                                                                             ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; Slack ; From Node                                                      ; To Node                                                        ; Launch Clock                                                   ; Latch Clock                                                    ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+; 1.640 ; ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 0.000        ; 0.000      ; 1.861      ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                              ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                 ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk                    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; pulse:u1_pulse|div[0]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; pulse:u1_pulse|div[0]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; pulse:u1_pulse|div[1]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; pulse:u1_pulse|div[1]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; pulse:u1_pulse|div[2]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; pulse:u1_pulse|div[2]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; pulse:u1_pulse|div[3]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; pulse:u1_pulse|div[3]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; pulse:u1_pulse|r_pulse ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; pulse:u1_pulse|r_pulse ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; u1_pulse|div[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; u1_pulse|div[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; u1_pulse|div[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; u1_pulse|div[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; u1_pulse|div[2]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; u1_pulse|div[2]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; u1_pulse|div[3]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; u1_pulse|div[3]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; u1_pulse|r_pulse|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; u1_pulse|r_pulse|clk   ;
++--------+--------------+----------------+------------------+-------+------------+------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'pulse:u1_pulse|r_pulse'                                                                                                                   ;
++-------+--------------+----------------+------------------+------------------------+------------+----------------------------------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                  ; Clock Edge ; Target                                                         ;
++-------+--------------+----------------+------------------+------------------------+------------+----------------------------------------------------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; pulse:u1_pulse|r_pulse ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; pulse:u1_pulse|r_pulse ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; pulse:u1_pulse|r_pulse ; Rise       ; u1_carry_counter|tff0|u_DFF|o_q|clk                            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; pulse:u1_pulse|r_pulse ; Rise       ; u1_carry_counter|tff0|u_DFF|o_q|clk                            ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; pulse:u1_pulse|r_pulse ; Rise       ; u1_pulse|r_pulse|regout                                        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; pulse:u1_pulse|r_pulse ; Rise       ; u1_pulse|r_pulse|regout                                        ;
++-------+--------------+----------------+------------------+------------------------+------------+----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'                                                                                                                   ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                                                          ; Clock Edge ; Target                                                         ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff0|u_DFF|o_q|regout                         ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff0|u_DFF|o_q|regout                         ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff1|u_DFF|o_q|clk                            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff1|u_DFF|o_q|clk                            ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'                                                                                                                   ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                                                          ; Clock Edge ; Target                                                         ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff1|u_DFF|o_q|regout                         ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff1|u_DFF|o_q|regout                         ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff2|u_DFF|o_q|clk                            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff2|u_DFF|o_q|clk                            ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'                                                                                                                   ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                                                          ; Clock Edge ; Target                                                         ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+; 0.234 ; 0.500        ; 0.266          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q ;
+; 0.234 ; 0.500        ; 0.266          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff2|u_DFF|o_q|regout                         ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff2|u_DFF|o_q|regout                         ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff3|u_DFF|o_q|clk                            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; Rise       ; u1_carry_counter|tff3|u_DFF|o_q|clk                            ;
++-------+--------------+----------------+------------------+----------------------------------------------------------------+------------+----------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; rst       ; clk        ; 5.393 ; 5.393 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; rst       ; clk        ; -3.833 ; -3.833 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                                                            ;
++-------------------+----------------------------------------------------------------+-------+-------+------------+----------------------------------------------------------------+
+; Data Port         ; Clock Port                                                     ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                ;
++-------------------+----------------------------------------------------------------+-------+-------+------------+----------------------------------------------------------------+
+; pulse             ; pulse:u1_pulse|r_pulse                                         ; 4.195 ;       ; Rise       ; pulse:u1_pulse|r_pulse                                         ;
+; pulse             ; pulse:u1_pulse|r_pulse                                         ;       ; 4.195 ; Fall       ; pulse:u1_pulse|r_pulse                                         ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 4.758 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+;  carry_counter[0] ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 4.758 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;       ; 4.758 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+;  carry_counter[0] ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;       ; 4.758 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 3.129 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+;  carry_counter[1] ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 3.129 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;       ; 3.129 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+;  carry_counter[1] ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;       ; 3.129 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 4.350 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+;  carry_counter[2] ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 4.350 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 6.765 ; 6.765 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+;  carry_counter[2] ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;       ; 4.350 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+;  carry_counter[3] ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 6.765 ; 6.765 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
++-------------------+----------------------------------------------------------------+-------+-------+------------+----------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                                                                                    ;
++-------------------+----------------------------------------------------------------+-------+-------+------------+----------------------------------------------------------------+
+; Data Port         ; Clock Port                                                     ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                ;
++-------------------+----------------------------------------------------------------+-------+-------+------------+----------------------------------------------------------------+
+; pulse             ; pulse:u1_pulse|r_pulse                                         ; 4.195 ;       ; Rise       ; pulse:u1_pulse|r_pulse                                         ;
+; pulse             ; pulse:u1_pulse|r_pulse                                         ;       ; 4.195 ; Fall       ; pulse:u1_pulse|r_pulse                                         ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 4.758 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+;  carry_counter[0] ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 4.758 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;       ; 4.758 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+;  carry_counter[0] ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;       ; 4.758 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 3.129 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+;  carry_counter[1] ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 3.129 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;       ; 3.129 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+;  carry_counter[1] ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;       ; 3.129 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 4.350 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+;  carry_counter[2] ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 4.350 ;       ; Rise       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+; carry_counter[*]  ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 6.765 ; 4.350 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+;  carry_counter[2] ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;       ; 4.350 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
+;  carry_counter[3] ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 6.765 ; 6.765 ; Fall       ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ;
++-------------------+----------------------------------------------------------------+-------+-------+------------+----------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                                                                             ;
++----------------------------------------------------------------+----------------------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                                     ; To Clock                                                       ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------------------------------------------------+----------------------------------------------------------------+----------+----------+----------+----------+
+; clk                                                            ; clk                                                            ; 22       ; 0        ; 0        ; 0        ;
+; pulse:u1_pulse|r_pulse                                         ; clk                                                            ; 1        ; 1        ; 0        ; 0        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; pulse:u1_pulse|r_pulse                                         ; 0        ; 0        ; 1        ; 1        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 0        ; 0        ; 1        ; 1        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 0        ; 0        ; 1        ; 1        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 0        ; 0        ; 0        ; 1        ;
++----------------------------------------------------------------+----------------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                                                                              ;
++----------------------------------------------------------------+----------------------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                                     ; To Clock                                                       ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------------------------------------------------+----------------------------------------------------------------+----------+----------+----------+----------+
+; clk                                                            ; clk                                                            ; 22       ; 0        ; 0        ; 0        ;
+; pulse:u1_pulse|r_pulse                                         ; clk                                                            ; 1        ; 1        ; 0        ; 0        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; pulse:u1_pulse|r_pulse                                         ; 0        ; 0        ; 1        ; 1        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ; 0        ; 0        ; 1        ; 1        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ; 0        ; 0        ; 1        ; 1        ;
+; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ; 0        ; 0        ; 0        ; 1        ;
++----------------------------------------------------------------+----------------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 9     ; 9    ;
+; Unconstrained Output Ports      ; 5     ; 5    ;
+; Unconstrained Output Port Paths ; 5     ; 5    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 11.0 Build 157 04/27/2011 SJ Full Version
+    Info: Processing started: Mon Sep 30 11:54:37 2019
+Info: Command: quartus_sta i2cSlaveTopAltera -c i2cSlaveTopAltera
+Info: qsta_default_script.tcl version: #1
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: Synopsys Design Constraints File file not found: 'i2cSlaveTopAltera.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name clk clk
+    Info: create_clock -period 1.000 -name pulse:u1_pulse|r_pulse pulse:u1_pulse|r_pulse
+    Info: create_clock -period 1.000 -name ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: create_clock -period 1.000 -name ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: create_clock -period 1.000 -name ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -3.828
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.828       -14.503 clk 
+    Info:    -1.194        -1.194 ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q 
+    Info:     0.092         0.000 pulse:u1_pulse|r_pulse 
+    Info:     0.469         0.000 ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q 
+    Info:     1.155         0.000 ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q 
+Info: Worst-case hold slack is -1.802
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.802        -1.802 clk 
+    Info:    -1.209        -1.209 ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q 
+    Info:    -0.523        -0.523 ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q 
+    Info:    -0.146        -0.146 pulse:u1_pulse|r_pulse 
+    Info:     1.640         0.000 ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -2.289
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -2.289        -2.289 clk 
+    Info:     0.234         0.000 pulse:u1_pulse|r_pulse 
+    Info:     0.234         0.000 ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q 
+    Info:     0.234         0.000 ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q 
+    Info:     0.234         0.000 ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Report Timing: Found 1 setup paths (1 violated).  Worst case slack is -3.828
+    Info: -to_clock [get_clocks {clk}]
+    Info: -setup
+    Info: -stdout
+Info: Path #1: Setup slack is -3.828 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : pulse:u1_pulse|div[1]
+    Info: To Node      : pulse:u1_pulse|div[1]
+    Info: Launch Clock : clk
+    Info: Latch Clock  : clk
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      3.681      3.681  R        clock network delay
+    Info:      4.057      0.376     uTco  pulse:u1_pulse|div[1]
+    Info:      4.057      0.000 RR  CELL  u1_pulse|div[1]|regout
+    Info:      4.996      0.939 RR    IC  u1_pulse|Equal0~0|dataa
+    Info:      5.910      0.914 RR  CELL  u1_pulse|Equal0~0|combout
+    Info:      6.654      0.744 RR    IC  u1_pulse|div~1|datad
+    Info:      6.854      0.200 RR  CELL  u1_pulse|div~1|combout
+    Info:      7.585      0.731 RR    IC  u1_pulse|div[1]|datad
+    Info:      8.176      0.591 RR  CELL  pulse:u1_pulse|div[1]
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      4.681      3.681  R        clock network delay
+    Info:      4.348     -0.333     uTsu  pulse:u1_pulse|div[1]
+    Info: 
+    Info: Data Arrival Time  :     8.176
+    Info: Data Required Time :     4.348
+    Info: Slack              :    -3.828 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 setup paths (1 violated).  Worst case slack is -1.194
+    Info: -to_clock [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q}]
+    Info: -setup
+    Info: -stdout
+Info: Path #1: Setup slack is -1.194 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: To Node      : ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: Launch Clock : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q (INVERTED)
+    Info: Latch Clock  : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q (INVERTED)
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      2.692      2.192  F        clock network delay
+    Info:      3.068      0.376     uTco  ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info:      3.068      0.000 RR  CELL  u1_carry_counter|tff3|u_DFF|o_q|regout
+    Info:      3.962      0.894 RR    IC  u1_carry_counter|tff3|u_DFF|o_q|datad
+    Info:      4.553      0.591 RR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.500      1.500           latch edge time
+    Info:      3.692      2.192  F        clock network delay
+    Info:      3.359     -0.333     uTsu  ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Arrival Time  :     4.553
+    Info: Data Required Time :     3.359
+    Info: Slack              :    -1.194 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 setup paths (0 violated).  Worst case slack is 0.092
+    Info: -to_clock [get_clocks {pulse:u1_pulse|r_pulse}]
+    Info: -setup
+    Info: -stdout
+Info: Path #1: Setup slack is 0.092 
+    Info: ===================================================================
+    Info: From Node    : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: To Node      : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: Launch Clock : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: Latch Clock  : pulse:u1_pulse|r_pulse (INVERTED)
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      0.000      0.000  R        clock network delay
+    Info:      0.000      0.000 RR  CELL  u1_carry_counter|tff0|u_DFF|o_q|regout
+    Info:      1.302      1.302 RR    IC  u1_carry_counter|tff0|u_DFF|o_q|datad
+    Info:      1.893      0.591 RR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           latch edge time
+    Info:      2.318      1.818  F        clock network delay
+    Info:      1.985     -0.333     uTsu  ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Arrival Time  :     1.893
+    Info: Data Required Time :     1.985
+    Info: Slack              :     0.092 
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 setup paths (0 violated).  Worst case slack is 0.469
+    Info: -to_clock [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q}]
+    Info: -setup
+    Info: -stdout
+Info: Path #1: Setup slack is 0.469 
+    Info: ===================================================================
+    Info: From Node    : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: To Node      : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: Launch Clock : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: Latch Clock  : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q (INVERTED)
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      0.000      0.000  R        clock network delay
+    Info:      0.000      0.000 RR  CELL  u1_carry_counter|tff2|u_DFF|o_q|regout
+    Info:      0.894      0.894 RR    IC  u1_carry_counter|tff2|u_DFF|o_q|datad
+    Info:      1.485      0.591 RR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           latch edge time
+    Info:      2.287      1.787  F        clock network delay
+    Info:      1.954     -0.333     uTsu  ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Arrival Time  :     1.485
+    Info: Data Required Time :     1.954
+    Info: Slack              :     0.469 
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 setup paths (0 violated).  Worst case slack is 1.155
+    Info: -to_clock [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q}]
+    Info: -setup
+    Info: -stdout
+Info: Path #1: Setup slack is 1.155 
+    Info: ===================================================================
+    Info: From Node    : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: To Node      : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: Launch Clock : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: Latch Clock  : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q (INVERTED)
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      0.000      0.000  R        clock network delay
+    Info:      0.000      0.000 RR  CELL  u1_carry_counter|tff1|u_DFF|o_q|regout
+    Info:      0.956      0.956 RR    IC  u1_carry_counter|tff1|u_DFF|o_q|datac
+    Info:      1.760      0.804 RR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           latch edge time
+    Info:      3.248      2.748  F        clock network delay
+    Info:      2.915     -0.333     uTsu  ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Arrival Time  :     1.760
+    Info: Data Required Time :     2.915
+    Info: Slack              :     1.155 
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 hold paths (1 violated).  Worst case slack is -1.802
+    Info: -to_clock [get_clocks {clk}]
+    Info: -hold
+    Info: -stdout
+Info: Path #1: Hold slack is -1.802 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : pulse:u1_pulse|r_pulse
+    Info: To Node      : pulse:u1_pulse|r_pulse
+    Info: Launch Clock : pulse:u1_pulse|r_pulse
+    Info: Latch Clock  : clk
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      0.000      0.000  R        clock network delay
+    Info:      0.000      0.000 RR  CELL  u1_pulse|r_pulse|regout
+    Info:      0.917      0.917 RR    IC  u1_pulse|r_pulse|dataa
+    Info:      2.100      1.183 RR  CELL  pulse:u1_pulse|r_pulse
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           latch edge time
+    Info:      3.681      3.681  R        clock network delay
+    Info:      3.902      0.221      uTh  pulse:u1_pulse|r_pulse
+    Info: 
+    Info: Data Arrival Time  :     2.100
+    Info: Data Required Time :     3.902
+    Info: Slack              :    -1.802 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 hold paths (1 violated).  Worst case slack is -1.209
+    Info: -to_clock [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q}]
+    Info: -hold
+    Info: -stdout
+Info: Path #1: Hold slack is -1.209 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: To Node      : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: Launch Clock : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q (INVERTED)
+    Info: Latch Clock  : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q (INVERTED)
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      0.500      0.000  F        clock network delay
+    Info:      0.500      0.000 FF  CELL  u1_carry_counter|tff1|u_DFF|o_q|regout
+    Info:      1.456      0.956 FF    IC  u1_carry_counter|tff1|u_DFF|o_q|datac
+    Info:      2.260      0.804 FF  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           latch edge time
+    Info:      3.248      2.748  F        clock network delay
+    Info:      3.469      0.221      uTh  ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Arrival Time  :     2.260
+    Info: Data Required Time :     3.469
+    Info: Slack              :    -1.209 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 hold paths (1 violated).  Worst case slack is -0.523
+    Info: -to_clock [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q}]
+    Info: -hold
+    Info: -stdout
+Info: Path #1: Hold slack is -0.523 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: To Node      : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: Launch Clock : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q (INVERTED)
+    Info: Latch Clock  : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q (INVERTED)
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      0.500      0.000  F        clock network delay
+    Info:      0.500      0.000 FF  CELL  u1_carry_counter|tff2|u_DFF|o_q|regout
+    Info:      1.394      0.894 FF    IC  u1_carry_counter|tff2|u_DFF|o_q|datad
+    Info:      1.985      0.591 FF  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           latch edge time
+    Info:      2.287      1.787  F        clock network delay
+    Info:      2.508      0.221      uTh  ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Arrival Time  :     1.985
+    Info: Data Required Time :     2.508
+    Info: Slack              :    -0.523 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 hold paths (1 violated).  Worst case slack is -0.146
+    Info: -to_clock [get_clocks {pulse:u1_pulse|r_pulse}]
+    Info: -hold
+    Info: -stdout
+Info: Path #1: Hold slack is -0.146 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: To Node      : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: Launch Clock : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q (INVERTED)
+    Info: Latch Clock  : pulse:u1_pulse|r_pulse (INVERTED)
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      0.500      0.000  F        clock network delay
+    Info:      0.500      0.000 FF  CELL  u1_carry_counter|tff0|u_DFF|o_q|regout
+    Info:      1.802      1.302 FF    IC  u1_carry_counter|tff0|u_DFF|o_q|datad
+    Info:      2.393      0.591 FF  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           latch edge time
+    Info:      2.318      1.818  F        clock network delay
+    Info:      2.539      0.221      uTh  ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Arrival Time  :     2.393
+    Info: Data Required Time :     2.539
+    Info: Slack              :    -0.146 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Report Timing: Found 1 hold paths (0 violated).  Worst case slack is 1.640
+    Info: -to_clock [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q}]
+    Info: -hold
+    Info: -stdout
+Info: Path #1: Hold slack is 1.640 
+    Info: ===================================================================
+    Info: From Node    : ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: To Node      : ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: Launch Clock : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q (INVERTED)
+    Info: Latch Clock  : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q (INVERTED)
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      2.692      2.192  F        clock network delay
+    Info:      3.068      0.376     uTco  ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info:      3.068      0.000 RR  CELL  u1_carry_counter|tff3|u_DFF|o_q|regout
+    Info:      3.962      0.894 RR    IC  u1_carry_counter|tff3|u_DFF|o_q|datad
+    Info:      4.553      0.591 RR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           latch edge time
+    Info:      2.692      2.192  F        clock network delay
+    Info:      2.913      0.221      uTh  ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: 
+    Info: Data Arrival Time  :     4.553
+    Info: Data Required Time :     2.913
+    Info: Slack              :     1.640 
+    Info: ===================================================================
+    Info: 
+Info: Report Minimum Pulse Width: Found 1 results (1 violated).  Worst case slack is -2.289
+    Info: Targets: [get_clocks {clk}]
+    Info: -nworst: 1
+    Info: -detail: full_path
+Info: Path #1: slack is -2.289 (VIOLATED)
+    Info: ===================================================================
+    Info: Node             : clk
+    Info: Clock            : clk
+    Info: Type             : Port Rate
+    Info: Required Width   :     3.289
+    Info: Actual Width     :     1.000
+    Info: Slack            :    -2.289 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Report Minimum Pulse Width: Found 1 results (0 violated).  Worst case slack is 0.234
+    Info: Targets: [get_clocks {pulse:u1_pulse|r_pulse}]
+    Info: -nworst: 1
+    Info: -detail: full_path
+Info: Path #1: slack is 0.234 
+    Info: ===================================================================
+    Info: Node             : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: Clock            : pulse:u1_pulse|r_pulse (INVERTED)
+    Info: Type             : High Pulse Width
+    Info: 
+    Info: Late Clock Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      0.500      0.000           source latency
+    Info:      0.500      0.000           pulse:u1_pulse|r_pulse
+    Info:      0.500      0.000 FF  CELL  u1_pulse|r_pulse|regout
+    Info:      1.400      0.900 FF    IC  u1_carry_counter|tff0|u_DFF|o_q|clk
+    Info:      2.318      0.918 FR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: 
+    Info: Early Clock Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           launch edge time
+    Info:      1.000      0.000           source latency
+    Info:      1.000      0.000           pulse:u1_pulse|r_pulse
+    Info:      1.000      0.000 RR  CELL  u1_pulse|r_pulse|regout
+    Info:      1.900      0.900 RR    IC  u1_carry_counter|tff0|u_DFF|o_q|clk
+    Info:      2.818      0.918 RF  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info: 
+    Info: Required Width   :     0.266
+    Info: Actual Width     :     0.500
+    Info: Slack            :     0.234
+    Info: ===================================================================
+    Info: 
+Info: Report Minimum Pulse Width: Found 1 results (0 violated).  Worst case slack is 0.234
+    Info: Targets: [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff0...]
+    Info: -nworst: 1
+    Info: -detail: full_path
+Info: Path #1: slack is 0.234 
+    Info: ===================================================================
+    Info: Node             : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: Clock            : ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q (INVERTED)
+    Info: Type             : High Pulse Width
+    Info: 
+    Info: Late Clock Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      0.500      0.000           source latency
+    Info:      0.500      0.000           ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info:      0.500      0.000 FF  CELL  u1_carry_counter|tff0|u_DFF|o_q|regout
+    Info:      2.330      1.830 FF    IC  u1_carry_counter|tff1|u_DFF|o_q|clk
+    Info:      3.248      0.918 FR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: 
+    Info: Early Clock Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           launch edge time
+    Info:      1.000      0.000           source latency
+    Info:      1.000      0.000           ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q
+    Info:      1.000      0.000 RR  CELL  u1_carry_counter|tff0|u_DFF|o_q|regout
+    Info:      2.830      1.830 RR    IC  u1_carry_counter|tff1|u_DFF|o_q|clk
+    Info:      3.748      0.918 RF  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info: 
+    Info: Required Width   :     0.266
+    Info: Actual Width     :     0.500
+    Info: Slack            :     0.234
+    Info: ===================================================================
+    Info: 
+Info: Report Minimum Pulse Width: Found 1 results (0 violated).  Worst case slack is 0.234
+    Info: Targets: [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff1...]
+    Info: -nworst: 1
+    Info: -detail: full_path
+Info: Path #1: slack is 0.234 
+    Info: ===================================================================
+    Info: Node             : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: Clock            : ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q (INVERTED)
+    Info: Type             : High Pulse Width
+    Info: 
+    Info: Late Clock Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      0.500      0.000           source latency
+    Info:      0.500      0.000           ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info:      0.500      0.000 FF  CELL  u1_carry_counter|tff1|u_DFF|o_q|regout
+    Info:      1.369      0.869 FF    IC  u1_carry_counter|tff2|u_DFF|o_q|clk
+    Info:      2.287      0.918 FR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: 
+    Info: Early Clock Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           launch edge time
+    Info:      1.000      0.000           source latency
+    Info:      1.000      0.000           ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q
+    Info:      1.000      0.000 RR  CELL  u1_carry_counter|tff1|u_DFF|o_q|regout
+    Info:      1.869      0.869 RR    IC  u1_carry_counter|tff2|u_DFF|o_q|clk
+    Info:      2.787      0.918 RF  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info: 
+    Info: Required Width   :     0.266
+    Info: Actual Width     :     0.500
+    Info: Slack            :     0.234
+    Info: ===================================================================
+    Info: 
+Info: Report Minimum Pulse Width: Found 1 results (0 violated).  Worst case slack is 0.234
+    Info: Targets: [get_clocks {ripple_carry_counter:u1_carry_counter|T_FF:tff2...]
+    Info: -nworst: 1
+    Info: -detail: full_path
+Info: Path #1: slack is 0.234 
+    Info: ===================================================================
+    Info: Node             : ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: Clock            : ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q (INVERTED)
+    Info: Type             : High Pulse Width
+    Info: 
+    Info: Late Clock Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.500      0.500           launch edge time
+    Info:      0.500      0.000           source latency
+    Info:      0.500      0.000           ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info:      0.500      0.000 FF  CELL  u1_carry_counter|tff2|u_DFF|o_q|regout
+    Info:      1.774      1.274 FF    IC  u1_carry_counter|tff3|u_DFF|o_q|clk
+    Info:      2.692      0.918 FR  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: 
+    Info: Early Clock Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           launch edge time
+    Info:      1.000      0.000           source latency
+    Info:      1.000      0.000           ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q
+    Info:      1.000      0.000 RR  CELL  u1_carry_counter|tff2|u_DFF|o_q|regout
+    Info:      2.274      1.274 RR    IC  u1_carry_counter|tff3|u_DFF|o_q|clk
+    Info:      3.192      0.918 RF  CELL  ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF|o_q
+    Info: 
+    Info: Required Width   :     0.266
+    Info: Actual Width     :     0.500
+    Info: Slack            :     0.234
+    Info: ===================================================================
+    Info: 
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 252 megabytes
+    Info: Processing ended: Mon Sep 30 11:54:38 2019
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

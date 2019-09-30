@@ -20,7 +20,7 @@ pulse	u1_pulse(
   );
 
 ripple_carry_counter u1_carry_counter (
-	.i_clk(clk),
+	.i_clk(pulse),
 	.i_rst_n(~rst),
 	.o_q(carry_counter)
 );

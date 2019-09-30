@@ -1,0 +1,210 @@
+Quartus II
+Version 11.0 Build 157 04/27/2011 SJ Full Version
+49
+4364
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+|cpld|cpld_co_dev|truck|rtl|
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+ripple_carry_counter
+# storage
+db|i2cSlaveTopAltera.(2).cnf
+db|i2cSlaveTopAltera.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|cpld|cpld_co_dev|truck|rtl|ripple_carry_counter.v
+3e5ac5577ba1f450cc93153dfe2f6e1
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+ripple_carry_counter:u1_carry_counter
+}
+# macro_sequence
+
+# end
+# entity
+T_FF
+# storage
+db|i2cSlaveTopAltera.(3).cnf
+db|i2cSlaveTopAltera.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|cpld|cpld_co_dev|truck|rtl|t_ff.v
+73870c2ff9972f78618410f79b8481
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+ripple_carry_counter:u1_carry_counter|T_FF:tff0
+ripple_carry_counter:u1_carry_counter|T_FF:tff1
+ripple_carry_counter:u1_carry_counter|T_FF:tff2
+ripple_carry_counter:u1_carry_counter|T_FF:tff3
+}
+# macro_sequence
+
+# end
+# entity
+D_FF
+# storage
+db|i2cSlaveTopAltera.(4).cnf
+db|i2cSlaveTopAltera.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|cpld|cpld_co_dev|truck|rtl|d_ff.v
+72ac8cba15a3b9a570e0421876fd6ba9
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF
+ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF
+ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF
+ripple_carry_counter:u1_carry_counter|T_FF:tff3|D_FF:u_DFF
+}
+# macro_sequence
+
+# end
+# entity
+testHarness
+# storage
+db|i2cSlaveTopAltera.(0).cnf
+db|i2cSlaveTopAltera.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+testharness.v
+d9f6ba2cedef8433cdc76b913546b7e
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+pulse
+# storage
+db|i2cSlaveTopAltera.(1).cnf
+db|i2cSlaveTopAltera.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|cpld|cpld_co_dev|truck|rtl|pulse.v
+4d6e745ffc53f6c9db6dc4ef7348be7
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+pulse:u1_pulse
+}
+# macro_sequence
+
+# end
+# complete
+

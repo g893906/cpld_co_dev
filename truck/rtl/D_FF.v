@@ -2,10 +2,9 @@ module	D_FF(
 	input	i_clk,
 	input	i_rst_n,
 	input	i_d,
-	output	o_q
+	output reg o_q
 );
 
-reg o_q;
 
 always @(negedge i_clk or negedge i_rst_n) begin
 	if(~i_rst_n)

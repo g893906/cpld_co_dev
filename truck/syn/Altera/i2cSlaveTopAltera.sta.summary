@@ -1,0 +1,65 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clk'
+Slack : -3.828
+TNS   : -14.503
+
+Type  : Setup 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'
+Slack : -1.194
+TNS   : -1.194
+
+Type  : Setup 'pulse:u1_pulse|r_pulse'
+Slack : 0.092
+TNS   : 0.000
+
+Type  : Setup 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'
+Slack : 0.469
+TNS   : 0.000
+
+Type  : Setup 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'
+Slack : 1.155
+TNS   : 0.000
+
+Type  : Hold 'clk'
+Slack : -1.802
+TNS   : -1.802
+
+Type  : Hold 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'
+Slack : -1.209
+TNS   : -1.209
+
+Type  : Hold 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'
+Slack : -0.523
+TNS   : -0.523
+
+Type  : Hold 'pulse:u1_pulse|r_pulse'
+Slack : -0.146
+TNS   : -0.146
+
+Type  : Hold 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'
+Slack : 1.640
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'pulse:u1_pulse|r_pulse'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'ripple_carry_counter:u1_carry_counter|T_FF:tff0|D_FF:u_DFF|o_q'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'ripple_carry_counter:u1_carry_counter|T_FF:tff1|D_FF:u_DFF|o_q'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'ripple_carry_counter:u1_carry_counter|T_FF:tff2|D_FF:u_DFF|o_q'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

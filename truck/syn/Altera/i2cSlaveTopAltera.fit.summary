@@ -1,0 +1,11 @@
+Fitter Status : Successful - Mon Sep 30 11:54:36 2019
+Quartus II Version : 11.0 Build 157 04/27/2011 SJ Full Version
+Revision Name : i2cSlaveTopAltera
+Top-level Entity Name : testHarness
+Family : MAX II
+Device : EPM570T100C5
+Timing Models : Final
+Total logic elements : 11 / 570 ( 2 % )
+Total pins : 7 / 76 ( 9 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

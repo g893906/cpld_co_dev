@@ -1,0 +1,209 @@
+Design Assistant report for i2cSlaveTopAltera
+Sat Apr 22 10:24:44 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Design Assistant Settings
+  4. Information only Violations
+  5. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Sat Apr 22 10:24:44 2017 ;
+; Revision Name                     ; i2cSlaveTopAltera                   ;
+; Top-level Entity Name             ; i2cSlaveTopAltera                   ;
+; Family                            ; MAX V                               ;
+; Total Critical Violations         ; 0                                   ;
+; Total High Violations             ; 0                                   ;
+; Total Medium Violations           ; 0                                   ;
+; Total Information only Violations ; 53                                  ;
+; - Rule T101                       ; 3                                   ;
+; - Rule T102                       ; 50                                  ;
++-----------------------------------+-------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                  ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+; Option                                                                                                                                                               ; Setting        ; To ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+; Design Assistant mode                                                                                                                                                ; Post-Synthesis ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                        ; 25             ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                    ; 30             ;    ;
+; Minimum number of node fan-out                                                                                                                                       ; 30             ;    ;
+; Maximum number of nodes to report                                                                                                                                    ; 50             ;    ;
+; Rule C101: Gated clock should be implemented according to the Intel FPGA standard scheme                                                                             ; On             ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                        ; On             ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                          ; On             ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                   ; On             ;    ;
+; Rule C105: Clock signal should be a global signal                                                                                                                    ; On             ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                         ; On             ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                         ; On             ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                ; On             ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                    ; On             ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                  ; On             ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                            ; On             ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                     ; On             ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                             ; On             ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                             ; On             ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                           ; On             ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                    ; On             ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                         ; On             ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                           ; On             ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                         ; On             ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                      ; On             ;    ;
+; Rule A108: Design should not contain latches                                                                                                                         ; On             ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                             ; On             ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                ; On             ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                              ; On             ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                ; On             ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                        ; On             ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain ; On             ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                              ; On             ;    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                                                                            ;
++------------------------------------------------------------------+---------------------------------------------------------------------------+---------+
+; Rule name                                                        ; Name                                                                      ; Fan-Out ;
++------------------------------------------------------------------+---------------------------------------------------------------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs ; clk                                                                       ; 139     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; i2cSlave:u_i2cSlave|comb~0                                                ; 40      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; i2cSlave:u_i2cSlave|rstPipe[1]                                            ; 49      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; clk                                                                       ; 139     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|rstPipe[1]                                            ; 49      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|comb~0                                                ; 40      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.1001 ; 25      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|sclDelayed[9]                                         ; 24      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|regAddr[1]          ; 21      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0111 ; 21      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|regAddr[0]          ; 20      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0010 ; 13      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0000 ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0001 ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|regAddr[2]          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|startEdgeDet                                          ; 9       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~1      ; 9       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|next_dataOut~0      ; 9       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|txData[1]~2         ; 9       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|dataOut~1           ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|rxData[4]~4         ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~2      ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|bitCnt[0]           ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|regAddr[7]~17       ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~3      ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~4      ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~5      ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|streamSt.01         ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|txData[1]~14        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|writeEn             ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|txData[1]~3         ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|bitCnt[2]~0         ; 6       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|bitCnt[1]           ; 6       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.1000 ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|dataOut[6]~0    ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|sdaDelayed[2]                                         ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0110 ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|sdaDeb                                                ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|startStopDetState[0]                                  ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|rxData[1]           ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|streamSt.00         ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|rxData[0]           ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|bitCnt[2]           ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|startStopDetState[1]                                  ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|rxData[5]           ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|rxData[4]           ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|sclDeb                                                ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|sdaOut              ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.1100 ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|rxData[6]           ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|dataOut[0]          ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0100 ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.1110 ; 4       ;
++------------------------------------------------------------------+---------------------------------------------------------------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Design Assistant
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
+    Info: Processing started: Sat Apr 22 10:24:43 2017
+Info: Command: quartus_drc --read_settings_files=on --write_settings_files=off i2cSlaveTopAltera -c i2cSlaveTopAltera
+Info (119006): Selected device 5M1270ZF256C5 for design "i2cSlaveTopAltera"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (332104): Reading SDC File: 'i2cSlaveAlteraTop.sdc'
+Info (308046): (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 3 node(s) with highest fan-out.
+    Info (308011): Node  "clk" File: D:/verilog/study/i2cslave/trunk/syn/Altera/i2cSlaveTopAltera.v Line: 55
+    Info (308011): Node  "i2cSlave:u_i2cSlave|comb~0"
+    Info (308011): Node  "i2cSlave:u_i2cSlave|rstPipe[1]" File: D:/verilog/study/i2cslave/trunk/rtl/i2cSlave.v Line: 93
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info (308011): Node  "clk" File: D:/verilog/study/i2cslave/trunk/syn/Altera/i2cSlaveTopAltera.v Line: 55
+    Info (308011): Node  "i2cSlave:u_i2cSlave|rstPipe[1]" File: D:/verilog/study/i2cslave/trunk/rtl/i2cSlave.v Line: 93
+    Info (308011): Node  "i2cSlave:u_i2cSlave|comb~0"
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.1001" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 108
+    Info (308011): Node  "i2cSlave:u_i2cSlave|sclDelayed[9]" File: D:/verilog/study/i2cslave/trunk/rtl/i2cSlave.v Line: 139
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|regAddr[1]" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0111" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 108
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|regAddr[0]" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0010" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 108
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0000" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 108
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|CurrState_SISt.0001" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 108
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|regAddr[2]" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|startEdgeDet" File: D:/verilog/study/i2cslave/trunk/rtl/i2cSlave.v Line: 95
+    Info (308011): Node  "i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~1" File: D:/verilog/study/i2cslave/trunk/rtl/registerInterface.v Line: 88
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|next_dataOut~0" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 74
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|txData[1]~2" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|dataOut~1" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 66
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|rxData[4]~4" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~2" File: D:/verilog/study/i2cslave/trunk/rtl/registerInterface.v Line: 88
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|bitCnt[0]" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|regAddr[7]~17" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~3" File: D:/verilog/study/i2cslave/trunk/rtl/registerInterface.v Line: 88
+    Info (308011): Node  "i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~4" File: D:/verilog/study/i2cslave/trunk/rtl/registerInterface.v Line: 88
+    Info (308011): Node  "i2cSlave:u_i2cSlave|registerInterface:u_registerInterface|Decoder0~5" File: D:/verilog/study/i2cslave/trunk/rtl/registerInterface.v Line: 88
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|streamSt.01" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 86
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|txData[1]~14" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|writeEn" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 69
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|txData[1]~3" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|bitCnt[2]~0" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308011): Node  "i2cSlave:u_i2cSlave|serialInterface:u_serialInterface|bitCnt[1]" File: D:/verilog/study/i2cslave/trunk/rtl/serialInterface.v Line: 337
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308006): Design Assistant information: finished post-synthesis analysis of current design -- generated 53 information messages and 0 warning messages
+Info: Quartus Prime Design Assistant was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 503 megabytes
+    Info: Processing ended: Sat Apr 22 10:24:44 2017
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
