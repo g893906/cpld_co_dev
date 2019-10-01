@@ -6,16 +6,16 @@ module pulse
 );
 reg	r_pulse;
 assign	o_pulse = r_pulse;
-reg [3:0] div;
+reg [4:0] div;
 always @(posedge i_clk) begin
 	if(~i_rst_n) begin
 		r_pulse <= 1'b0;
-        div     <= 4'b0000;
+        div     <= 5'b00000;
     end
 
-	else if(div==4'b1111)begin
+	else if(div==5'b11001)begin
 		r_pulse <= ~r_pulse;
-        div <= 4'b0000;
+        div <= 5'b00000;
     end
 
     else

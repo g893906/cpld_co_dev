@@ -1,9 +1,0 @@
-Analysis & Synthesis Status : Successful - Mon Sep 30 11:54:33 2019
-Quartus II Version : 11.0 Build 157 04/27/2011 SJ Full Version
-Revision Name : i2cSlaveTopAltera
-Top-level Entity Name : testHarness
-Family : MAX II
-Total logic elements : 11
-Total pins : 7
-Total virtual pins : 0
-UFM blocks : 0 / 1 ( 0 % )

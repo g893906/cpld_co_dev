@@ -28,7 +28,7 @@ set_global_assignment -name DEVICE EPM570T100C5
 set_global_assignment -name TOP_LEVEL_ENTITY testHarness
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "7.2 SP3"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:22:13  DECEMBER 16, 2008"
-set_global_assignment -name LAST_QUARTUS_VERSION 11.0
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
 set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_palace
 set_global_assignment -name USER_LIBRARIES ../../rtl/
 
