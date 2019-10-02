@@ -2,6 +2,8 @@
 ../rtl/T_FF.v
 ../rtl/D_FF.v
 ../rtl/ripple_carry_counter.v
+../rtl/push_sw.v
+../rtl/para_def.v
 ../bench/testHarness.v
 ../bench/testCase0.v
 +incdir+../rtl

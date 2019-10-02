@@ -7,6 +7,7 @@ reg rst;
 reg clk; 
 wire pulse;
 wire [3:0] carry_counter;
+wire [3:0] push_reg;
 
 initial begin
 $dumpfile("wave.vcd");
@@ -23,6 +24,13 @@ ripple_carry_counter u1_carry_counter (
 	.i_clk(pulse),
 	.i_rst_n(~rst),
 	.o_q(carry_counter)
+);
+
+push_sw u1_push_det (
+  .i_clk(clk),
+  .i_rstn(~rst),
+  .push_button(pulse),
+  .o_push_reg(push_reg)
 );
 
 // ******************************  Clock section  ******************************
