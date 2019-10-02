@@ -19,7 +19,7 @@ always  @(posedge i_clk) begin
     o_push_reg <= {`CNT_LEN{1'b0}};
   end
 
-  else if(push_button && push_flah==1'b0)  pushPipe <= {`PIPE_LEN{1'b1}};
+  else if(push_button && push_flag==1'b0)  pushPipe <= {`PIPE_LEN{1'b1}};
 
   else if(push_button && push_flag==1'b1 )  begin
     push_flag <= 1'b0;
@@ -27,8 +27,8 @@ always  @(posedge i_clk) begin
     o_push_reg <= o_push_reg + 1;
   end
 
-  else if(~push_button) begin
-    pushPipe <= {pushPipe[`PIPE_LEN-2:0], push_button};
+  else if( (~push_button) && (push_flag!=1'b1) ) begin
+    pushPipe <= pushPipe-1;//{pushPipe[`PIPE_LEN-2:0], push_button};
     if(|pushPipe[`PIPE_LEN-1:0] == 0 && push_flag!=1'b1) begin
       push_flag <= 1'b1;
     end
