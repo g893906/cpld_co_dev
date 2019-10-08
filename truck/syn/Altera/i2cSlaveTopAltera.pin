@@ -114,7 +114,7 @@ carry_counter[2]             : 49        : output : 3.3-V LVTTL       :         
 carry_counter[3]             : 50        : output : 3.3-V LVTTL       :         : 1         : Y              
 pulse                        : 51        : output : 3.3-V LVTTL       :         : 1         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 52        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 53        :        :                   :         : 2         :                
+ckey1                        : 53        : input  : 3.3-V LVTTL       :         : 2         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 54        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 55        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 56        :        :                   :         : 2         :                
@@ -128,7 +128,7 @@ VCCINT                       : 63        : power  :                   : 2.5V/3.3
 RESERVED_INPUT_WITH_WEAK_PULLUP : 64        :        :                   :         : 2         :                
 GNDINT                       : 65        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 66        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 67        :        :                   :         : 2         :                
+push_reg_b0                  : 67        : output : 3.3-V LVTTL       :         : 2         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 68        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 69        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 70        :        :                   :         : 2         :                
