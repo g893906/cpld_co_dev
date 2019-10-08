@@ -9,6 +9,11 @@ wire pulse;
 wire [3:0] carry_counter;
 wire [`CNT_LEN-1:0] push_reg;
 reg push_sw;
+reg i_req_0;
+reg i_req_1;
+wire    gnt_0;
+wire    gnt_1;
+
 initial begin
 $dumpfile("wave.vcd");
 $dumpvars(0, testHarness); 
@@ -33,6 +38,15 @@ push_sw u1_push_det (
   .o_push_reg(push_reg)
 );
 
+grant_fsm u1_grant_fsm (
+  .i_clk(clk),
+  .i_rstn(~rst),
+  .i_req_0(i_req_0),
+  .i_req_1(i_req_1),
+  .o_gnt_0(gnt_0),
+  .o_gnt_1(gnt_1)
+);
+
 // ******************************  Clock section  ******************************
 //approx 48MHz clock
 `define CLK_HALF_PERIOD 10
@@ -47,6 +61,8 @@ task reset;
 begin
   rst <= 1'b1;
   push_sw <= 1'b1;
+  i_req_0<=1'b0;
+  i_req_1<=1'b0;
   @(posedge clk);
   @(posedge clk);
   @(posedge clk);
@@ -78,4 +94,16 @@ begin
 end
 endtask
 
+task grant_fsm;
+begin
+#10000;
+    i_req_0<=1'b1;
+#1000;
+    i_req_1<=1'b1;
+#1000;
+    i_req_0<=1'b0;
+#1000;
+    i_req_1<=1'b0;
+end
+endtask
 endmodule
